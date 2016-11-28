@@ -1,2 +1,12 @@
 # shiny-guide
 an iOS app for tongue diagnosis.
+
+"Characterization of tongue diagnosis is one of important content of the modernization of traditional Chinese medicine (TCM).Tongue image is acquired by camera. Then OpenCV, which is the tool for analyzing image, is used to process tongue image in the environment of Visual C++. Firstly, by some algorithms OpenCV is used to make color tongue image into gray image, and gray image into binary image. Then algorithms are used to extracts tongue target. From the tongue target, some features are extracted. These features combining with traditional Chinese medicine, diagnosis can be given."
+
+# references
+
+paper: http://www.scientific.net/AMR.718-720.2276
+
+OpenCV tongue tracking: http://vgg.fiit.stuba.sk/2015-02/tongue-tracking/
+
+https://github.com/ShadeApps/Camera-App-Template
