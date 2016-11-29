@@ -10,3 +10,11 @@ paper: http://www.scientific.net/AMR.718-720.2276
 OpenCV tongue tracking: http://vgg.fiit.stuba.sk/2015-02/tongue-tracking/
 
 https://github.com/ShadeApps/Camera-App-Template
+
+https://github.com/tdginternet/TGCameraViewController
+
+https://github.com/Realank/FaceDetect
+
+https://github.com/adamwaite/Validator
+
+https://github.com/pubnub/objective-c
