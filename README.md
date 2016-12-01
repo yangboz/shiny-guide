@@ -30,3 +30,5 @@ https://github.com/adamwaite/Validator
 https://github.com/pubnub/objective-c
 
 http://stackoverflow.com/questions/12002905/ios-build-fails-with-cocoapods-cannot-find-header-files
+
+http://stackoverflow.com/questions/3907397/uigesturerecognizer-on-uiimageview
