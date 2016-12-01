@@ -39,5 +39,10 @@ https://github.com/pubnub/objective-c
 
 https://github.com/cloudinary/cloudinary_ios
 
+https://github.com/jdg/MBProgressHUD
+
+
+Known issues:
+
 http://stackoverflow.com/questions/12002905/ios-build-fails-with-cocoapods-cannot-find-header-files
 
