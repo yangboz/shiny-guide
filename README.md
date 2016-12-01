@@ -1,7 +1,15 @@
 # shiny-guide
-an iOS app for tongue diagnosis.
+an iOS app for TCM's tongue diagnosis.
 
-"Characterization of tongue diagnosis is one of important content of the modernization of traditional Chinese medicine (TCM).Tongue image is acquired by camera. Then OpenCV, which is the tool for analyzing image, is used to process tongue image in the environment of Visual C++. Firstly, by some algorithms OpenCV is used to make color tongue image into gray image, and gray image into binary image. Then algorithms are used to extracts tongue target. From the tongue target, some features are extracted. These features combining with traditional Chinese medicine, diagnosis can be given."
+"Characterization of tongue diagnosis is one of important content of the modernization of traditional Chinese medicine (TCM).Tongue image is acquired by camera."
+
+About OpenCV
+
+Then OpenCV, which is the tool for analyzing image, is used to process tongue image in the environment of Visual C++. Firstly, by some algorithms OpenCV is used to make color tongue image into gray image, and gray image into binary image. Then algorithms are used to extracts tongue target. From the tongue target, some features are extracted. These features combining with traditional Chinese medicine, diagnosis can be given.
+
+About Core Image
+
+Core Image is an image processing and analysis technology designed to provide near real-time processing for still and video images. It operates on image data types from the Core Graphics, Core Video, and Image I/O frameworks, using either a GPU or CPU rendering path. Core Image hides the details of low-level graphics processing by providing an easy-to-use application programming interface (API). You don’t need to know the details of OpenGL, OpenGL ES, or Metal to leverage the power of the GPU, nor do you need to know anything about Grand Central Dispatch (GCD) to get the benefit of multicore processing. Core Image handles the details for you.
 
 
 ##Resources
