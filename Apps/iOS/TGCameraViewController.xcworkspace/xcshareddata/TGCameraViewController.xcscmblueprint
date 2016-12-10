@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EF724189484EABE38B72BF005C80ABC66CF43BC0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "69E50A035BA5A4F821BDA16BDA780E57929F262B" : 9223372036854775807,
+    "EF724189484EABE38B72BF005C80ABC66CF43BC0" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DE864F3B-D742-48F5-8488-DC06172F27FF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "69E50A035BA5A4F821BDA16BDA780E57929F262B" : "Smerk\/",
+    "EF724189484EABE38B72BF005C80ABC66CF43BC0" : "shiny-guide\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TGCameraViewController",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Apps\/iOS\/TGCameraViewController.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yangboz\/Smerk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "69E50A035BA5A4F821BDA16BDA780E57929F262B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yangboz\/shiny-guide.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF724189484EABE38B72BF005C80ABC66CF43BC0"
+    }
+  ]
+}

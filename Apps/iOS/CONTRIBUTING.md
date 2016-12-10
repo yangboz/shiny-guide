@@ -1,0 +1,3 @@
+GitHub Issues is for reporting bugs in TGCameraViewController and discussing features.  Be sure to check our [documentation](https://github.com/tdginternet/TGCameraViewController/blob/master/README.md) and [past issues](https://github.com/tdginternet/TGCameraViewController/issues?q=is%3Aissue+is%3Aclosed) before opening any new issues.
+
+If you are posting about a crash in your application, a stack trace is helpful, but additional context, in the form of code and explanation, is necessary to be of any use.

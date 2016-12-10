@@ -1,0 +1,19 @@
+platform :ios, '8.0'
+
+pod 'TGCameraViewController', :path => './', :inhibit_warnings => true
+pod 'EAIntroView','~> 2.10.0'
+pod 'STPopup'
+pod 'MBProgressHUD', '~> 1.0.0'
+pod "PubNub", "~> 4"
+pod 'GPUImage', '~> 0.1'
+pod 'Smerk', :path => '~/git/Smerk'
+pod 'SDWebImage', '~>3.8'
+
+target 'TGCameraViewControllerExample' do
+	
+end
+
+target 'TGCameraViewControllerExampleSwift' do
+	
+end
+

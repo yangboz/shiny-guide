@@ -1,0 +1,46 @@
+PODS:
+  - EAIntroView (2.10.0):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
+  - GPUImage (0.1.7)
+  - MBProgressHUD (1.0.0)
+  - PubNub (4.5.9):
+    - PubNub/Core (= 4.5.9)
+  - PubNub/Core (4.5.9)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - Smerk (0.0.1)
+  - STPopup (1.8.2)
+  - TGCameraViewController (2.2.7)
+
+DEPENDENCIES:
+  - EAIntroView (~> 2.10.0)
+  - GPUImage (~> 0.1)
+  - MBProgressHUD (~> 1.0.0)
+  - PubNub (~> 4)
+  - SDWebImage (~> 3.8)
+  - Smerk (from `~/git/Smerk`)
+  - STPopup
+  - TGCameraViewController (from `./`)
+
+EXTERNAL SOURCES:
+  Smerk:
+    :path: ~/git/Smerk
+  TGCameraViewController:
+    :path: ./
+
+SPEC CHECKSUMS:
+  EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  PubNub: fbcd3f98bced45b7d61de79cf3cd6822ee8c1858
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Smerk: bb95d347bc1d60be503ef35150d091a3009d2417
+  STPopup: b69b3e7484ef7d2baec5f9ab2939f8a7bcdfe218
+  TGCameraViewController: 2e1ca4c286f643df01c70c478422814ed025e4a7
+
+PODFILE CHECKSUM: f5d0e91816926418b90ba851740620be2c8c6f87
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,10 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+CLANG_MODULES_AUTOLINK = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/EAIntroView" "${PODS_ROOT}/Headers/Public/EARestrictedScrollView" "${PODS_ROOT}/Headers/Public/GPUImage" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/PubNub" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/STPopup" "${PODS_ROOT}/Headers/Public/Smerk" "${PODS_ROOT}/Headers/Public/TGCameraViewController"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/EAIntroView" "$PODS_CONFIGURATION_BUILD_DIR/EARestrictedScrollView" "$PODS_CONFIGURATION_BUILD_DIR/GPUImage" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/PubNub" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage" "$PODS_CONFIGURATION_BUILD_DIR/STPopup" "$PODS_CONFIGURATION_BUILD_DIR/Smerk" "$PODS_CONFIGURATION_BUILD_DIR/TGCameraViewController"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/EAIntroView" -isystem "${PODS_ROOT}/Headers/Public/EARestrictedScrollView" -isystem "${PODS_ROOT}/Headers/Public/GPUImage" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/PubNub" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/STPopup" -isystem "${PODS_ROOT}/Headers/Public/Smerk" -isystem "${PODS_ROOT}/Headers/Public/TGCameraViewController"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"EAIntroView" -l"EARestrictedScrollView" -l"GPUImage" -l"MBProgressHUD" -l"PubNub" -l"SDWebImage" -l"STPopup" -l"Smerk" -l"TGCameraViewController" -l"z" -framework "AVFoundation" -framework "AssetsLibrary" -framework "CoreGraphics" -framework "CoreImage" -framework "CoreMedia" -framework "CoreText" -framework "Foundation" -framework "ImageIO" -framework "MobileCoreServices" -framework "OpenGLES" -framework "QuartzCore" -framework "UIKit"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods

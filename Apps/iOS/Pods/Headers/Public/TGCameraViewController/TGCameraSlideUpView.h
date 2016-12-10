@@ -1,0 +1,1 @@
+../../../../TGCameraViewController/Classes/UI/TGCameraSlideUpView.h
