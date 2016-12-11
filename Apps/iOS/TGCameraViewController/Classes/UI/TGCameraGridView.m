@@ -115,15 +115,20 @@
     //add tongue area indicator image
 //    //@see: http://stackoverflow.com/questions/17557417/adding-a-uiimage-view-as-a-subview-to-an-instance-of-uiview
 //    //You need to specify the frame of the view
-    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(columnWidth * 1,rowHeight * 2,columnWidth,rowHeight)];
-    UIImage *image = [UIImage imageNamed:@"tongueArea"];
+    
+    UIImage *image = [UIImage imageNamed:@"frame"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    UIView *catView = [[UIView alloc] initWithFrame:CGRectMake(0,0, self.frame.size.width*.7,self.frame.size.height)];
     //specify the frame of the imageView in the superview , here it will fill the superview
     imageView.frame = catView.bounds;
     // add the imageview to the superview
     [catView addSubview:imageView];
     //add the view to the main view
     [self addSubview:catView];
+    //center horizontallly
+    CGPoint center = catView.center;
+    center.x = self.center.x;
+    catView.center = center;
 }
 
 

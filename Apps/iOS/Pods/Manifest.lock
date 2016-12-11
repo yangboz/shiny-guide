@@ -13,6 +13,7 @@ PODS:
   - Smerk (0.0.1)
   - STPopup (1.8.2)
   - TGCameraViewController (2.2.7)
+  - UIView+draggable (1.1.0)
 
 DEPENDENCIES:
   - EAIntroView (~> 2.10.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - Smerk (from `~/git/Smerk`)
   - STPopup
   - TGCameraViewController (from `./`)
+  - UIView+draggable
 
 EXTERNAL SOURCES:
   Smerk:
@@ -40,7 +42,8 @@ SPEC CHECKSUMS:
   Smerk: bb95d347bc1d60be503ef35150d091a3009d2417
   STPopup: b69b3e7484ef7d2baec5f9ab2939f8a7bcdfe218
   TGCameraViewController: 2e1ca4c286f643df01c70c478422814ed025e4a7
+  UIView+draggable: ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
 
-PODFILE CHECKSUM: f5d0e91816926418b90ba851740620be2c8c6f87
+PODFILE CHECKSUM: 5704bc1f31dacdd91fb4d706d82df2f2452f63ac
 
 COCOAPODS: 1.1.1

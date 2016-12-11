@@ -8,6 +8,7 @@ pod "PubNub", "~> 4"
 pod 'GPUImage', '~> 0.1'
 pod 'Smerk', :path => '~/git/Smerk'
 pod 'SDWebImage', '~>3.8'
+pod 'UIView+draggable'
 
 target 'TGCameraViewControllerExample' do
 	

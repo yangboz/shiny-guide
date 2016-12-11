@@ -9,6 +9,7 @@
 #import "TGInitialViewController.h"
 #import "TGCameraViewController.h"
 #import "DataModel.h"
+#import "TongueFocusView.h"
 
 @interface TGInitialViewController () <TGCameraDelegate,EAIntroDelegate,UIGestureRecognizerDelegate>
 {
@@ -209,7 +210,8 @@
     _photoView.image = nil;
 }
 - (IBAction)searchTapped:(id)sender {
-    [self detectFaces];
+    
+//    [self detectFaces];
 }
 - (IBAction)TGCameraTapped:(id)sender {
     TGCameraNavigationController *navigationController = [TGCameraNavigationController newWithCameraDelegate:self];

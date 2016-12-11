@@ -26,6 +26,7 @@
 		A44E213F1DFA90F100F14A79 /* PopupViewControllerReply.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E213B1DFA90F100F14A79 /* PopupViewControllerReply.m */; };
 		A44E21401DFA90F100F14A79 /* PopupViewControllerResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E213D1DFA90F100F14A79 /* PopupViewControllerResult.m */; };
 		A44E21431DFA972900F14A79 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E21421DFA972900F14A79 /* Constants.m */; };
+		A44F9FBE1DFCFAA5007744A4 /* TongueFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44F9FBD1DFCFAA5007744A4 /* TongueFocusView.m */; };
 		A4625D931DED4FEF00DFD0CF /* IntroPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4625D911DED4FEF00DFD0CF /* IntroPage.xib */; };
 		A4625D951DED6A8900DFD0CF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4625D941DED6A8900DFD0CF /* CoreImage.framework */; };
 		A4FFFCA11DF060830094C72A /* SimpleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFFC9F1DF060830094C72A /* SimpleTableCell.m */; };
@@ -76,6 +77,8 @@
 		A44E213D1DFA90F100F14A79 /* PopupViewControllerResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewControllerResult.m; sourceTree = "<group>"; };
 		A44E21411DFA970600F14A79 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A44E21421DFA972900F14A79 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A44F9FBC1DFCFAA5007744A4 /* TongueFocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TongueFocusView.h; sourceTree = "<group>"; };
+		A44F9FBD1DFCFAA5007744A4 /* TongueFocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TongueFocusView.m; sourceTree = "<group>"; };
 		A4625D921DED4FEF00DFD0CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IntroPage.xib; sourceTree = "<group>"; };
 		A4625D941DED6A8900DFD0CF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A4FFFC9E1DF060830094C72A /* SimpleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableCell.h; sourceTree = "<group>"; };
@@ -192,19 +195,11 @@
 			path = Cloudinary;
 			sourceTree = "<group>";
 		};
-		A44E21371DFA90D500F14A79 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		F82F8E7819C4EFE700A47148 = {
 			isa = PBXGroup;
 			children = (
 				F82F8EC519C4F29000A47148 /* Example */,
 				A31A89CB1D3FE7A600BE590E /* Podspec Metadata */,
-				A44E21371DFA90D500F14A79 /* New Group */,
 				A388D77D1D3FC86D00BBB49A /* Example Swift */,
 				F82F8E8219C4EFE700A47148 /* Products */,
 				160AF0F7E445AA2B3E380228 /* Pods */,
@@ -248,6 +243,8 @@
 				A435C0141DEFC4AE00BED098 /* DataModel.m */,
 				A44E21411DFA970600F14A79 /* Constants.h */,
 				A44E21421DFA972900F14A79 /* Constants.m */,
+				A44F9FBC1DFCFAA5007744A4 /* TongueFocusView.h */,
+				A44F9FBD1DFCFAA5007744A4 /* TongueFocusView.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -480,6 +477,7 @@
 				A44E213E1DFA90F100F14A79 /* PopupViewControllerInquiry.m in Sources */,
 				F82F8EDC19C4F29000A47148 /* AppDelegate.m in Sources */,
 				A44E21431DFA972900F14A79 /* Constants.m in Sources */,
+				A44F9FBE1DFCFAA5007744A4 /* TongueFocusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

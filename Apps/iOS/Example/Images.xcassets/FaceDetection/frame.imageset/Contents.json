@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "mouthAndTongue.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "kuang.png",
       "scale" : "2x"
     },
     {
