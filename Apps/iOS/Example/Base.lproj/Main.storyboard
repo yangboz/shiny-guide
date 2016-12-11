@@ -49,12 +49,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkM-mD-lJC" customClass="TongueFocusView">
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkM-mD-lJC" customClass="TongueFocusView">
                                 <rect key="frame" x="50" y="269" width="413" height="413"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="focus" translatesAutoresizingMaskIntoConstraints="NO" id="XO1-6R-vwo">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="focus" translatesAutoresizingMaskIntoConstraints="NO" id="iBG-Rk-zXx">
+                                        <rect key="frame" x="8" y="0.0" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -95,6 +95,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="focusUIImageView" destination="iBG-Rk-zXx" id="f3i-wz-ZLH"/>
                         <outlet property="photoView" destination="ZSx-0Y-doC" id="KhV-t5-DCf"/>
                     </connections>
                 </viewController>
@@ -306,7 +307,7 @@
     </scenes>
     <resources>
         <image name="facedetectionpic" width="320" height="240"/>
-        <image name="focus" width="206" height="207"/>
+        <image name="focus" width="103" height="103"/>
     </resources>
     <color key="tintColor" red="0.98755216598510742" green="0.26285848021507263" blue="0.032961577177047729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

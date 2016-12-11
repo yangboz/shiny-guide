@@ -268,15 +268,15 @@
     }];
     
     dispatch_group_enter(group);
+    [self viewWillDisappearWithCompletion:^{
+        dispatch_group_leave(group);
+    }];
+    
+    dispatch_group_enter(group);
     [_camera takePhotoWithCaptureView:_captureView videoOrientation:videoOrientation cropSize:_captureView.frame.size completion:^(UIImage *_photo) {
         photo = _photo;
         dispatch_group_leave(group);
     }];
-//    dispatch_group_enter(group);
-//    [_camera takePhotoWithCaptureView:_captureView videoOrientation:videoOrientation cropSize:CGSizeMake(100, 100) completion:^(UIImage *_photo) {
-//        photo = _photo;
-//        dispatch_group_leave(group);
-//    }];
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         TGPhotoViewController *viewController = [TGPhotoViewController newWithDelegate:_delegate photo:photo];

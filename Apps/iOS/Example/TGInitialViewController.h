@@ -17,4 +17,5 @@
 
 
 @interface TGInitialViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *focusUIImageView;
 @end

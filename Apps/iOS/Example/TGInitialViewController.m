@@ -10,6 +10,7 @@
 #import "TGCameraViewController.h"
 #import "DataModel.h"
 #import "TongueFocusView.h"
+#include <math.h>
 
 @interface TGInitialViewController () <TGCameraDelegate,EAIntroDelegate,UIGestureRecognizerDelegate>
 {
@@ -211,7 +212,13 @@
 }
 - (IBAction)searchTapped:(id)sender {
     
-//    [self detectFaces];
+    [self detectFaces];
+    //
+//    CALayer *mask = [CALayer layer];
+//    mask.contents = (id)_focusUIImageView.image.CGImage;
+//    mask.frame = CGRectMake(0, 0, _focusUIImageView.bounds.size.width, _focusUIImageView.bounds.size.height);
+//    _photoView.layer.mask = mask;
+//    _photoView.layer.masksToBounds = YES;
 }
 - (IBAction)TGCameraTapped:(id)sender {
     TGCameraNavigationController *navigationController = [TGCameraNavigationController newWithCameraDelegate:self];
@@ -277,6 +284,11 @@
         
         // add the new view to create a box around the face
         [_photoView addSubview:faceView];
+        // cropping the face test
+//        CGImageRef imageRef = CGImageCreateWithImageInRect([_photoView.image CGImage], faceFeature.bounds);
+//        [_photoView setImage:[UIImage imageWithCGImage:imageRef]];
+//        CGImageRelease(imageRef);
+
         
         if(faceFeature.hasLeftEyePosition)
         {
@@ -328,6 +340,16 @@
             mouth.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.3];
             mouth.layer.cornerRadius = faceWidth*MOUTH_SIZE_RATE*0.5;
             [_photoView addSubview:mouth];
+            
+//            // cropping the mouth test
+//            CGImageRef imageRef = CGImageCreateWithImageInRect([_photoView.image CGImage], mouth.bounds);
+//            [_photoView setImage:[UIImage imageWithCGImage:imageRef]];
+//            CGImageRelease(imageRef);
+            //TODO:Auto calibriate the tongue focus
+//            CGPoint center = faceFeature.mouthPosition;
+//            center.x = mouth.center.x;
+//            center.y = mouth.center.y;
+//            _focusUIImageView.center = center;
         }
     }
 }
