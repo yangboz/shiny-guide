@@ -19,6 +19,7 @@
     EAIntroView *_intro;
     DataModel *dataModel;
     NSMutableDictionary *msgInfo;
+    CGRect mouthArea;//key element to find;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoView;
@@ -99,22 +100,24 @@
 
     
     _photoView.clipsToBounds = NO;
-    // create and configure the pinch gesture
-    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGestureDetected:)];
-    [pinchGestureRecognizer setDelegate:self];
-    [_photoView addGestureRecognizer:pinchGestureRecognizer];
-    
-    // create and configure the rotation gesture
-    UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotationGestureDetected:)];
-    [rotationGestureRecognizer setDelegate:self];
-    [_photoView addGestureRecognizer:rotationGestureRecognizer];
-    
-    // creat and configure the pan gesture
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDetected:)];
-    [panGestureRecognizer setDelegate:self];
-    [_photoView addGestureRecognizer:panGestureRecognizer];
+//    // create and configure the pinch gesture
+//    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGestureDetected:)];
+//    [pinchGestureRecognizer setDelegate:self];
+//    [_photoView addGestureRecognizer:pinchGestureRecognizer];
+//    
+//    // create and configure the rotation gesture
+//    UIRotationGestureRecognizer *rotationGestureRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotationGestureDetected:)];
+//    [rotationGestureRecognizer setDelegate:self];
+//    [_photoView addGestureRecognizer:rotationGestureRecognizer];
+//    
+//    // creat and configure the pan gesture
+//    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDetected:)];
+//    [panGestureRecognizer setDelegate:self];
+//    [_photoView addGestureRecognizer:panGestureRecognizer];
     //
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"reloadData" object:nil];
+    //
+    _focusUIImageView.hidden = YES;
 }
 - (void)reloadData:(NSNotification *)notification
 {
@@ -211,14 +214,20 @@
     _photoView.image = nil;
 }
 - (IBAction)searchTapped:(id)sender {
-    
-    [self detectFaces];
+    //1,face/mouth/tongue detection
+    mouthArea = [self detectFacesAndReturnMouthArea:NO];
+    //2.display focus in tongue area
+    _focusUIImageView.hidden = NO;
+    CGPoint tongueCenter = CGPointMake(mouthArea.origin.x, mouthArea.origin.y);
+    _focusUIImageView.center = tongueCenter;
+    //3.crop tong area image base on detected mouth area.
+    // Draw new image in current graphics context
+    CGImageRef imageRef = CGImageCreateWithImageInRect([_photoView.image CGImage], mouthArea);
+    // Create new cropped UIImage
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
     //
-//    CALayer *mask = [CALayer layer];
-//    mask.contents = (id)_focusUIImageView.image.CGImage;
-//    mask.frame = CGRectMake(0, 0, _focusUIImageView.bounds.size.width, _focusUIImageView.bounds.size.height);
-//    _photoView.layer.mask = mask;
-//    _photoView.layer.masksToBounds = YES;
+    _photoView.image = croppedImage;
 }
 - (IBAction)TGCameraTapped:(id)sender {
     TGCameraNavigationController *navigationController = [TGCameraNavigationController newWithCameraDelegate:self];
@@ -239,10 +248,11 @@
 
 // Below rates defines the size of the eyes and mouth circles in relationship with the whole face size
 #define EYE_SIZE_RATE 0.3f
-#define MOUTH_SIZE_RATE 0.4f
+#define MOUTH_SIZE_RATE 0.5f
 
-- (void)detectFaces
+- (CGRect)detectFacesAndReturnMouthArea: (BOOL)drawFeature
 {
+    CGRect mouthRect = CGRectMake(0, 0, 1, 1);//for returnning
     // draw a CI image with the previously loaded face detection picture
     CIImage* image = [CIImage imageWithCGImage:_photoView.image.CGImage];
     
@@ -281,9 +291,12 @@
         
         // get the width of the face
         CGFloat faceWidth = faceFeature.bounds.size.width;
+        CGFloat faceHeight = faceFeature.bounds.size.height;
         
         // add the new view to create a box around the face
-        [_photoView addSubview:faceView];
+        if(drawFeature){
+            [_photoView addSubview:faceView];
+        }
         // cropping the face test
 //        CGImageRef imageRef = CGImageCreateWithImageInRect([_photoView.image CGImage], faceFeature.bounds);
 //        [_photoView setImage:[UIImage imageWithCGImage:imageRef]];
@@ -308,7 +321,9 @@
             leftEyeView.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.3];
             leftEyeView.layer.cornerRadius = faceWidth*EYE_SIZE_RATE*0.5;
             //[faceView addSubview:leftEyeView];  // See Note1
-            [_photoView addSubview:leftEyeView];
+            if(drawFeature){
+                [_photoView addSubview:leftEyeView];
+            }
         }
         if(faceFeature.hasRightEyePosition)
         {
@@ -323,35 +338,30 @@
             // make the right eye look nice and add it to the view
             rightEye.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.2];
             rightEye.layer.cornerRadius = faceWidth*EYE_SIZE_RATE*0.5;
-            [_photoView addSubview:rightEye];
+            if(drawFeature){
+                [_photoView addSubview:rightEye];
+            }
         }
         if(faceFeature.hasMouthPosition)
         {
             // Get the mouth position translated to imageView UIKit coordinates
             const CGPoint mouthPos = CGPointApplyAffineTransform(faceFeature.mouthPosition, transform);
-            
+            mouthRect = CGRectMake(mouthPos.x - faceWidth*MOUTH_SIZE_RATE*0.5,
+                                   mouthPos.y ,
+                                   faceWidth*MOUTH_SIZE_RATE,
+                                   faceHeight*MOUTH_SIZE_RATE);
             // Create an UIView to represent the mouth, its size depend on the width of the face.
-            UIView* mouth = [[UIView alloc] initWithFrame:CGRectMake(mouthPos.x - faceWidth*MOUTH_SIZE_RATE*0.5,
-                                                                     mouthPos.y - faceWidth*MOUTH_SIZE_RATE*0.5,
-                                                                     faceWidth*MOUTH_SIZE_RATE,
-                                                                     faceWidth*MOUTH_SIZE_RATE)];
+            UIView* mouth = [[UIView alloc] initWithFrame:mouthRect];
     
             // make the mouth look nice and add it to the view
             mouth.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.3];
             mouth.layer.cornerRadius = faceWidth*MOUTH_SIZE_RATE*0.5;
-            [_photoView addSubview:mouth];
-            
-//            // cropping the mouth test
-//            CGImageRef imageRef = CGImageCreateWithImageInRect([_photoView.image CGImage], mouth.bounds);
-//            [_photoView setImage:[UIImage imageWithCGImage:imageRef]];
-//            CGImageRelease(imageRef);
-            //TODO:Auto calibriate the tongue focus
-//            CGPoint center = faceFeature.mouthPosition;
-//            center.x = mouth.center.x;
-//            center.y = mouth.center.y;
-//            _focusUIImageView.center = center;
+            if(drawFeature){
+                [_photoView addSubview:mouth];
+            }
         }
     }
+    return mouthRect;
 }
 #pragma mark Guesture
 - (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer
