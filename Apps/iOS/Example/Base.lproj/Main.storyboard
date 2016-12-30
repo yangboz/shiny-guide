@@ -61,6 +61,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-Rq-nuX" customClass="ASValueTrackingSlider">
+                                <rect key="frame" x="-2" y="617" width="379" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="filterSettingSliderValueChanged:" destination="QRX-dV-Qlj" eventType="valueChanged" id="iBe-RT-Jgj"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -96,6 +103,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterSettingSlider" destination="SEg-Rq-nuX" id="3ow-mv-zrf"/>
                         <outlet property="focusUIImageView" destination="iBG-Rk-zXx" id="f3i-wz-ZLH"/>
                         <outlet property="photoView" destination="ZSx-0Y-doC" id="KhV-t5-DCf"/>
                     </connections>

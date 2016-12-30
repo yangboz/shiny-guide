@@ -14,8 +14,11 @@
 #import "PopupViewControllerResult.h"
 #import "DataModel.h"
 #import "Constants.h"
+#import "GPUImage.h"
 
 
 @interface TGInitialViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISlider *filterSettingSlider;
+- (IBAction)filterSettingSliderValueChanged:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *focusUIImageView;
 @end

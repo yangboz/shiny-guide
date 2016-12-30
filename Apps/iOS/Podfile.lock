@@ -1,4 +1,5 @@
 PODS:
+  - ASValueTrackingSlider (0.12.1)
   - EAIntroView (2.10.0):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
@@ -16,6 +17,7 @@ PODS:
   - UIView+draggable (1.1.0)
 
 DEPENDENCIES:
+  - ASValueTrackingSlider
   - EAIntroView (~> 2.10.0)
   - GPUImage (~> 0.1)
   - MBProgressHUD (~> 1.0.0)
@@ -33,6 +35,7 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
+  ASValueTrackingSlider: 5261de3fcf00adb339efc93885e8f0bc99e703cd
   EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   TGCameraViewController: 2e1ca4c286f643df01c70c478422814ed025e4a7
   UIView+draggable: ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
 
-PODFILE CHECKSUM: 5704bc1f31dacdd91fb4d706d82df2f2452f63ac
+PODFILE CHECKSUM: 777c10ce53ecea6ff15ea316c786c087302fbce5
 
 COCOAPODS: 1.1.1

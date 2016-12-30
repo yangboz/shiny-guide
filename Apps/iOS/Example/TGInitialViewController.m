@@ -20,6 +20,7 @@
     DataModel *dataModel;
     NSMutableDictionary *msgInfo;
     CGRect mouthArea;//key element to find;
+    UIImage *originalImgCopy;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *photoView;
@@ -118,6 +119,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData:) name:@"reloadData" object:nil];
     //
     _focusUIImageView.hidden = YES;
+    originalImgCopy = [UIImage imageWithCGImage:_photoView.image.CGImage];
 }
 - (void)reloadData:(NSNotification *)notification
 {
@@ -169,6 +171,7 @@
 - (void)cameraDidTakePhoto:(UIImage *)image
 {
     _photoView.image = image;
+    originalImgCopy = [UIImage imageWithCGImage:_photoView.image.CGImage];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -176,6 +179,7 @@
 - (void)cameraDidSelectAlbumPhoto:(UIImage *)image
 {
     _photoView.image = image;
+    originalImgCopy = [UIImage imageWithCGImage:_photoView.image.CGImage];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -217,7 +221,7 @@
     //1,face/mouth/tongue detection
     mouthArea = [self detectFacesAndReturnMouthArea:NO];
     //2.display focus in tongue area
-    _focusUIImageView.hidden = NO;
+//    _focusUIImageView.hidden = NO;
     CGPoint tongueCenter = CGPointMake(mouthArea.origin.x, mouthArea.origin.y);
     _focusUIImageView.center = tongueCenter;
     //3.crop tong area image base on detected mouth area.
@@ -228,6 +232,7 @@
     CGImageRelease(imageRef);
     //
     _photoView.image = croppedImage;
+    originalImgCopy = [UIImage imageWithCGImage:_photoView.image.CGImage];
 }
 - (IBAction)TGCameraTapped:(id)sender {
     TGCameraNavigationController *navigationController = [TGCameraNavigationController newWithCameraDelegate:self];
@@ -244,6 +249,14 @@
     UIImage *newImage = [UIImage imageWithCGImage:newCgIm scale:_photoView.image.scale
                                       orientation:_photoView.image.imageOrientation];
     [[DataModel sharedInstance] setImage:newImage];
+}
+- (IBAction)filterSettingSliderValueChanged:(id)sender{
+    GPUImageBrightnessFilter *brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
+    NSLog(@"UISlider changed value:%f",[(UISlider *)sender value]);
+     [brightnessFilter setBrightness:[(UISlider *)sender value]];
+    UIImage *quickFilteredImage = [brightnessFilter imageByFilteringImage:originalImgCopy];
+    //
+    self.photoView.image = quickFilteredImage;
 }
 
 // Below rates defines the size of the eyes and mouth circles in relationship with the whole face size

@@ -9,6 +9,7 @@ pod 'GPUImage', '~> 0.1'
 pod 'Smerk', :path => '~/git/Smerk'
 pod 'SDWebImage', '~>3.8'
 pod 'UIView+draggable'
+pod 'ASValueTrackingSlider'
 
 target 'TGCameraViewControllerExample' do
 	
