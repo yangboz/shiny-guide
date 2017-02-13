@@ -13,7 +13,8 @@
         </select>
       </label>
       <ion-item class="range range-positive" id="page3-range1">年龄：
-        <input type="range" value="50" min="1" max="100" step="1">
+        <input type="range" value="50" min="1" max="100" step="1" ng-model="rangeValue" ng-change="drag(rangeValue)">
+        <div>{{rangeValue}} 岁 ， {{yearsR}}  </div>
       </ion-item>
     </form>
     <button id="page3-button1" class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>

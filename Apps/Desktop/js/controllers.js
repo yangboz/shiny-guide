@@ -4,7 +4,18 @@ angular.module('app.controllers', [])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+    $scope.drag = function(value) {
+        $scope.years = Math.floor(value / 12);
+        if(value<=30){
+            $scope.yearsR = "青年";
+        }else if(value>=60){
+            $scope.yearsR = "老年";
+        }else {
+            $scope.yearsR = "中年";
+        }
+    };
 
+    $scope.rangeValue = 0;
 
 }])
    
