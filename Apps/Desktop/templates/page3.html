@@ -17,8 +17,14 @@
         <div>{{rangeValue}} 岁 ， {{yearsR}}  </div>
       </ion-item>
     </form>
-    <button id="page3-button1" class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>
-    <button id="page3-button2" class="button button-dark  button-block icon-left ion-android-star-half">上传数据</button>
+    <div file-button>
+      <button id="page3-button1" type="file" nv-file-select="" uploader="uploader" class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>
+    </div>
+
+    <div file-button>
+      <button id="page3-button2" class="button button-dark  button-block icon-left ion-android-star-half">上传数据</button>
+    </div>
+
     <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star">完成</button>
   </ion-content>
 </ion-view>

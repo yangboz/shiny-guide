@@ -19,12 +19,17 @@ It generates executables/bundles for the following **target** platforms:
 This module requires Node.js 4.0 or higher to run.
 
 ```sh
+brew update && brew upgrade node && npm install -g npm
+```
+
+```sh
 # for use in npm scripts
 npm install electron-packager --save-dev
 
 # for use from cli
 npm install electron-packager -g
 ```
+
 
 ### Building Windows apps from non-Windows platforms
 
@@ -35,6 +40,10 @@ functionality to work, so on non-Windows host platforms, [Wine](https://www.wine
 later needs to be installed. On OS X, it is installable via [Homebrew](http://brew.sh/).
 
 ## Usage
+
+```sh
+electron-packager . --all
+```
 
 ### From the Command Line
 
