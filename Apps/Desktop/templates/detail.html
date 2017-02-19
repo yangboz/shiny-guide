@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">{{items[currentItem].name}}#{{items[currentItem].id}}</h1>
+        <button class="item-button-right ion-android-close" ng-click="closeModal()"></button>
+    </ion-header-bar>
+    <ion-content>
+        <label class="item item-select" id="page3-select2">
+            <span class="input-label">健康指导：</span>
+            <select>
+                <option>A</option>
+                <option>B</option>
+            </select>
+        </label>
+        <label class="item item-select" id="page3-select3">
+            <span class="input-label">药物处方：</span>
+            <select>
+                <option>A</option>
+                <option>B</option>
+            </select>
+
+        </label>
+        <iframe ng-src="http://cn.bing.com" style="width:100%; height: 1100px;"></iframe>
+    </ion-content>
+</ion-modal-view>

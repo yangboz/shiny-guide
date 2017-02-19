@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>info.smartkit.shiny-guide</groupId>
@@ -141,13 +141,21 @@
 		</dependency>
 
 		<!--Mahout-->
-		<!-- https://mvnrepository.com/artifact/org.apache.mahout/mahout-core -->
 		<dependency>
 			<groupId>org.apache.mahout</groupId>
 			<artifactId>mahout-core</artifactId>
-			<version>0.9.0.2.1.7.0-784</version>
+			<version>${mahout.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.mahout</groupId>
+			<artifactId>mahout-math</artifactId>
+			<version>${mahout.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.mahout</groupId>
+			<artifactId>mahout-integration</artifactId>
+			<version>${mahout.version}</version>
+		</dependency>
 		<!--jUnit-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -155,40 +163,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-
-		<repository>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<id>central</id>
-			<url>http://central.maven.org/maven2/</url>
-		</repository>
-
-		<repository>
-			<id>spring-libs-snapshot</id>
-			<name>Spring</name>
-			<url>http://repo.spring.io/libs-snapshot</url>
-		</repository>
-
-		<repository>
-			<id>spring-snapshots</id>
-			<url>http://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-
-		<repository>
-			<id>spring-milestones</id>
-			<url>http://repo.spring.io/milestone</url>
-		</repository>
-
-	</repositories>
 
 	<build>
 		<plugins>

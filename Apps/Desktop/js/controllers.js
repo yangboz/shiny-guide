@@ -69,11 +69,38 @@ function ($scope, $stateParams,FileUploader) {
     console.info('uploader', uploader);
 }])
    
-.controller('page4Ctrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('page4Ctrl', ['$scope', '$stateParams','$ionicModal', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams,$ionicModal) {
+    $scope.items = [
+        {
+            "id": 1,
+            "name": "专家指导"
+        },
+        {
+            "id": 2,
+            "name": "专家指导"
+        },
+        {
+            "id": 3,
+            "name": "专家指导"
+        }
+    ];
+    $scope.modal = null;
+    $ionicModal.fromTemplateUrl('templates/detail.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+    $scope.getdetails = function(id){
+        $scope.currentItem = id;
+        $scope.modal.show();
 
-
+    };
 }])
     
