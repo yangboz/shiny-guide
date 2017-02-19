@@ -1,5 +1,5 @@
 {
-  "name": "TDDesktop",
+  "name": "tddesktop",
   "version": "0.0.1",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -25,5 +25,10 @@
   "devDependencies": {
     "electron-packager": "^8.5.1",
     "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "angular-file-upload": "^2.5.0",
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.1"
   }
 }
