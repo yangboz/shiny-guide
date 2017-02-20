@@ -8,7 +8,32 @@
 
 那么如何利用 Mahout 帮忙解决新用户和新物品的冷启动问题呢？一个简单的方法是聚类。对于新用户，我们根据他们的人口统计信息去聚类，把用户划分成一个一个的簇；新物品也是一样的，可以利用物品的属性，如果没有属性，可以对物品的介绍和描述进行分词，抽取出物品的属性和关键词描述，然后根据属性和关键词去聚类，把物品划分成一个一个的簇。
 
-#Database(MySQL)
+#Database(MySQL) prepare
+
+There's two steps in that process to allow MySQL allow remoe access:
+
+a) Grant privileges. As root user execute:
+
 `
-CREATE DATABASE `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password';
+`
+
+b) bind to all addresses:
+
+The easiest way is to comment out the line in your my.cnf file:(/etc/mysql/mysql.conf.d/mysqld.cnf )
+
+`
+bind-address = 127.0.0.1 
+`
+
+and restart mysql
+
+`
+service mysql restart
+`
+
+#Database(MySQL) create
+
+`
+CREATE DATABASE `td_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 `
