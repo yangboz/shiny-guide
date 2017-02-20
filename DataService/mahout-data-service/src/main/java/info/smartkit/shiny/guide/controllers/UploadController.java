@@ -22,7 +22,7 @@ import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
 import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
+import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
@@ -32,7 +32,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.im4java.core.ConvertCmd;
 import org.im4java.core.IM4JavaException;
 import org.im4java.core.IMOperation;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,18 +39,16 @@ import info.smartkit.shiny.guide.dto.JsonObject;
 import info.smartkit.shiny.guide.dto.OcrInfo;
 import info.smartkit.shiny.guide.utils.FileUtil;
 import info.smartkit.shiny.guide.utils.OcrInfoHelper;
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
 
 /**
  * The Class OCRsController.
  */
 @RestController
 // @see: http://spring.io/guides/gs/reactor-thumbnailer/
-@RequestMapping(value = "/shiny.guide")
-public class OCRsController {
+@RequestMapping(value = "/upload")
+public class UploadController {
 	//
-	private static Logger LOG = LogManager.getLogger(OCRsController.class);
+	private static Logger LOG = LogManager.getLogger(UploadController.class);
 
 	// @see: https://spring.io/guides/gs/uploading-files/
 	@RequestMapping(method = RequestMethod.POST, value = "/recommend", consumes = MediaType.MULTIPART_FORM_DATA)
@@ -79,7 +76,7 @@ public class OCRsController {
 			DataModel datamodel = new FileDataModel(new File(fileName)); //data
 
 			//Creating UserSimilarity object.
-			UserSimilarity usersimilarity = new PearsonCorrelationSimilarity(datamodel);
+			UserSimilarity usersimilarity = new TanimotoCoefficientSimilarity(datamodel);
 
 			//Creating UserNeighbourHHood object.
 			UserNeighborhood userneighborhood = new ThresholdUserNeighborhood(3.0, usersimilarity, datamodel);
@@ -99,12 +96,37 @@ public class OCRsController {
 	}
 
 	// @see: https://spring.io/guides/gs/uploading-files/
-	@RequestMapping(method = RequestMethod.POST, value = "/tesseract", consumes = MediaType.MULTIPART_FORM_DATA)
-	@ApiOperation(value = "Response a string describing OCR' picture is successfully uploaded or not.")
+	@RequestMapping(method = RequestMethod.POST, value = "/t_csv", consumes = MediaType.MULTIPART_FORM_DATA)
+	@ApiOperation(value = "Response a list of recommend  of TD' picture is successfully uploaded or not.")
 //	@ApiImplicitParams({@ApiImplicitParam(name="Authorization", value="Authorization DESCRIPTION")})
 	public
 	@ResponseBody
-	JsonObject TesseractFileUpload(
+	JsonObject TCsvFileUpload(
+			// @RequestParam(value = "name", required = false, defaultValue =
+			// "default_input_image_file_name") String name,
+			// @RequestParam(value = "owner", required = false, defaultValue =
+			// "default_intellif_corp") String owner,
+			@RequestPart(value = "file") @Valid @NotNull @NotBlank MultipartFile file) throws IOException, TasteException {
+		// @Validated MultipartFileWrapper file, BindingResult result, Principal
+		// principal){
+		long startTime = System.currentTimeMillis();
+		OcrInfo ocrInfo = new OcrInfo();
+		String fileName = null;
+		if (!file.isEmpty()) {
+
+		} else {
+			LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
+		}
+		return new JsonObject(fileName);
+	}
+
+	// @see: https://spring.io/guides/gs/uploading-files/
+	@RequestMapping(method = RequestMethod.POST, value = "/t_image", consumes = MediaType.MULTIPART_FORM_DATA)
+	@ApiOperation(value = "Response a string describing Tongue' picture is successfully uploaded or not.")
+//	@ApiImplicitParams({@ApiImplicitParam(name="Authorization", value="Authorization DESCRIPTION")})
+	public
+	@ResponseBody
+	JsonObject TImageFileUpload(
 			// @RequestParam(value = "name", required = false, defaultValue =
 			// "default_input_image_file_name") String name,
 			// @RequestParam(value = "owner", required = false, defaultValue =
@@ -113,7 +135,6 @@ public class OCRsController {
 		// @Validated MultipartFileWrapper file, BindingResult result, Principal
 		// principal){
 		long startTime = System.currentTimeMillis();
-		OcrInfo ocrInfo = new OcrInfo();
 		String fileName = null;
 		if (!file.isEmpty()) {
 			// ImageMagick convert options; @see:
@@ -125,33 +146,14 @@ public class OCRsController {
 				fileName = _imageMagickOutput.get(ImageSize.ori.toString());
 				LOG.info("ImageMagick output success: " + fileName);
 				String imageUrl = OcrInfoHelper.getRemoteImageUrl(fileName);
-				ocrInfo.setUri(imageUrl);
-				// OCRing:
-				try {
-					Tesseract tesseract = Tesseract.getInstance(); // JNA Interface Mapping
-					String fullFilePath = FileUtil.getUploads() + fileName;
-					LOG.info("OCR full file path: " + fullFilePath);
-					//setTessVariable
-					//key - variable name, e.g., tessedit_create_hocr, tessedit_char_whitelist, etc.
-					//value - value for corresponding variable, e.g., "1", "0", "0123456789", etc.
-					tesseract.setTessVariable("tessedit_char_whitelist", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-					String imageText = tesseract.doOCR(new File(fullFilePath));
-					LOG.debug("SMARKIT.INFO OCR Result = " + imageText);
-					ocrInfo.setText(imageText);
-					//Timing calculate
-					long endTime = System.currentTimeMillis();
-					ocrInfo.setTime(endTime - startTime);//"That took " + (endTime - startTime) + " milliseconds"
-				} catch (Exception e) {
-					LOG.warn("TessearctException while converting the uploaded image: " + e);
-					throw new TesseractException();
-				}
+
 			} catch (Exception ex) {
 				LOG.error(ex.toString());
 			}
 		} else {
 			LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
 		}
-		return new JsonObject(ocrInfo);
+		return new JsonObject(fileName);
 	}
 
 	//

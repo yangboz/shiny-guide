@@ -27,7 +27,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("info.smartkit.shiny.guide.controllers"))
-                .paths(PathSelectors.ant("/shiny.guide/*"))
+//                .paths(PathSelectors.ant("/shiny.guide"))
                 .build()
                 .apiInfo(apiInfo());
         //				.useDefaultResponseMessages(false)
