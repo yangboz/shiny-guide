@@ -1,4 +1,4 @@
-package info.smartkit.shiny.guide.dto;
+package info.smartkit.shiny.guide.vo;
 
 
 import java.io.Serializable;

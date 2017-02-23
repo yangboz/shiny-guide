@@ -1,7 +1,13 @@
 package info.smartkit.shiny.guide.controllers;
 
+/**
+ * Created by yangboz on 23/02/2017.
+ */
+
+import info.smartkit.shiny.guide.dao.EInstructionDao;
 import info.smartkit.shiny.guide.dao.UserInfoDao;
 import info.smartkit.shiny.guide.dto.JsonObject;
+import info.smartkit.shiny.guide.vo.EInstruction;
 import info.smartkit.shiny.guide.vo.UserInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,35 +23,35 @@ import javax.ws.rs.core.MediaType;
  */
 @RestController
 // @see: http://spring.io/guides/gs/reactor-thumbnailer/
-@RequestMapping(value = "/user")
-public class UserInfoController {
+@RequestMapping(value = "/Einstruction")
+public class EInstructionController {
 
     @Autowired
-    private UserInfoDao userInfoDao;
+    private EInstructionDao DAO;
 
     /**
      * Posting anew UserInfo
      *
-     * @param userInfoDao
+     * @param EInstruction
      * @return Response a string describing if the user info is successfully created or not.
      */
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
     @ApiOperation(httpMethod = "POST", value = "Response a string describing if the user info is successfully created or not.")
-    public JsonObject create(@RequestBody @Valid UserInfo userInfo) {
-        return new JsonObject(userInfoDao.save(userInfo));
+    public JsonObject create(@RequestBody @Valid EInstruction info) {
+        return new JsonObject(DAO.save(info));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(httpMethod = "GET", value = "Response a string describing if the user info id is successfully get or not.")
     public JsonObject get(@PathVariable("id") long id) {
-        return new JsonObject(this.userInfoDao.findOne(id));
+        return new JsonObject(this.DAO.findOne(id));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(httpMethod = "DELETE", value = "Response a string describing if the user info is successfully delete or not.")
     public JsonObject delete(@PathVariable("id") long id) {
         try {
-            this.userInfoDao.delete(id);
+            this.DAO.delete(id);
         } catch (Exception e) {
             return new JsonObject(e.toString());
         }
@@ -56,7 +62,7 @@ public class UserInfoController {
     @ApiOperation(httpMethod = "GET", value = "Response a list describing all of user info that is successfully get or not.")
     public JsonObject list() {
 //		return new JsonObject(this._alarmInfoDao.findAll());
-        return new JsonObject(this.userInfoDao.findAll());
+        return new JsonObject(this.DAO.findAll());
     }
 
 //    @RequestMapping(value = "/{id}/status/{value}", method = RequestMethod.PUT)//
@@ -67,3 +73,4 @@ public class UserInfoController {
 //        return new JsonObject(this.userInfoDao.save(find));
 //    }
 }
+

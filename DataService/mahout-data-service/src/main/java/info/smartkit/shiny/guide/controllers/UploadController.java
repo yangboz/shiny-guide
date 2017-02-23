@@ -82,6 +82,12 @@ public class UploadController {
 			UserNeighborhood userneighborhood = new ThresholdUserNeighborhood(3.0, usersimilarity, datamodel);
 
 			//Create UserRecomender
+//			GenericUserBasedRecommender: 基于用户的推荐算法
+//			GenericItemBasedRecommender: 基于物品的推荐算法
+//			KnnItemBasedRecommender: 基于物品的KNN推荐算法
+//			SlopeOneRecommender: Slope推荐算法
+//			SVDRecommender: SVD推荐算法
+//			TreeClusteringRecommender：TreeCluster推荐算法
 			UserBasedRecommender recommender = new GenericUserBasedRecommender(datamodel, userneighborhood, usersimilarity);
 
 			recommendations = recommender.recommend(2, 3);
