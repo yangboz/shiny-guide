@@ -16,10 +16,26 @@ import java.io.Serializable;
 public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = -8473185797276849607L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String name;
+    private int gender = 1;//1:man,0:women
+    private int age;
+    private long itemId = -1;
+    public UserInfo(String name, int gender, int age, long itemId) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.itemId = itemId;
+    }
+
+    public UserInfo() {
+    }
+
+    public long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -45,41 +61,6 @@ public class UserInfo implements Serializable {
         this.age = age;
     }
 
-    private String name;
-    private int gender=1;//1:man,0:women
-    private int age;
-
-    private String timage;//tongue image URL;
-    private String tcsv;//tongue data(*.csv);
-
-    public UserInfo(String name, int gender, int age, String timage, String tcsv) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.timage = timage;
-        this.tcsv = tcsv;
-    }
-
-    public String getTimage() {
-
-        return timage;
-    }
-
-    public void setTimage(String timage) {
-        this.timage = timage;
-    }
-
-    public String getTcsv() {
-        return tcsv;
-    }
-
-    public void setTcsv(String tcsv) {
-        this.tcsv = tcsv;
-    }
-
-    public UserInfo() {
-    }
-
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -87,8 +68,8 @@ public class UserInfo implements Serializable {
                 ", name='" + name + '\'' +
                 ", gender=" + gender +
                 ", age=" + age +
-                ", timage='" + timage + '\'' +
-                ", tcsv='" + tcsv + '\'' +
+                ", itemId=" + itemId +
                 '}';
     }
+
 }

@@ -2,12 +2,20 @@ package info.smartkit.shiny.guide.vo;
 
 import com.blogspot.na5cent.exom.annotation.Column;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
  * Created by yangboz on 23/02/2017.
  */
+@Entity
 public class ItemDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @Column(name = "厚薄") //must same excel header (first row)
     private String houbao;
     @Column(name = "腐腻")
@@ -36,7 +44,6 @@ public class ItemDetail {
     private String taise;
     @Column(name = "结果")
     private String jieguo;
-
     @Column(name = "RGB_R")
     private String rgbR;
     @Column(name = "RGB_R")
@@ -49,13 +56,22 @@ public class ItemDetail {
     private String hsvS;
     @Column(name = "HSV_V")
     private String hsvV;
-
-    public ItemDetail() {
-
-    }
-
-    public ItemDetail(String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV) {
-
+    @Column(name = "Label_L")
+    private String labelL;
+    @Column(name = "Label_A")
+    private String labelA;
+    @Column(name = "Label_B")
+    private String labelB;
+    //
+    @Column(name = "q1_2")
+    private String q1_2;
+    @Column(name = "q1_3r")
+    private String q1_3r;
+    @Column(name = "q1_3y")
+    private String q1_3y;
+    @Column(name = "q2_1")
+    private String q2_1;
+    public ItemDetail(String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV, String labelL, String labelA, String labelB, String q1_2, String q1_3r, String q1_3y, String q2_1) {
         this.houbao = houbao;
         this.funi = funi;
         this.runzao = runzao;
@@ -76,11 +92,59 @@ public class ItemDetail {
         this.hsvH = hsvH;
         this.hsvS = hsvS;
         this.hsvV = hsvV;
+        this.labelL = labelL;
+        this.labelA = labelA;
+        this.labelB = labelB;
+        this.q1_2 = q1_2;
+        this.q1_3r = q1_3r;
+        this.q1_3y = q1_3y;
+        this.q2_1 = q2_1;
+    }
+
+    public ItemDetail() {
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getQ1_2() {
+        return q1_2;
+    }
+
+    public void setQ1_2(String q1_2) {
+        this.q1_2 = q1_2;
+    }
+
+    public String getQ1_3r() {
+        return q1_3r;
+    }
+
+    public void setQ1_3r(String q1_3r) {
+        this.q1_3r = q1_3r;
+    }
+
+    public String getQ1_3y() {
+        return q1_3y;
+    }
+
+    public void setQ1_3y(String q1_3y) {
+        this.q1_3y = q1_3y;
+    }
+
+    public String getQ2_1() {
+        return q2_1;
+    }
+
+    public void setQ2_1(String q2_1) {
+        this.q2_1 = q2_1;
     }
 
     @Override
     public String toString() {
         return "ItemDetail{" +
+
                 "houbao='" + houbao + '\'' +
                 ", funi='" + funi + '\'' +
                 ", runzao='" + runzao + '\'' +
@@ -101,7 +165,38 @@ public class ItemDetail {
                 ", hsvH='" + hsvH + '\'' +
                 ", hsvS='" + hsvS + '\'' +
                 ", hsvV='" + hsvV + '\'' +
+                ", labelL='" + labelL + '\'' +
+                ", labelA='" + labelA + '\'' +
+                ", labelB='" + labelB + '\'' +
+                ", q1_2='" + q1_2 + '\'' +
+                ", q1_3r='" + q1_3r + '\'' +
+                ", q1_3y='" + q1_3y + '\'' +
+                ", q2_1='" + q2_1 + '\'' +
                 '}';
+    }
+
+    public String getLabelL() {
+        return labelL;
+    }
+
+    public void setLabelL(String labelL) {
+        this.labelL = labelL;
+    }
+
+    public String getLabelA() {
+        return labelA;
+    }
+
+    public void setLabelA(String labelA) {
+        this.labelA = labelA;
+    }
+
+    public String getLabelB() {
+        return labelB;
+    }
+
+    public void setLabelB(String labelB) {
+        this.labelB = labelB;
     }
 
     public String getHoubao() {

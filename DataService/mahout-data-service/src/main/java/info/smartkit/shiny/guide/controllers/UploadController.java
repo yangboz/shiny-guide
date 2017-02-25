@@ -15,36 +15,34 @@ import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.MediaType;
 
 import com.blogspot.na5cent.exom.ExOM;
+import info.smartkit.shiny.guide.dao.ItemDetailDao;
+import info.smartkit.shiny.guide.dao.ItemInfoDao;
+import info.smartkit.shiny.guide.settings.UploadSettings;
 import info.smartkit.shiny.guide.utils.MahoutUtils;
 import info.smartkit.shiny.guide.vo.ItemDetail;
+import info.smartkit.shiny.guide.vo.ItemInfo;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
-import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
-import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.TanimotoCoefficientSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
-import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
-import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
-import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.hibernate.validator.constraints.NotBlank;
 import org.im4java.core.ConvertCmd;
 import org.im4java.core.IM4JavaException;
 import org.im4java.core.IMOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import info.smartkit.shiny.guide.dto.JsonObject;
-import info.smartkit.shiny.guide.dto.OcrInfo;
 import info.smartkit.shiny.guide.utils.FileUtil;
-import info.smartkit.shiny.guide.utils.OcrInfoHelper;
 
 /**
- * The Class OCRsController.
+ * The Class UploadController.
  */
 @RestController
 // @see: http://spring.io/guides/gs/reactor-thumbnailer/
@@ -52,6 +50,14 @@ import info.smartkit.shiny.guide.utils.OcrInfoHelper;
 public class UploadController {
     //
     private static Logger LOG = LogManager.getLogger(UploadController.class);
+
+    @Autowired
+    private ItemDetailDao itemDetailDao;
+    @Autowired
+    private ItemInfoDao itemInfoDao;
+
+    @Autowired
+    private UploadSettings uploadSettings;
 
     //@SEE:http://www.ibm.com/developerworks/cn/java/j-lo-mahout/index.html
     // @see: https://spring.io/guides/gs/uploading-files/
@@ -69,13 +75,12 @@ public class UploadController {
         // @Validated MultipartFileWrapper file, BindingResult result, Principal
         // principal){
         long startTime = System.currentTimeMillis();
-        OcrInfo ocrInfo = new OcrInfo();
         String fileName = null;
         List<RecommendedItem> recommendations = null;
         if (!file.isEmpty()) {
-            Map<String, String> _imageMagickOutput = this.fileOperation(file);
+            Map<String, String> _imageMagickOutput = this.fileOperation(file, "tmahout");
             // Image resize operation.
-            fileName = this.getClassPath() + "/uploads/" + _imageMagickOutput.get(ImageSize.ori.toString());
+            fileName = uploadSettings.getTmahout() + _imageMagickOutput.get(ImageSize.ori.toString());
             //Creating data model
             DataModel datamodel = new FileDataModel(new File(fileName)); //data
 //
@@ -88,7 +93,7 @@ public class UploadController {
     }
 
     // @see: https://spring.io/guides/gs/uploading-files/
-    @RequestMapping(method = RequestMethod.POST, value = "/t_csv", consumes = MediaType.MULTIPART_FORM_DATA)
+    @RequestMapping(method = RequestMethod.POST, value = "/tcsv", consumes = MediaType.MULTIPART_FORM_DATA)
     @ApiOperation(value = "Response a list of recommend  of TD' picture is successfully uploaded or not.")
 //	@ApiImplicitParams({@ApiImplicitParam(name="Authorization", value="Authorization DESCRIPTION")})
     public
@@ -102,27 +107,33 @@ public class UploadController {
         // @Validated MultipartFileWrapper file, BindingResult result, Principal
         // principal){
         long startTime = System.currentTimeMillis();
-        OcrInfo ocrInfo = new OcrInfo();
+        long lastID = -1;
         String fileName = null;
         if (!file.isEmpty()) {
-            Map<String, String> _imageMagickOutput = this.fileOperation(file);
+            Map<String, String> _imageMagickOutput = this.fileOperation(file, "tcsv");
             // Image resize operation.
-            fileName = this.getClassPath() + "/uploads/" + _imageMagickOutput.get(ImageSize.ori.toString());
+            fileName = FileUtil.getUploads("tcsv") + _imageMagickOutput.get(ImageSize.ori.toString());
             List<ItemDetail> items = ExOM.mapFromExcel(new File(fileName))
                     .toObjectOf(ItemDetail.class)
                     .map();
-
-            for (ItemDetail item : items) {
-                LOG.debug("ItemDetail --> {}", item.toString());
-            }
+//            for (ItemDetail item : items) {
+//                //Save to database return last id;
+//                lastID = itemDetailDao.save(item).getId();
+//                LOG.info("Saved ItemDetail.id--> {}", lastID);
+//            }
+            ItemDetail lastItem = items.get(items.size() - 1);
+            LOG.info("Mapped last ItemDetail-->" + lastItem.toString());
+            //Save to database return last id;
+            lastID = itemDetailDao.save(lastItem).getId();
+            LOG.info("Saved ItemDetail.id--> " + lastID);
         } else {
             LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
         }
-        return new JsonObject(fileName);
+        return new JsonObject(lastID);
     }
 
     // @see: https://spring.io/guides/gs/uploading-files/
-    @RequestMapping(method = RequestMethod.POST, value = "/t_image", consumes = MediaType.MULTIPART_FORM_DATA)
+    @RequestMapping(method = RequestMethod.POST, value = "/timage", consumes = MediaType.MULTIPART_FORM_DATA)
     @ApiOperation(value = "Response a string describing Tongue' picture is successfully uploaded or not.")
 //	@ApiImplicitParams({@ApiImplicitParam(name="Authorization", value="Authorization DESCRIPTION")})
     public
@@ -135,26 +146,29 @@ public class UploadController {
             @RequestPart(value = "file") @Valid @NotNull @NotBlank MultipartFile file) {
         // @Validated MultipartFileWrapper file, BindingResult result, Principal
         // principal){
-        long startTime = System.currentTimeMillis();
+        ItemInfo saved = null;
         String fileName = null;
         if (!file.isEmpty()) {
             // ImageMagick convert options; @see:
             // http://paxcel.net/blog/java-thumbnail-generator-imagescalar-vs-imagemagic/
-            Map<String, String> _imageMagickOutput = this.fileOperation(file);
+            Map<String, String> _imageMagickOutput = this.fileOperation(file, "timage");
             // Save to database.
             try {
                 // Image resize operation.
                 fileName = _imageMagickOutput.get(ImageSize.ori.toString());
                 LOG.info("ImageMagick output success: " + fileName);
-                String imageUrl = OcrInfoHelper.getRemoteImageUrl(fileName);
-
+                String imageUrl = uploadSettings.getTimage() + fileName;
+                //Save to database as an item info
+                ItemInfo itemInfo = new ItemInfo(fileName, imageUrl, -1);
+                saved = itemInfoDao.save(itemInfo);
+                LOG.info("Saved ItemInfo--> " + saved.toString());
             } catch (Exception ex) {
                 LOG.error(ex.toString());
             }
         } else {
             LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
         }
-        return new JsonObject(fileName);
+        return new JsonObject(saved);
     }
 
     //
@@ -164,7 +178,7 @@ public class UploadController {
         //
         String small4dbBase = FilenameUtils.getBaseName(source) + "_" + String.valueOf(width) + "x"
                 + String.valueOf(height) + "." + FilenameUtils.getExtension(source);
-        String small4db = FileUtil.getUploads() + small4dbBase;
+        String small4db = FileUtil.getUploads("timage") + small4dbBase;
         String small = getClassPath() + small4db;
         // @see:
         // http://paxcel.net/blog/java-thumbnail-generator-imagescalar-vs-imagemagic/
@@ -182,7 +196,7 @@ public class UploadController {
         return small4dbBase;
     }
 
-    private Map<String, String> fileOperation(MultipartFile file) {
+    private Map<String, String> fileOperation(MultipartFile file, String context) {
         Map<String, String> _imageMagickOutput = new HashMap<String, String>();
         String dbFileName = null;
         String fullFileName = null;
@@ -193,7 +207,7 @@ public class UploadController {
                     // = "temp" + "." + fileExt;
                     = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(new Date()) + "." + fileExt;
 
-            dbFileName = FileUtil.getUploads() + fileNameAppendix;
+            dbFileName = FileUtil.getUploads(context) + fileNameAppendix;
             fullFileName = dbFileName;
 
             BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullFileName)));

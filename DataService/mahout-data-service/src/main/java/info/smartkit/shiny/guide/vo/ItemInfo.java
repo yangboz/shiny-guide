@@ -14,20 +14,37 @@ public class ItemInfo implements Serializable {
     private long id;
 
     private String name;//"齿痕淡红舌薄白苔"
+    private String timage;//舌像
+    private int detailId = -1;
 
-    private String content;
+    public ItemInfo(String name, String timage, int detailId) {
+        this.name = name;
+        this.timage = timage;
+        this.detailId = detailId;
+    }
 
     public ItemInfo() {
     }
-
     public ItemInfo(String name) {
 
         this.name = name;
     }
 
-    public ItemInfo(String name, String content) {
-        this.name = name;
-        this.content = content;
+    public String getTimage() {
+
+        return timage;
+    }
+
+    public void setTimage(String timage) {
+        this.timage = timage;
+    }
+
+    public int getDetailId() {
+        return detailId;
+    }
+
+    public void setDetailId(int detailId) {
+        this.detailId = detailId;
     }
 
     public String getName() {
@@ -38,20 +55,14 @@ public class ItemInfo implements Serializable {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
     @Override
     public String toString() {
         return "ItemInfo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", content=" + content +
+                ", timage='" + timage + '\'' +
+                ", detailId=" + detailId +
                 '}';
     }
 }

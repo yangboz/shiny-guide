@@ -10,22 +10,18 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.io.support.ResourcePropertySource;
 
-import info.smartkit.shiny.guide.settings.ServerSetting;
-
 /**
  * Register this with the DispatcherServlet in a ServletInitializer class like:
  * dispatcherServlet.setContextInitializers(new PropertiesInitializer());
  */
-public class PropertiesInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>
-{
+public class PropertiesInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     private static final Logger LOG = LogManager.getLogger(PropertiesInitializer.class);
 
     /**
      * Runs as appInitializer so properties are wired before spring beans
      */
     @Override
-    public void initialize(ConfigurableApplicationContext applicationContext)
-    {
+    public void initialize(ConfigurableApplicationContext applicationContext) {
         ConfigurableEnvironment env = applicationContext.getEnvironment();
 
         String[] activeProfiles = getActiveProfiles(env);
@@ -34,15 +30,12 @@ public class PropertiesInitializer implements ApplicationContextInitializer<Conf
             LOG.info("Loading properties for Spring Active Profile: {}", profileName);
             try {
                 ResourcePropertySource propertySource =
-                    new ResourcePropertySource(profileName + "EnvProperties", "classpath:application-" + profileName
-                        + ".properties");
+                        new ResourcePropertySource(profileName + "EnvProperties", "classpath:application-" + profileName
+                                + ".properties");
 
                 env.getPropertySources().addLast(propertySource);
                 LOG.debug("propertySource:" + propertySource.toString());
                 // Work-flow setting initialization here.
-                //
-                ServerSetting.setPort(Integer.valueOf((String) propertySource.getProperty("server.port")));
-                ServerSetting.setContextPath((String) propertySource.getProperty("server.contextPath"));
             } catch (IOException e) {
                 LOG.error("ERROR during environment properties setup - TRYING TO LOAD: " + profileName, e);
 
@@ -55,8 +48,7 @@ public class PropertiesInitializer implements ApplicationContextInitializer<Conf
     /**
      * Returns either the ActiveProfiles, or if empty, then the DefaultProfiles from Spring
      */
-    protected String[] getActiveProfiles(ConfigurableEnvironment env)
-    {
+    protected String[] getActiveProfiles(ConfigurableEnvironment env) {
         String[] activeProfiles = env.getActiveProfiles();
         if (activeProfiles.length > 0) {
             LOG.info("Using registered Spring Active Profiles: {}", StringUtils.join(activeProfiles, ", "));
