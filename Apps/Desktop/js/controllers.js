@@ -1,9 +1,11 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ngFileUpload','ionic'])
   
-.controller('page3Ctrl', ['$scope', '$stateParams','FileUploader', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('page3Ctrl', ['$scope', '$stateParams','Upload','$ionicLoading','LoaderService','$log',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,FileUploader) {
+function ($scope, $stateParams,Upload,$ionicLoading,LoaderService,$log,ItemInfoService,UserInfoService) {
+    //$log.debug(CONFIG_ENV);
+    //age drag input
     $scope.drag = function(value) {
         $scope.years = Math.floor(value / 12);
         if(value<=44){
@@ -15,58 +17,58 @@ function ($scope, $stateParams,FileUploader) {
         }
     };
     $scope.rangeValue = 0;
+//
+    $scope.itemInfoId = -1;
+    $scope.itemDetailId = -1;
+    //FileUploader,@see:https://github.com/danialfarid/ng-file-upload
+    // upload on file select or drop
+    $scope.uploadItemInfo = function (file) {
+        Upload.upload({
+            url: "http://localhost:8080"+'/td/upload/timage',
+            data: {file: file}
+        }).then(function (resp) {
+            //
+            LoaderService.hide();
+            //
+            $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
+            $log.info(resp.data.data);
+            $scope.itemInfoId = resp.data.data.id;
+        }, function (resp) {
+            $log.error('Error status: ' + resp.status);
+        }, function (evt) {
+            //
+            LoaderService.show();
 
-    //FileUploader
-    var uploader = $scope.uploader = new FileUploader({
-        url: 'upload.php'
-    });
-
-    // FILTERS
-
-    uploader.filters.push({
-        name: 'customFilter',
-        fn: function(item /*{File|FileLikeObject}*/, options) {
-            return this.queue.length < 10;
-        }
-    });
-
-    // CALLBACKS
-
-    uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
-        console.info('onWhenAddingFileFailed', item, filter, options);
-    };
-    uploader.onAfterAddingFile = function(fileItem) {
-        console.info('onAfterAddingFile', fileItem);
-    };
-    uploader.onAfterAddingAll = function(addedFileItems) {
-        console.info('onAfterAddingAll', addedFileItems);
-    };
-    uploader.onBeforeUploadItem = function(item) {
-        console.info('onBeforeUploadItem', item);
-    };
-    uploader.onProgressItem = function(fileItem, progress) {
-        console.info('onProgressItem', fileItem, progress);
-    };
-    uploader.onProgressAll = function(progress) {
-        console.info('onProgressAll', progress);
-    };
-    uploader.onSuccessItem = function(fileItem, response, status, headers) {
-        console.info('onSuccessItem', fileItem, response, status, headers);
-    };
-    uploader.onErrorItem = function(fileItem, response, status, headers) {
-        console.info('onErrorItem', fileItem, response, status, headers);
-    };
-    uploader.onCancelItem = function(fileItem, response, status, headers) {
-        console.info('onCancelItem', fileItem, response, status, headers);
-    };
-    uploader.onCompleteItem = function(fileItem, response, status, headers) {
-        console.info('onCompleteItem', fileItem, response, status, headers);
-    };
-    uploader.onCompleteAll = function() {
-        console.info('onCompleteAll');
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
     };
 
-    console.info('uploader', uploader);
+    // upload on file select or drop
+    $scope.uploadItemDetail = function (file) {
+        Upload.upload({
+            url: "http://localhost:8080"+'/td/upload/tcsv',
+            data: {file: file}
+        }).then(function (resp) {
+            //
+            LoaderService.hide();
+            //
+            $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
+            $log.info(resp.data.data);
+            $scope.itemDetailId = resp.data.data.id;
+            //
+            ItemInfoService.put({"Id":$scope.itemInfoId,"dId":$scope.itemDetailId});
+        }, function (resp) {
+            $log.error('Error status: ' + resp.status);
+        }, function (evt) {
+            //
+            LoaderService.show();
+
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
+
 }])
    
 .controller('page4Ctrl', ['$scope', '$stateParams','$ionicModal', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

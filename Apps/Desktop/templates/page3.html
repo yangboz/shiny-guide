@@ -17,13 +17,15 @@
         <div>{{rangeValue}} 岁 ， {{yearsR}}  </div>
       </ion-item>
     </form>
-    <div file-button>
-      <button id="page3-button1" type="file" nv-file-select="" uploader="uploader" class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>
-    </div>
+    <div class="button" ngf-select="upload($file,'timage')">Upload on file select</div>
+    <button id="page3-button1" type="file" ngf-select="upload($file,'timage',false)"
+            accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"
+            class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>
 
-    <div file-button>
-      <button id="page3-button2" class="button button-dark  button-block icon-left ion-android-star-half">上传数据</button>
-    </div>
+    <button id="page3-button2" type="file" ngf-select="upload($file,'tcsv',true)"
+            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+            ngf-max-height="1000" ngf-max-size="1MB"
+            class="button button-dark  button-block icon-left ion-android-star-half">上传数据</button>
 
     <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star">完成</button>
 
