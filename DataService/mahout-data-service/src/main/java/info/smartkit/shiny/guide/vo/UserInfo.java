@@ -22,6 +22,11 @@ public class UserInfo implements Serializable {
     private String name;
     private int gender = 1;//1:man,0:women
     private int age;
+
+    public long getItemId() {
+        return itemId;
+    }
+
     private long itemId = -1;
     public UserInfo(String name, int gender, int age, long itemId) {
         this.name = name;

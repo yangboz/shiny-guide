@@ -9,7 +9,6 @@
     
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -49,6 +48,13 @@
         list-style-type: decimal;
         padding-left:40px;
       }
+      .button.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
     </style>
     <script src="js/helper.js"></script>
     <script src="js/app.js"></script>
@@ -59,7 +65,9 @@
     <script src="js/directives.js"></script>
      
     <script src="js/services.js"></script>
-    
+
+    <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
 
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>

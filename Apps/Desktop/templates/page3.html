@@ -1,31 +1,33 @@
-<ion-view title="舌诊采集" id="page3">
+<ion-view title="舌诊采集" id="page3" >
   <ion-content padding="true" class="has-header">
     <form id="page3-form1" class="list">
-      <label class="item item-input" id="page3-input2">
+      <label class="item item-input" id="page3-input2" >
         <span class="input-label">姓名：</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="请输入您的姓名" data-ng-model="userInfo.name">
       </label>
       <label class="item item-select" id="page3-select1">
         <span class="input-label">性别：</span>
-        <select>
+        <select  data-ng-model="prefGender"
+                 ng-options="type.name for type in preferencesItemType"
+                 ng-change="setTypeSelected(prefGender)">
           <option>男</option>
           <option>女</option>
         </select>
       </label>
-      <ion-item class="range range-positive" id="page3-range1">年龄：
-        <input type="range" value="50" min="1" max="100" step="1" ng-model="rangeValue" ng-change="drag(rangeValue)">
-        <div>{{rangeValue}} 岁 ， {{yearsR}}  </div>
+      <ion-item class="range range-positive" id="page3-range1" >年龄：
+        <input type="range" value="50" min="1" max="100" step="1" data-ng-model="userInfo.age" ng-change="drag(userInfo.age)">
+        <div>{{userInfo.age}} 岁 ， {{yearsR}} </div>
       </ion-item>
     </form>
     <button id="page3-button1" type="file" ngf-select="uploadItemInfo($file)"
             accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"
-            class="button button-dark  button-block icon-left ion-android-star-outline">上传舌像</button>
+            class="button button-dark  button-block icon-left ion-android-star-outline" ng-disabled="!userInfo.name">上传舌像</button>
     <button id="page3-button2" type="file" ngf-select="uploadItemDetail($file)"
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
             ngf-max-height="1000" ngf-max-size="1MB"
-            class="button button-dark  button-block icon-left ion-android-star-half">上传数据</button>
+            class="button button-dark  button-block icon-left ion-android-star-half" ng-disabled="!userInfo.itemId">上传数据</button>
 
-    <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star">完成</button>
+    <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="saveUserInfo()" ng-disabled="!userInfo.itemDetailId">完成</button>
 
 
   </ion-content>

@@ -9,6 +9,10 @@ import java.util.Date;
  */
 @Entity
 public class ItemInfo implements Serializable {
+    public long getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
