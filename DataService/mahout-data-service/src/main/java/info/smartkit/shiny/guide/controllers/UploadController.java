@@ -109,6 +109,7 @@ public class UploadController {
         long startTime = System.currentTimeMillis();
         long lastID = -1;
         String fileName = null;
+        ItemDetail savedItem = null;
         if (!file.isEmpty()) {
             Map<String, String> _imageMagickOutput = this.fileOperation(file, "tcsv");
             // Image resize operation.
@@ -124,12 +125,12 @@ public class UploadController {
             ItemDetail lastItem = items.get(items.size() - 1);
             LOG.info("Mapped last ItemDetail-->" + lastItem.toString());
             //Save to database return last id;
-            lastID = itemDetailDao.save(lastItem).getId();
-            LOG.info("Saved ItemDetail.id--> " + lastID);
+            savedItem = itemDetailDao.save(lastItem);
+            LOG.info("Saved ItemDetail--> " + savedItem);
         } else {
             LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
         }
-        return new JsonObject(lastID);
+        return new JsonObject(savedItem);
     }
 
     // @see: https://spring.io/guides/gs/uploading-files/

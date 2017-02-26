@@ -8,9 +8,9 @@ angular.module('app.services', [])
 
 
 //ItemInfoService
-.factory('ItemInfoService', function ($resource, CONFIG_ENV) {
+.factory('ItemInfoService', function ($resource) {
     var data = $resource(
-        CONFIG_ENV.api_endpoint + "item/:Id/detailId/:dId",
+        'http://localhost:8080/td/' + "item/:Id/detailId/:dId",
         {Id: "@Id",dId:"@dId"},
         {
             "update": {method: "PUT"}
@@ -18,12 +18,12 @@ angular.module('app.services', [])
     return data;
 })
 //UserInfoService
-    .factory('UserInfoService', function ($resource, CONFIG_ENV) {
+.factory('UserInfoService', function ($resource) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint + "user"
+            'http://localhost:8080/td/' + "user"
         )
         return data;
-    })
+})
 //LoaderService
 .factory('LoaderService', function($rootScope, $ionicLoading) {
     return {
