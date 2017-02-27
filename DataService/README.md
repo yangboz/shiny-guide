@@ -1,3 +1,5 @@
+https://github.com/grahamjenson/list_of_recommender_systems
+
 #Mahout cold-start
 
 如何利用 Mahout 去解决推荐时的冷启动，包括用户冷启动（新用户）和物品冷启动（新物品）。这应该说是每一个推荐系统都会面临着的问题，因此推荐系统的研究者们想出了很多的解决方案，不过很抱歉，Mahout 中对于冷启动问题并没有专门的实现，原因很简单，目前的 Mahout 只是一个机器学习算法库（框架），它不是一个推荐系统或推荐引擎。不过，我们还是可以利用 Mahout 中提供的一些算法帮助我们解决冷启动。 

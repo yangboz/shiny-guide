@@ -20,6 +20,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     // Don't strip trailing slashes from calculated URLs
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }])
+    .config(function($httpProvider) {
+        $httpProvider.interceptors.push('TrendicityInterceptor');
+    })
 //ENV_config
 .constant('CONFIG_ENV', {
         //'api_endpoint_base': 'http://localhost:8080/',

@@ -1,6 +1,6 @@
 angular.module('app.controllers', ['ngFileUpload'])
 //
-.controller('page3Ctrl', function ($scope, $stateParams,Upload,$ionicLoading,LoaderService,$log,ItemInfoService,UserInfoService,Enum) {
+.controller('page3Ctrl', function ($scope, $stateParams,Upload,$ionicLoading,$log,ItemInfoService,UserInfoService,Enum) {
     //ng-model
     $scope.userInfo = {name:"", gender:1,age:10, itemId: "",itemDetailId:""};
     $scope.yearsR = "青年";
@@ -24,17 +24,13 @@ angular.module('app.controllers', ['ngFileUpload'])
                 data: {file: file}
             }).then(function (resp) {
                 //
-                LoaderService.hide();
-                //
                 $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
                 $log.info(resp.data.data);
                 $scope.userInfo.itemId = resp.data.data.id;
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             }, function (evt) {
-                //
-                LoaderService.show();
-
+                // console.log('evt:'+evt);
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
@@ -47,8 +43,6 @@ angular.module('app.controllers', ['ngFileUpload'])
                 data: {file: file}
             }).then(function (resp) {
                 //
-                LoaderService.hide();
-                //
                 $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
                 $log.info(resp.data.data);
                 $scope.userInfo.itemDetailId = resp.data.data.id;
@@ -60,8 +54,6 @@ angular.module('app.controllers', ['ngFileUpload'])
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             }, function (evt) {
-                //
-                LoaderService.show();
 
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
@@ -88,9 +80,8 @@ angular.module('app.controllers', ['ngFileUpload'])
             //Save
             anewUserInfo.$save(function (resp) {
                 $log.info("createUserInfo() success, response:", resp);
-                // //Refresh item list
-                // //Reset value
-                // $scope.newItem = {"name": "", "vendors": "", "invoices": "", "date": "", "owner": ""};
+               //TODO:get consulting
+
             });
         }
 })
