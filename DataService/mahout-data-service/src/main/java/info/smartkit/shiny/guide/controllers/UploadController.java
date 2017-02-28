@@ -74,7 +74,7 @@ public class UploadController {
             @RequestPart(value = "file") @Valid @NotNull @NotBlank MultipartFile file) throws IOException, TasteException {
         // @Validated MultipartFileWrapper file, BindingResult result, Principal
         // principal){
-        long startTime = System.currentTimeMillis();
+
         String fileName = null;
         List<RecommendedItem> recommendations = null;
         if (!file.isEmpty()) {
@@ -83,9 +83,10 @@ public class UploadController {
             fileName = uploadSettings.getTmahout() + _imageMagickOutput.get(ImageSize.ori.toString());
             //Creating data model
             DataModel datamodel = new FileDataModel(new File(fileName)); //data
-//
+            long startTime = System.currentTimeMillis();
             MahoutUtils.userCF(datamodel);
-
+            long stopTime = System.currentTimeMillis();
+            System.out.println("Mahout Took: " + (stopTime - startTime) + " millis");
         } else {
             LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
         }

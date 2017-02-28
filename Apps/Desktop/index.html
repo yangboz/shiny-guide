@@ -5,8 +5,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    
-    
+
+
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
 
@@ -55,20 +55,41 @@
         cursor: default !important;
         pointer-events: none;
       }
+      .input-label.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
+      .item-select.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
     </style>
     <script src="js/helper.js"></script>
+
+    <!--
+    <script src="lib/pubnub/pubnub-angular-4.0.2.min.js"></script>
+    -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/routes.js"></script>
-    
-     
     <script src="js/directives.js"></script>
-     
     <script src="js/services.js"></script>
 
     <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
 
+    <!--
+    <script src="lib/pubnub/pubnub.4.4.4.min.js"></script>
+    <script src="lib/pubnub/pubnub-angular-4.0.2.min.js"></script>
+    -->
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.4.4.min.js"></script>
+    <script src="http://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-4.0.2.min.js"></script>
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->

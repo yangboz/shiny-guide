@@ -45,9 +45,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "OCR.SMARTKIT.INFO REST API",
+                "TD.SMARTKIT.INFO REST API",
                 "SMARTKIT.INFO description of API.",
-                "API TOS",
+                "0.0.1",
                 "Terms of service",
                 "smartkit@msn.com",
                 "License of API",

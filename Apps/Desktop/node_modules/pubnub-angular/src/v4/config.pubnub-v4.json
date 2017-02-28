@@ -1,0 +1,49 @@
+{
+	"methods_to_delegate": [
+		"setUUID",
+		"getUUID",
+		"setAuthKey",
+		"addListener",
+    "removeListener",
+		"unsubscribe",
+    "unsubscribeAll",
+		"time",
+		"stop",
+    "encrypt",
+    "decrypt",
+    "setFilterExpression"
+	],
+	"methods_to_wrap": [
+		"publish",
+    "fire",
+		"hereNow",
+		"whereNow",
+		"setState",
+		"getState",
+		"grant",
+		"history", {
+			"push": [
+				"addChannels",
+				"deleteDevice",
+				"listChannels",
+				"removeChannels"
+			]
+		}, { 
+			"channelGroups": [
+				"addChannels",
+				"deleteGroup",
+				"listChannels",
+				"listGroups",
+				"removeChannels"
+			]
+		}
+	],
+	"common_callbacks_to_wrap": [
+		"callback"
+	],
+	"subscribe_listener_events_to_broadcast": [
+		"message",
+		"presence",
+		"status"
+	]
+}

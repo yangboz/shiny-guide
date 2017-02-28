@@ -14,6 +14,11 @@ import java.io.Serializable;
 public class MPrescription implements Serializable {
     private
     static final long serialVersionUID = -8473185797276849677L;
+
+    public long getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

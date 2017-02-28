@@ -1,0 +1,12 @@
+[ignore]
+.*/test/.*
+
+[include]
+.*/src/.*
+
+[libs]
+./core/src/flow_interfaces.js
+
+[options]
+esproposal.class_static_fields=enable
+unsafe.enable_getters_and_setters=true

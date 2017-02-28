@@ -5,11 +5,21 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives'])
 
 .config(function($ionicConfigProvider, $sceDelegateProvider){
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 })
+//ENV_config
+    .constant('CONFIG_ENV', {
+        //'api_endpoint_base': 'http://localhost:8080/',
+        'api_endpoint_base': DynamicEnvironment.get('api_endpoint_base'),
+        'api_endpoint': DynamicEnvironment.get('api_endpoint_base') + 'td/',
+        'api_version': '0.0.1',
+        'pubnub_key': 'ws://www.xyz.com:61614/stomp',
+        'pubnub_secret': 'v11.stomp',
+        'debug': false
+    })
 ////$log configure
 .config(['$logProvider', function($logProvider){
         var isProduction = false;
@@ -23,17 +33,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('TrendicityInterceptor');
     })
-//ENV_config
-.constant('CONFIG_ENV', {
-        //'api_endpoint_base': 'http://localhost:8080/',
-        'api_endpoint_base': DynamicEnvironment.get('api_endpoint_base'),
-        'api_endpoint': DynamicEnvironment.get('api_endpoint_base') + 'td/',
-        'api_version': '0.0.1',
-        //'stomp_uri': 'ws://www.xyz.com:61614/stomp',
-        //'stomp_protocol': 'v11.stomp',
-        'debug': false
-        , 'UPLOAD_FOLDER': 'uploads/'//for image file upload
-    })
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

@@ -59,11 +59,11 @@ public class UserInfoController {
         return new JsonObject(this.userInfoDao.findAll());
     }
 
-//    @RequestMapping(value = "/{id}/status/{value}", method = RequestMethod.PUT)//
-//    @ApiOperation(httpMethod = "PUT", value = "Response a string describing if the alarm status is successfully patched or not.")
-//    public JsonObject patch(@PathVariable("id") long id, @PathVariable("value") int value) {
-//        UserInfo find = this.userInfoDao.findOne(id);
-//        find.setStatus(value);
-//        return new JsonObject(this.userInfoDao.save(find));
-//    }
+    @RequestMapping(value = "/{id}/cid/{value}", method = RequestMethod.PUT)//
+    @ApiOperation(httpMethod = "PUT", value = "Response a string describing if the user consult ID is successfully patched or not.")
+    public JsonObject patch(@PathVariable("id") long id, @PathVariable("value") int value) {
+        UserInfo find = this.userInfoDao.findOne(id);
+        find.setConsultId(value);
+        return new JsonObject(this.userInfoDao.save(find));
+    }
 }

@@ -23,17 +23,41 @@ public class UserInfo implements Serializable {
     private int gender = 1;//1:man,0:women
     private int age;
 
+    public long getConsultId() {
+        return consultId;
+    }
+
+    public void setConsultId(long consultId) {
+        this.consultId = consultId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                ", consultId=" + consultId +
+                ", itemId=" + itemId +
+                '}';
+    }
+
+    public UserInfo(String name, int gender, int age, long consultId, long itemId) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.consultId = consultId;
+        this.itemId = itemId;
+    }
+
+    private long consultId = -1;//consulting ID;
+
     public long getItemId() {
         return itemId;
     }
 
     private long itemId = -1;
-    public UserInfo(String name, int gender, int age, long itemId) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.itemId = itemId;
-    }
 
     public UserInfo() {
     }
@@ -64,17 +88,6 @@ public class UserInfo implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender=" + gender +
-                ", age=" + age +
-                ", itemId=" + itemId +
-                '}';
     }
 
 }

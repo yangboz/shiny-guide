@@ -1,0 +1,33 @@
+{
+  "name": "pubnub-angular",
+  "authors": [
+    { "name": "PubNub", "email": "support@pubnub.com" }
+  ],
+  "description": "Official PubNub AngularJS Package",
+  "main": "dist/pubnub-angular.min.js",
+  "keywords": [
+    "PubNub",
+    "Angular",
+    "AngularJS",
+    "Real",
+    "Time",
+    "WebSocket"
+  ],
+  "homepage": "https://github.com/pubnub/pubnub-angular",
+  "ignore": [
+    "test",
+    ".*",
+    "component.json",
+    "package.json",
+    "karma.*",
+    "pubnub.png"
+  ],
+  "dependencies": {
+    "angular": "^1.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.2.0",
+    "pubnub-v3": "pubnub#3",
+    "pubnub-v4": "pubnub#4"
+  }
+}
