@@ -1,20 +1,22 @@
 angular.module('app.services', ['ngResource'])
 
-.factory('BlankFactory', [function(){
-
-}])
-
-
+//ItemDetailService
+    .factory('ItemDetailService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "item/detail/:id"
+        )
+        return data;
+    })
 //ItemInfoService
     .factory('ItemInfoService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "item"
+            CONFIG_ENV.api_endpoint  + "item/info/:id"
         )
         return data;
     })
 //UpdateItemInfoService
 .factory('UpdateItemInfoService', function ($resource,CONFIG_ENV) {
-    var data = $resource(CONFIG_ENV.api_endpoint + 'item/:Id/detail/:dId', {Id: "@Id",dId:"@dId"}, {
+    var data = $resource(CONFIG_ENV.api_endpoint + 'item/info/:Id/detail/:dId', {Id: "@Id",dId:"@dId"}, {
         update: {method: 'PUT', params: {Id: "@Id",dId:"@dId"}}
     });
     return data;
@@ -22,13 +24,13 @@ angular.module('app.services', ['ngResource'])
 //UserInfoService
 .factory('UserInfoService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "user"
+            CONFIG_ENV.api_endpoint  + "user/:id"
         )
         return data;
 })
 //UpdateUserInfoService
     .factory('UpdateUserInfoService', function ($resource,CONFIG_ENV) {
-        var data = $resource(CONFIG_ENV.api_endpoint + 'id/:Id/cid/:cId', {Id: "@Id",cId:"@cId"}, {
+        var data = $resource(CONFIG_ENV.api_endpoint + 'user/:Id/cid/:cId', {Id: "@Id",cId:"@cId"}, {
             update: {method: 'PUT', params: {Id: "@Id",cId:"@cId"}}
         });
         return data;

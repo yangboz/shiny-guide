@@ -11,7 +11,7 @@
                 <div class="input-label">
                     患者姓名:
                 </div>
-                <select ng-options="item as item.name for item in userInfos track by item.id" ng-model="selectedUserInfo"></select>
+                <select ng-change="setUserInfoSelected(selectedUserInfo)" ng-options="item as item.name for item in userInfos track by item.id" ng-model="selectedUserInfo"></select>
 
                 </select>
             </label>
@@ -27,7 +27,7 @@
                 <div class="input-label">
                     舌诊仪数据:
                 </div>
-                <select ng-options="item as item.name for item in itemInfos track by item.id" ng-model="selectedItemInfo"></select>
+                <select ng-options="item as item.detailId for item in itemInfos track by item.id" ng-model="selectedItemInfo"></select>
 
                 </select>
             </label>
@@ -59,7 +59,7 @@
                 <div class="input-label disabled">
                     处方详情:
                 </div>
-                <select ng-disabled="true" ng-options="item as item.content for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+                <select ng-options="item as item.content for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
 
                 </select>
             </label>

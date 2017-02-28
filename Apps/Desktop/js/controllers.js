@@ -3,7 +3,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
     .controller('MainCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($rootScope,$scope, $stateParams,$ionicModal,$log) {
+        function ($rootScope,$scope, $stateParams,$ionicModal,$log,$ionicPopup) {
            $log.info("MainCtrl...");
             //root scope variables for modal.
             $rootScope.consultModal = null;
@@ -33,8 +33,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         })
 //
 .controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,UpdateItemInfoService,UserInfoService,Enum,Pubnub) {
-
-
+//
 //PubNub
     Pubnub.init({
         publishKey: CONFIG_ENV.pubnub_key,
@@ -42,8 +41,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
     });
     $log.info("CONFIG_ENV:",CONFIG_ENV);
     //ng-model
-    $scope.userInfo = {name:"", gender:1,age:10, itemId: "",itemDetailId:""};
-    $scope.yearsR = "青年";
+    $scope.userInfo = {name:"", gender:1,age:50, itemId: "",itemDetailId:""};
+    $scope.yearsR = "中年";
         //age drag input
         $scope.drag = function(value) {
             $scope.years = Math.floor(value / 12);
@@ -59,25 +58,32 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         //FileUploader,@see:https://github.com/danialfarid/ng-file-upload
         // upload on file select or drop
         $scope.uploadItemInfo = function (file) {
+
+            if(!file){
+                $log.error("None file selected.");
+            }
             Upload.upload({
                 url: CONFIG_ENV.api_endpoint+'upload/timage',
                 data: {file: file}
             }).then(function (resp) {
                 //
-                $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
-                $log.info(resp.data.data);
+                $log.info('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
                 $scope.userInfo.itemId = resp.data.data.id;
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             }, function (evt) {
                 // console.log('evt:'+evt);
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+                //
+                $log.info('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         };
 
         // upload on file select or drop
         $scope.uploadItemDetail = function (file) {
+            if(!file){
+                $log.error("None file selected.");
+            }
             Upload.upload({
                 url: CONFIG_ENV.api_endpoint+'upload/tcsv',
                 data: {file: file}
@@ -110,7 +116,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         }
 
         //CREATE,
-        $scope.saveUserInfo = function () {
+        $scope.createUserInfo = function () {
             //
             console.log($scope.userInfo);
             var anewUserInfo = new UserInfoService();
@@ -122,8 +128,9 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             //Save
             anewUserInfo.$save(function (resp) {
                 $log.info("createUserInfo() success, response:", resp);
-               //prompt consulting
-                $rootScope.consultModal.show();
+               //TODO:auto consulting/recommendation
+                $rootScope.showAlert("成功!");
+
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             });
@@ -167,12 +174,21 @@ function ($scope, $stateParams,$ionicModal) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($rootScope,$scope, $stateParams,$log,$ionicModal,UserInfoService,ItemInfoService,InstructionService,PrescriptionService,ConsultInfoService,UpdateUserInfoService) {
+        //
+            //Select binding
+            $scope.selectedUserInfo = null;
+            $scope.selectedItemInfo= null;
+            $scope.selectedInstruction = null;
+            $scope.selectedPrescription = null;
             //GET
             $scope.loadUserInfos = function () {
 
                 UserInfoService.get({}, function (response) {
-                    $log.debug("UserInfoService.get() success!", response.data);
+                    $log.info("UserInfoService.get() success!", response.data);
                     $rootScope.userInfos = response.data;
+                    //Select binding
+                    $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
+                    $log.debug("selectedUserInfo:",$scope.selectedUserInfo);
                 }, function (error) {
                     // failure handler
                     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
@@ -184,6 +200,9 @@ function ($scope, $stateParams,$ionicModal) {
                 ItemInfoService.get({}, function (response) {
                     $log.debug("ItemInfoService.get() success!", response.data);
                     $rootScope.itemInfos = response.data;
+                    //Select binding
+                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
+                    $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
@@ -191,10 +210,12 @@ function ($scope, $stateParams,$ionicModal) {
             };
             //GET
             $scope.loadInstructions = function () {
-
                 InstructionService.get({}, function (response) {
-                    $log.debug("InstructionService.get() success!", response.data);
+                    $log.info("InstructionService.get() success!", response.data);
                     $rootScope.instructions = response.data;
+                    //Select binding
+                    $scope.selectedInstruction = $rootScope.instructions[0];//Default 0ne.
+                    $log.debug("selectedInstruction:",$scope.selectedInstruction);
                 }, function (error) {
                     // failure handler
                     $log.error("InstructionService.get() failed:", JSON.stringify(error));
@@ -203,8 +224,11 @@ function ($scope, $stateParams,$ionicModal) {
             //GET
             $scope.loadPrescriptions = function () {
                 PrescriptionService.get({}, function (response) {
-                    $log.debug("PrescriptionService.get() success!", response);
+                    $log.info("PrescriptionService.get() success!", response);
                     $rootScope.pescriptions = response.data;
+                    //Select binding
+                    $scope.selectedPrescription = $rootScope.pescriptions[0];//Default 0ne.
+                    $log.debug("selectedPrescription:",$scope.selectedPrescription);
                 }, function (error) {
                     // failure handler
                     $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
@@ -221,23 +245,21 @@ function ($scope, $stateParams,$ionicModal) {
                 $scope.loadInstructions();//FIXME: load a sequence chain.
                 $scope.loadPrescriptions();
             }
-            //Select binding
-            $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
-            $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
-            $scope.selectedInstruction = $rootScope.instructions[0];//Default 0ne.
-            $scope.selectedPrescription = $rootScope.pescriptions[0];//Default 0ne.
             //CREATE
             $scope.createConsultInfo  = function () {
                 //
                 var anewConsultInfo = new ConsultInfoService();
                 $log.info("selectedInstruction:",$scope.selectedInstruction);
                 $log.info("selectedPrescription:",$scope.selectedPrescription);
-                anewConsultInfo.iid = $rootScope.selectedInstruction.id;
-                anewConsultInfo.pid = $rootScope.selectedPrescription.id;
+                anewConsultInfo.iid = $scope.selectedInstruction.id;
+                anewConsultInfo.pid = $scope.selectedPrescription.id;
                 $log.info("anewConsultInfo:",anewConsultInfo);
                 //Save
                 anewConsultInfo.$save(function (resp) {
-                    $log.info("createConsultInfo() success, response:", resp);
+                    $log.info("CREATE ConsultInfoService() success, response:", resp);
+                    var savedConsultId = resp.data.id;
+                    //
+                    $scope.updateUserInfo(savedConsultId);
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
                 });
@@ -245,7 +267,7 @@ function ($scope, $stateParams,$ionicModal) {
            //UPDATE
             $scope.updateUserInfo = function ($cid) {
                 var updateUserInfo = new UpdateUserInfoService();
-                updateUserInfo.$update({"Id":$scope.userInfo.id,"cId":$cid},function (resp) {
+                updateUserInfo.$update({"Id":$scope.selectedUserInfo.id,"cId":$cid},function (resp) {
                     $log.info("updateUserInfo() success, response:", resp);
                     //alert success.
                     $rootScope.showAlert("成功!");
@@ -253,6 +275,37 @@ function ($scope, $stateParams,$ionicModal) {
                     $log.error('Error status: ' + resp.status);
                 });
             };
+            //SELECT change
+            $scope.setUserInfoSelected = function ($selected) {
+                $scope.selectedUserInfo = $selected;//refresh.
+                $log.debug("SELECTED userInfo:",$scope.selectedUserInfo);
+                //drill down the item info for select.
+                ItemInfoService.get({id:$selected.itemId}, function (response) {
+                    $log.debug("ItemInfoService.get(",$selected.itemId,") success!", response.data);
+                    $rootScope.itemInfos = [];
+                    $rootScope.itemInfos.push(response.data);
+                    //Select binding
+                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
+                    $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
+                }, function (error) {
+                    // failure handler
+                    $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
+            $scope.setItemInfoSelected = function () {
+                $log.debug("SELECTED itemInfo's itemDetailId:",$scope.selectedItemInfo.detailId);
+                //drill down the item detail for select.
+                ItemInfoService.get({id:$scope.selectedItemInfo.detailId}, function (response) {
+                    $log.debug("ItemInfoService.get(one) success!", response.data);
+                    $rootScope.itemInfos = response.data;
+                    //Select binding
+                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
+                    $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
+                }, function (error) {
+                    // failure handler
+                    $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
             //
             $log.info("ConsultCtrl initialize...");
             $scope.loadUserAndItemInfos();

@@ -19,16 +19,15 @@
         <div>{{userInfo.age}} 岁 ， {{yearsR}} </div>
       </ion-item>
     </form>
-    <button id="page3-button1" type="file" ngf-select="uploadItemInfo($file)"
-            accept="image/*" ngf-max-height="1000" ngf-max-size="1MB"
+    <button id="page3-button1" type="file" ng-model="itemImgFile" ngf-select="uploadItemInfo($file)"
+            accept="image/*"
             class="button button-dark  button-block icon-left ion-android-star-outline" ng-disabled="!userInfo.name">上传舌像</button>
     <button id="page3-button2" type="file" ngf-select="uploadItemDetail($file)"
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-            ngf-max-height="1000" ngf-max-size="1MB"
             class="button button-dark  button-block icon-left ion-android-star-half" ng-disabled="!userInfo.itemId">上传数据</button>
 
-    <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="saveUserInfo()" ng-disabled="!userInfo.itemDetailId">完成</button>
-    <button id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultModal.show()" >手动巡诊</button>
+    <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="createUserInfo()" ng-disabled="!userInfo.itemDetailId">完成</button>
+    <button id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultModal.show()" >人工巡诊</button>
 
   </ion-content>
 </ion-view>
