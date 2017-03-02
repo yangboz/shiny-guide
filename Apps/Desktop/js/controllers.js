@@ -32,7 +32,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             }
         })
 //
-.controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,UpdateItemInfoService,UserInfoService,Enum,Pubnub) {
+.controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,UpdateItemInfoService,UserInfoService,Enum,Pubnub,RecommendUserService,RecommendItemService) {
 //
 //PubNub
     Pubnub.init({
@@ -128,8 +128,15 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             //Save
             anewUserInfo.$save(function (resp) {
                 $log.info("createUserInfo() success, response:", resp);
+                var anewUserId = resp.data.id;
+                $rootScope.showAlert("采集成功!");
                //TODO:auto consulting/recommendation
-                $rootScope.showAlert("成功!");
+               //  RecommendUserService.get({id:anewUserId}, function (response) {
+               //      $log.debug("RecommendUserService.get(",anewUserId,") success!", response.data);
+               //  }, function (error) {
+               //      // failure handler
+               //      $log.error("RecommendUserService.get() failed:", JSON.stringify(error));
+               //  });
 
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
@@ -270,7 +277,7 @@ function ($scope, $stateParams,$ionicModal) {
                 updateUserInfo.$update({"Id":$scope.selectedUserInfo.id,"cId":$cid},function (resp) {
                     $log.info("updateUserInfo() success, response:", resp);
                     //alert success.
-                    $rootScope.showAlert("成功!");
+                    $rootScope.showAlert("答诊成功!");
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
                 });

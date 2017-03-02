@@ -44,22 +44,13 @@ public class RecommendController {
 
     private static Logger LOG = LogManager.getLogger(RecommendController.class);
 
-    @RequestMapping(value = "user/{id／", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     @ApiOperation(httpMethod = "GET", value = "Response a recommend list describing if the user/item based recommend is successfully get or not.")
     public List<RecommendedItem> getByUser(@PathVariable("id") long id) throws TasteException, IOException {
-        String fileName = null;
+        //
         List<RecommendedItem> recommendations = null;
 
-            //Creating data model
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setServerName(dataBaseSettings.getServer());
-        dataSource.setUser(dataBaseSettings.getUsername());
-        dataSource.setPassword(dataBaseSettings.getPassword());
-        dataSource.setDatabaseName(dataBaseSettings.getDatabase());
-        JDBCDataModel datamodel = new MySQLJDBCDataModel(dataSource,
-                "taste_preferences", "user_id", "item_id", "preference", null);
-
-            MahoutUtils.userCF(datamodel);
+        MahoutUtils.userCF(this.getJDBCDataModel());
 
         return recommendations;
     }
@@ -68,15 +59,23 @@ public class RecommendController {
     @ApiOperation(httpMethod = "GET", value = "Response a recommend list describing if the user/item based recommend is successfully get or not.")
     public List<RecommendedItem> getByItem(@PathVariable("id") long id) throws IOException, TasteException {
 
-        String fileName = null;
         List<RecommendedItem> recommendations = null;
 
-        //Creating data model
-        DataModel datamodel = new FileDataModel(new File(fileName)); //data
-//
-        MahoutUtils.itemCF(datamodel);
+        MahoutUtils.userCF(this.getJDBCDataModel());
 
         return recommendations;
+    }
+
+    private JDBCDataModel getJDBCDataModel(){
+        //Creating data model
+        MysqlDataSource dataSource = new MysqlDataSource();
+        dataSource.setServerName(dataBaseSettings.getServer());
+        dataSource.setUser(dataBaseSettings.getUsername());
+        dataSource.setPassword(dataBaseSettings.getPassword());
+        dataSource.setDatabaseName(dataBaseSettings.getDatabase());
+        JDBCDataModel datamodel = new MySQLJDBCDataModel(dataSource,
+                "user_info", "id", "item_id", "consult_id", null);
+        return datamodel;
     }
 
 

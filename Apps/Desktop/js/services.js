@@ -1,5 +1,18 @@
 angular.module('app.services', ['ngResource'])
-
+//RecommendItemService
+    .factory('RecommendItemService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "recommend/item/:id"
+        )
+        return data;
+    })
+//RecommendUserService
+    .factory('RecommendUserService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "recommend/user/:id"
+        )
+        return data;
+    })
 //ItemDetailService
     .factory('ItemDetailService', function ($resource,CONFIG_ENV) {
         var data = $resource(
