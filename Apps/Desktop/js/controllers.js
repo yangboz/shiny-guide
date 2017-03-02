@@ -6,20 +6,30 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         function ($rootScope,$scope, $stateParams,$ionicModal,$log,$ionicPopup) {
            $log.info("MainCtrl...");
             //root scope variables for modal.
-            $rootScope.consultModal = null;
+            $rootScope.consultingModal = null;
             $rootScope.userInfos = [];
             $rootScope.itemInfos = [];
             $rootScope.instructions = [];
             $rootScope.pescriptions = [];
+            $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
             //ConsultModal
-            $ionicModal.fromTemplateUrl('templates/modal-consult.html', {
+            $ionicModal.fromTemplateUrl('templates/modal-consulting.html', {
                 scope: $scope,
                 backdropClickToClose: false
             }).then(function (modal) {
 //        console.log("modal-login.html init!!!");
-                $rootScope.consultModal = modal;
+                $rootScope.consultingModal = modal;
                 //
             });
+            $rootScope.consultingAutoModal = null;
+            $ionicModal.fromTemplateUrl('templates/modal-consulting-auto.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.consultingAutoModal = modal;
+            });
+
+            //
             $rootScope.showAlert = function($msg) {
                 var alertPopup = $ionicPopup.alert({
                     title: $msg
@@ -32,7 +42,9 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             }
         })
 //
-.controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,UpdateItemInfoService,UserInfoService,Enum,Pubnub,RecommendUserService,RecommendItemService) {
+.controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,
+                                   UpdateItemInfoService,UserInfoService,Enum,Pubnub,
+                                   RecommendUserService,RecommendItemService,DiagnosisService) {
 //
 //PubNub
     Pubnub.init({
@@ -115,6 +127,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             $scope.userInfo.gender = type.data;
         }
 
+        $scope.savedUserID = 0;
         //CREATE,
         $scope.createUserInfo = function () {
             //
@@ -127,60 +140,61 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             //return $log.debug("createItem(),$scope.newItem:", anewItem);
             //Save
             anewUserInfo.$save(function (resp) {
-                $log.info("createUserInfo() success, response:", resp);
-                var anewUserId = resp.data.id;
+                $log.info("createUserInfo("+$scope.savedUserID+") success, response:", resp);
+                $scope.savedUserID = resp.data.id;
                 $rootScope.showAlert("采集成功!");
-               //TODO:auto consulting/recommendation
-               //  RecommendUserService.get({id:anewUserId}, function (response) {
-               //      $log.debug("RecommendUserService.get(",anewUserId,") success!", response.data);
-               //  }, function (error) {
-               //      // failure handler
-               //      $log.error("RecommendUserService.get() failed:", JSON.stringify(error));
-               //  });
+               //Auto diagnosis
+                DiagnosisService.get({id:$scope.savedUserID}, function (response) {
+                    $log.debug("DiagnosisService.get("+$scope.savedUserID+") success!", response);
+                    //
+                    $rootScope.consultInfofull = response;
+                    //
+                    $rootScope.consultingAutoModal.show();
+                }, function (error) {
+                    // failure handler
+                    $log.error("DiagnosisService.get() failed:", JSON.stringify(error));
+                });
 
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             });
         }
 })
+
+    .controller('page4Ctrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+        function ($scope, $stateParams,$ionicModal) {
+            $scope.items = [
+                {
+                    "id": 1,
+                    "name": "专家指导"
+                },
+                {
+                    "id": 2,
+                    "name": "专家指导"
+                },
+                {
+                    "id": 3,
+                    "name": "专家指导"
+                }
+            ];
+        })
    
-.controller('page4Ctrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('ConsultingAutoCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,$ionicModal) {
-    $scope.items = [
-        {
-            "id": 1,
-            "name": "专家指导"
-        },
-        {
-            "id": 2,
-            "name": "专家指导"
-        },
-        {
-            "id": 3,
-            "name": "专家指导"
-        }
-    ];
-    $scope.modal = null;
-    $ionicModal.fromTemplateUrl('templates/detail.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function(modal) {
-        $scope.modal = modal;
-    });
-    $scope.closeModal = function() {
-        $scope.modal.hide();
-    };
-    $scope.getdetails = function(id){
-        $scope.currentItem = id;
-        $scope.modal.show();
-    };
+
+function ($scope, $stateParams,$ionicModal,$log) {
+    $log.info("ConsultingAutoCtrl init...");
 })
-    .controller('ConsultCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    .controller('ConsultingCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($rootScope,$scope, $stateParams,$log,$ionicModal,UserInfoService,ItemInfoService,InstructionService,PrescriptionService,ConsultInfoService,UpdateUserInfoService) {
+        function ($rootScope,$scope, $stateParams,$log,$ionicModal,
+                  UserInfoService,ItemInfoService,
+                  InstructionService,PrescriptionService,
+                  ConsultInfoService,UpdateUserInfoService) {
         //
             //Select binding
             $scope.selectedUserInfo = null;

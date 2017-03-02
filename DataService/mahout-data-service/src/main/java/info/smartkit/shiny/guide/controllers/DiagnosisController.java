@@ -12,6 +12,7 @@ import info.smartkit.shiny.guide.vo.EInstruction;
 import info.smartkit.shiny.guide.vo.ItemDetail;
 import info.smartkit.shiny.guide.vo.MPrescription;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.mahout.cf.taste.common.TasteException;
@@ -69,7 +70,6 @@ public class DiagnosisController {
         try{
             long findUserId = userInfoDao.findOne(id).getId();
         }catch (NullPointerException ex){
-
         }
 
         //

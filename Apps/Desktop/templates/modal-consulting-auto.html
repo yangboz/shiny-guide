@@ -1,0 +1,31 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header" ng-controller="ConsultingAutoCtrl">
+        <h1 class="title">专家健康指导</h1>
+        <button class="button button-icon icon ion-close" ng-click="$root.consultingAutoModal.hide()"></button>
+    </ion-header-bar>
+
+    <ion-content class="has-header">
+        <div class="item  item-divider">
+
+        </div>
+        <div class="list">
+            <div class="item item-divider">
+                #健康指导：
+            </div>
+
+            <a class="item item-avatar" href="#">
+                <h2>{{$root.consultInfofull.eInstruction.name}}</h2>
+                <p>{{$root.consultInfofull.eInstruction.content}}</p>
+            </a>
+
+            <div class="item item-divider">
+                ##药物处方：
+            </div>
+            <a class="item item-avatar" href="#">
+
+                <h2>{{$root.consultInfofull.mPrescription.name}}</h2>
+                <p>{{$root.consultInfofull.mPrescription.content}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-modal-view>

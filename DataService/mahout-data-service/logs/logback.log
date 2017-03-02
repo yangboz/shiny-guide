@@ -15848,3 +15848,418 @@ java.lang.NullPointerException
 	at java.lang.Thread.run(Thread.java:745)
 
 2017-03-02 18:28:59.062  INFO 92814 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c6908d7: startup date [Thu Mar 02 18:14:44 CST 2017]; root of context hierarchy
+2017-03-02 21:21:17.738  INFO 95547 --- [main] i.s.s.g.DataServiceApplication           : Starting DataServiceApplication on localhost with PID 95547 (/Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes started by smartkit in /Users/smartkit/git/shiny-guide/DataService/mahout-data-service)
+2017-03-02 21:21:17.863  INFO 95547 --- [main] i.s.s.g.DataServiceApplication           : No active profile set, falling back to default profiles: default
+2017-03-02 21:21:18.656  INFO 95547 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b2bac3f: startup date [Thu Mar 02 21:21:18 CST 2017]; root of context hierarchy
+2017-03-02 21:21:30.497  INFO 95547 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2017-03-02 21:21:32.323  INFO 95547 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c5d899f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-02 21:21:33.972  INFO 95547 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-03-02 21:21:34.038  INFO 95547 --- [main] o.a.c.c.StandardService                  : Starting service Tomcat
+2017-03-02 21:21:34.041  INFO 95547 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.0.30
+2017-03-02 21:21:34.561  INFO 95547 --- [localhost-startStop-1] o.a.c.c.C.[.[.[/td]                      : Initializing Spring embedded WebApplicationContext
+2017-03-02 21:21:34.562  INFO 95547 --- [localhost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 16133 ms
+2017-03-02 21:21:35.804  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-02 21:21:35.831  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-02 21:21:35.831  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-03-02 21:21:35.831  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-03-02 21:21:35.832  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2017-03-02 21:21:35.832  INFO 95547 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'simpleCORSFilter' to: [/*]
+2017-03-02 21:21:36.168  INFO 95547 --- [localhost-startStop-1] o.a.c.u.SessionIdGeneratorBase           : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [215] milliseconds.
+2017-03-02 21:21:36.887  INFO 95547 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-02 21:21:36.949  INFO 95547 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-02 21:21:37.272  INFO 95547 --- [main] o.h.Version                              : HHH000412: Hibernate Core {4.3.11.Final}
+2017-03-02 21:21:37.276  INFO 95547 --- [main] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2017-03-02 21:21:37.279  INFO 95547 --- [main] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2017-03-02 21:21:37.986  INFO 95547 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-03-02 21:21:40.355  INFO 95547 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-02 21:21:40.594  INFO 95547 --- [main] o.h.h.i.a.ASTQueryTranslatorFactory      : HHH000397: Using ASTQueryTranslatorFactory
+2017-03-02 21:21:41.400  INFO 95547 --- [main] o.h.t.h.SchemaUpdate                     : HHH000228: Running hbm2ddl schema update
+2017-03-02 21:21:41.400  INFO 95547 --- [main] o.h.t.h.SchemaUpdate                     : HHH000102: Fetching database metadata
+2017-03-02 21:21:41.404  INFO 95547 --- [main] o.h.t.h.SchemaUpdate                     : HHH000396: Updating schema
+2017-03-02 21:21:41.514  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.consult_info
+2017-03-02 21:21:41.515  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [iid, pid, id]
+2017-03-02 21:21:41.515  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.515  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.603  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.einstruction
+2017-03-02 21:21:41.603  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-02 21:21:41.604  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.604  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.713  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_detail
+2017-03-02 21:21:41.713  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [rgbb, dianci, shese, houbao, hsvh, q1_3r, rgbg, runzao, zzzd, njzd, liewen, blzd, id, jieguo, taizhi, q1_2, q2_1, labell, yuban, rgbr, pangshou, q1_3y, botai, shexing, chihen, hsvs, funi, hsvv, labela, labelb, taise]
+2017-03-02 21:21:41.713  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.713  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.798  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_info
+2017-03-02 21:21:41.798  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, timage, detail_id, content]
+2017-03-02 21:21:41.798  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.798  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.881  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.mprescription
+2017-03-02 21:21:41.881  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-02 21:21:41.881  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.881  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.967  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.user_info
+2017-03-02 21:21:41.967  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [consult_id, gender, tcsv, item_id, name, id, timage, age]
+2017-03-02 21:21:41.968  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-02 21:21:41.968  INFO 95547 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-02 21:21:41.970  INFO 95547 --- [main] o.h.t.h.SchemaUpdate                     : HHH000232: Schema update complete
+2017-03-02 21:21:45.606  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.get(long)
+2017-03-02 21:21:45.609  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.delete(long)
+2017-03-02 21:21:45.609  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.list()
+2017-03-02 21:21:45.610  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.create(info.smartkit.shiny.guide.vo.ConsultInfo)
+2017-03-02 21:21:45.610  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}/iid/{iid}/pid/{pid}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.patch(long,int,int)
+2017-03-02 21:21:45.611  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/diagnosis/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.ConsultInfoFull info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(long) throws java.lang.Exception
+2017-03-02 21:21:45.627  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.get(long)
+2017-03-02 21:21:45.627  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.delete(long)
+2017-03-02 21:21:45.628  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.list()
+2017-03-02 21:21:45.628  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.create(info.smartkit.shiny.guide.vo.EInstruction)
+2017-03-02 21:21:45.630  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.get(long)
+2017-03-02 21:21:45.630  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.delete(long)
+2017-03-02 21:21:45.634  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.list()
+2017-03-02 21:21:45.639  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.create(info.smartkit.shiny.guide.vo.ItemDetail)
+2017-03-02 21:21:45.645  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.get(long)
+2017-03-02 21:21:45.646  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.delete(long)
+2017-03-02 21:21:45.647  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.list()
+2017-03-02 21:21:45.647  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.create(info.smartkit.shiny.guide.vo.ItemInfo)
+2017-03-02 21:21:45.647  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}/detail/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.patch(long,int)
+2017-03-02 21:21:45.652  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.get(long)
+2017-03-02 21:21:45.652  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.delete(long)
+2017-03-02 21:21:45.652  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.list()
+2017-03-02 21:21:45.653  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.create(info.smartkit.shiny.guide.vo.MPrescription)
+2017-03-02 21:21:45.654  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/item/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByItem(long) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-02 21:21:45.656  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/user/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByUser(long) throws org.apache.mahout.cf.taste.common.TasteException,java.io.IOException
+2017-03-02 21:21:45.662  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/recommend],methods=[POST],consumes=[multipart/form-data]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.UploadController.TDFileUpload(org.springframework.web.multipart.MultipartFile) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-02 21:21:45.662  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/tcsv],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TCsvFileUpload(org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+2017-03-02 21:21:45.663  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/timage],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TImageFileUpload(org.springframework.web.multipart.MultipartFile)
+2017-03-02 21:21:45.670  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.get(long)
+2017-03-02 21:21:45.672  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.delete(long)
+2017-03-02 21:21:45.672  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.list()
+2017-03-02 21:21:45.673  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.create(info.smartkit.shiny.guide.vo.UserInfo)
+2017-03-02 21:21:45.673  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}/cid/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.patch(long,int)
+2017-03-02 21:21:45.674  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-03-02 21:21:45.678  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-03-02 21:21:45.680  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-03-02 21:21:45.682  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-03-02 21:21:45.688  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-02 21:21:45.689  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-02 21:21:46.665  INFO 95547 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b2bac3f: startup date [Thu Mar 02 21:21:18 CST 2017]; root of context hierarchy
+2017-03-02 21:21:46.829  INFO 95547 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-02 21:21:46.829  INFO 95547 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-02 21:21:46.829  INFO 95547 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/uploads/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-02 21:21:46.829  INFO 95547 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-02 21:21:46.992  INFO 95547 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-02 21:21:47.699  INFO 95547 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-03-02 21:21:47.723  INFO 95547 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-03-02 21:21:47.799  INFO 95547 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-03-02 21:21:47.819  INFO 95547 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-03-02 21:21:48.496  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2017-03-02 21:21:48.516  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2017-03-02 21:21:48.525  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_1
+2017-03-02 21:21:48.531  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_1
+2017-03-02 21:21:48.566  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2017-03-02 21:21:48.579  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2017-03-02 21:21:48.596  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_2
+2017-03-02 21:21:48.606  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_2
+2017-03-02 21:21:48.617  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2017-03-02 21:21:48.628  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2017-03-02 21:21:48.635  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_3
+2017-03-02 21:21:48.643  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_3
+2017-03-02 21:21:48.654  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_1
+2017-03-02 21:21:48.667  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2017-03-02 21:21:48.681  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2017-03-02 21:21:48.696  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_4
+2017-03-02 21:21:48.705  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_4
+2017-03-02 21:21:48.781  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByUserUsingGET_1
+2017-03-02 21:21:48.874  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2017-03-02 21:21:48.886  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_5
+2017-03-02 21:21:48.896  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_5
+2017-03-02 21:21:48.906  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_5
+2017-03-02 21:21:48.960  INFO 95547 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_2
+2017-03-02 21:21:49.272  INFO 95547 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-03-02 21:21:49.295  INFO 95547 --- [main] i.s.s.g.DataServiceApplication           : Started DataServiceApplication in 40.608 seconds (JVM running for 60.858)
+2017-03-02 21:22:28.573  INFO 95547 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/td]                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-02 21:22:28.601  INFO 95547 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-02 21:22:28.675  INFO 95547 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 74 ms
+2017-03-02 21:25:29.390  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 21:25:29.567  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 21:35:54.148  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-21-35-54-121.jpg
+2017-03-02 21:35:54.149  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-21-35-54-121.jpg
+2017-03-02 21:35:54.326  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=6, name='2017-03-02-21-35-54-121.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-21-35-54-121.jpg', detailId=-1}
+2017-03-02 21:36:03.270  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-21-36-03-269.xlsx
+2017-03-02 21:36:05.039  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:36:05.146  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=6, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:38:19.182  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 21:38:19.188  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 21:41:12.922  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-21-41-12-921.jpg
+2017-03-02 21:41:12.922  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-21-41-12-921.jpg
+2017-03-02 21:41:13.007  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=7, name='2017-03-02-21-41-12-921.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-21-41-12-921.jpg', detailId=-1}
+2017-03-02 21:41:19.186  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-21-41-19-186.xlsx
+2017-03-02 21:41:19.457  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:41:19.543  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=7, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:41:22.134  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 21:41:22.148  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 21:51:02.245  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-21-51-02-244.jpg
+2017-03-02 21:51:02.245  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-21-51-02-244.jpg
+2017-03-02 21:51:02.333  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=8, name='2017-03-02-21-51-02-244.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-21-51-02-244.jpg', detailId=-1}
+2017-03-02 21:51:08.126  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-21-51-08-125.xlsx
+2017-03-02 21:51:08.359  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:51:08.449  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=8, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 21:51:11.182  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 21:51:11.189  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:30:16.005  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-30-15-991.jpg
+2017-03-02 22:30:16.032  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-30-15-991.jpg
+2017-03-02 22:30:16.131  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=9, name='2017-03-02-22-30-15-991.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-30-15-991.jpg', detailId=-1}
+2017-03-02 22:30:21.391  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-30-21-390.xlsx
+2017-03-02 22:30:21.533  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:30:21.631  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=9, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:30:23.821  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:30:23.830  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:34:24.732  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-34-24-731.jpg
+2017-03-02 22:34:24.732  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-34-24-731.jpg
+2017-03-02 22:34:24.827  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=10, name='2017-03-02-22-34-24-731.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-34-24-731.jpg', detailId=-1}
+2017-03-02 22:34:30.955  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-34-30-955.xlsx
+2017-03-02 22:34:31.009  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:34:31.102  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=10, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:34:33.582  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:34:33.588  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:37:26.196  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-37-26-195.jpg
+2017-03-02 22:37:26.196  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-37-26-195.jpg
+2017-03-02 22:37:26.278  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=11, name='2017-03-02-22-37-26-195.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-37-26-195.jpg', detailId=-1}
+2017-03-02 22:37:31.447  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-37-31-446.xlsx
+2017-03-02 22:37:31.492  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:37:31.576  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=11, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:37:34.889  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:37:34.897  INFO 95547 --- [http-nio-8080-exec-5] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:40:29.342  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-40-29-341.jpg
+2017-03-02 22:40:29.342  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-40-29-341.jpg
+2017-03-02 22:40:29.429  INFO 95547 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=12, name='2017-03-02-22-40-29-341.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-40-29-341.jpg', detailId=-1}
+2017-03-02 22:40:33.247  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-40-33-247.xlsx
+2017-03-02 22:40:33.297  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:40:33.394  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=12, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:40:35.035  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:40:35.044  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:44:26.588  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-44-26-588.jpg
+2017-03-02 22:44:26.588  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-44-26-588.jpg
+2017-03-02 22:44:26.681  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=13, name='2017-03-02-22-44-26-588.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-44-26-588.jpg', detailId=-1}
+2017-03-02 22:44:31.968  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-44-31-967.xlsx
+2017-03-02 22:44:32.007  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:44:32.102  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=13, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:44:34.084  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:44:34.090  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:49:32.543  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-49-32-542.jpg
+2017-03-02 22:49:32.543  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-49-32-542.jpg
+2017-03-02 22:49:32.629  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=14, name='2017-03-02-22-49-32-542.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-49-32-542.jpg', detailId=-1}
+2017-03-02 22:49:38.174  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-49-38-174.xlsx
+2017-03-02 22:49:38.273  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:49:38.355  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=14, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:49:40.134  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:49:40.143  INFO 95547 --- [http-nio-8080-exec-3] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 22:56:06.380  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-22-56-06-380.jpg
+2017-03-02 22:56:06.381  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-22-56-06-380.jpg
+2017-03-02 22:56:06.466  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=15, name='2017-03-02-22-56-06-380.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-22-56-06-380.jpg', detailId=-1}
+2017-03-02 22:56:11.827  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-22-56-11-826.xlsx
+2017-03-02 22:56:11.930  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:56:12.030  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=15, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 22:56:13.792  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 22:56:13.799  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 23:01:52.199  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-23-01-52-198.jpg
+2017-03-02 23:01:52.199  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-23-01-52-198.jpg
+2017-03-02 23:01:52.291  INFO 95547 --- [http-nio-8080-exec-1] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=16, name='2017-03-02-23-01-52-198.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-23-01-52-198.jpg', detailId=-1}
+2017-03-02 23:01:55.968  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-23-01-55-967.xlsx
+2017-03-02 23:01:56.204  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:01:56.297  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=16, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:01:57.799  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 23:01:57.807  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 23:04:17.425  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-23-04-17-424.jpg
+2017-03-02 23:04:17.425  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-23-04-17-424.jpg
+2017-03-02 23:04:17.510  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=17, name='2017-03-02-23-04-17-424.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-23-04-17-424.jpg', detailId=-1}
+2017-03-02 23:04:21.606  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-23-04-21-606.xlsx
+2017-03-02 23:04:21.679  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:04:21.806  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=17, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:04:23.592  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 23:04:23.599  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 23:05:13.563  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-23-05-13-563.jpg
+2017-03-02 23:05:13.564  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-23-05-13-563.jpg
+2017-03-02 23:05:13.651  INFO 95547 --- [http-nio-8080-exec-2] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=18, name='2017-03-02-23-05-13-563.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-23-05-13-563.jpg', detailId=-1}
+2017-03-02 23:05:18.280  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-23-05-18-280.xlsx
+2017-03-02 23:05:18.425  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:05:18.536  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=18, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:05:19.906  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 23:05:19.917  INFO 95547 --- [http-nio-8080-exec-10] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 23:06:55.033  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-23-06-55-016.jpg
+2017-03-02 23:06:55.033  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-23-06-55-016.jpg
+2017-03-02 23:06:55.124  INFO 95547 --- [http-nio-8080-exec-6] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=19, name='2017-03-02-23-06-55-016.jpg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-23-06-55-016.jpg', detailId=-1}
+2017-03-02 23:06:59.887  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-23-06-59-886.xlsx
+2017-03-02 23:06:59.930  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:07:00.016  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=19, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-02 23:07:01.701  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 正常
+pathology: 正常鳞状上皮
+endoscope: null
+Consult ID: 0
+product: 舌淡紫，苔薄白腻, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: 正常鳞状上皮, price: 65, qty: 1
+product: 正常, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 23:07:01.720  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : consultId:2
+2017-03-02 23:09:46.296  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-02-23-09-46-295.jpeg
+2017-03-02 23:09:46.296  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-02-23-09-46-295.jpeg
+2017-03-02 23:09:46.381  INFO 95547 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=20, name='2017-03-02-23-09-46-295.jpeg', timage='http://118.190.3.169/td/uploads/timage/2017-03-02-23-09-46-295.jpeg', detailId=-1}
+2017-03-02 23:09:52.652  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-02-23-09-52-651.xlsx
+2017-03-02 23:09:52.683  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='null', zzzd='炎症贲门', houbao='薄|1.21', funi='-|0.00', runzao='腻，中根|1.76', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='有裂纹|3.00', yuban='无瘀斑|0.00', taizhi='薄|1.21，-|0.00，腻，中根|1.76，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，有裂纹|3.00，无瘀斑|0.00', shese='舌暗红， 舌边尖红', taise='苔白', jieguo='舌暗红， 舌边尖红，苔薄白腻，有裂纹', rgbR='118.469999999999998863131622783839702606201171875', rgbG='118.469999999999998863131622783839702606201171875', rgbB='82.93000000000000682121026329696178436279296875', hsvH='359.009999999999990905052982270717620849609375', hsvS='0.299999999999999988897769753748434595763683319091796875', hsvV='118.469999999999998863131622783839702606201171875', labelL='null', labelA='null', labelB='null', q1_2='2', q1_3r='9', q1_3y='60000', q2_1='1', products=null}
+2017-03-02 23:09:52.776  INFO 95547 --- [http-nio-8080-exec-9] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=20, njzd='null', blzd='null', zzzd='炎症贲门', houbao='薄|1.21', funi='-|0.00', runzao='腻，中根|1.76', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='有裂纹|3.00', yuban='无瘀斑|0.00', taizhi='薄|1.21，-|0.00，腻，中根|1.76，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，有裂纹|3.00，无瘀斑|0.00', shese='舌暗红， 舌边尖红', taise='苔白', jieguo='舌暗红， 舌边尖红，苔薄白腻，有裂纹', rgbR='118.469999999999998863131622783839702606201171875', rgbG='118.469999999999998863131622783839702606201171875', rgbB='82.93000000000000682121026329696178436279296875', hsvH='359.009999999999990905052982270717620849609375', hsvS='0.299999999999999988897769753748434595763683319091796875', hsvV='118.469999999999998863131622783839702606201171875', labelL='null', labelA='null', labelB='null', q1_2='2', q1_3r='9', q1_3y='60000', q2_1='1', products=null}
+2017-03-02 23:09:54.871  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : new customer:Customer ultimate? 炎症贲门
+pathology: null
+endoscope: null
+Consult ID: 0
+product: 舌暗红， 舌边尖红，苔薄白腻，有裂纹, price: 1, qty: 1
+product: null, price: 35, qty: 1
+product: null, price: 65, qty: 1
+product: 炎症贲门, price: 85, qty: 1
+Discount: 0.0
+Total: 186
+Total After Discount: 186.0
+2017-03-02 23:09:54.881  INFO 95547 --- [http-nio-8080-exec-4] i.s.s.g.c.RecommendController            : consultId:6
+2017-03-02 23:10:44.951  INFO 95547 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b2bac3f: startup date [Thu Mar 02 21:21:18 CST 2017]; root of context hierarchy

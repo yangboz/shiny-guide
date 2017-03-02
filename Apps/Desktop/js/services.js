@@ -1,4 +1,11 @@
 angular.module('app.services', ['ngResource'])
+//DiagnosisService
+    .factory('DiagnosisService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "diagnosis/user/:id"
+        )
+        return data;
+    })
 //RecommendItemService
     .factory('RecommendItemService', function ($resource,CONFIG_ENV) {
         var data = $resource(
