@@ -3,12 +3,14 @@ package info.smartkit.shiny.guide.controllers;
 import com.javacodegeeks.drools.model.Customer;
 import com.javacodegeeks.drools.model.Product;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import info.smartkit.shiny.guide.dao.ItemDetailDao;
-import info.smartkit.shiny.guide.dao.ItemInfoDao;
-import info.smartkit.shiny.guide.dao.UserInfoDao;
+import info.smartkit.shiny.guide.dao.*;
+import info.smartkit.shiny.guide.dto.ConsultInfoFull;
 import info.smartkit.shiny.guide.settings.DataBaseSettings;
 import info.smartkit.shiny.guide.utils.MahoutUtils;
+import info.smartkit.shiny.guide.vo.ConsultInfo;
+import info.smartkit.shiny.guide.vo.EInstruction;
 import info.smartkit.shiny.guide.vo.ItemDetail;
+import info.smartkit.shiny.guide.vo.MPrescription;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,7 +48,13 @@ public class DiagnosisController {
     private UserInfoDao userInfoDao;
 
     @Autowired
-    private ItemInfoDao itemInfoDao;
+    private MPrescriptionDao mPrescriptionDao;
+
+    @Autowired
+    private EInstructionDao eInstructionDao;
+
+    @Autowired
+    private ConsultInfoDao consultInfoDao;
 
     @Autowired
     private ItemDetailDao itemDetailDao;
@@ -56,37 +64,44 @@ public class DiagnosisController {
     private static StatelessKnowledgeSession session;
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
-    @ApiOperation(httpMethod = "GET", value = "Response a diagnosis describing if the user's diagnosis  is successfully get or not.")
-    public String getByUser(@PathVariable("id") long id) throws Exception {
-        //
+    @ApiOperation(httpMethod = "GET", value = "Response a consult info fully describing if the user's diagnosis is successfully get or not.")
+    public ConsultInfoFull getByUser(@PathVariable("id") long id) throws Exception {
+        try{
+            long findUserId = userInfoDao.findOne(id).getId();
+        }catch (NullPointerException ex){
 
+        }
+
+        //
         KnowledgeBase knowledgeBase = createKnowledgeBaseFromSpreadsheet();
         session = knowledgeBase.newStatelessKnowledgeSession();
 
-//        Customer customer = new Customer();
-//        ItemDetail findOne = itemDetailDao.findOne(id);
-//        customer.addItems(findOne.getProducts());
-//        customer.setCoupon("DISC01");
-//        session.execute(customer);
 //
-//        return ("First Customer\n" + customer);
-
-//        Customer customer = Customer.newCustomer();
-//        ItemDetail findOne = itemDetailDao.findOne(id);
-//        customer.addItems(findOne.getProducts());
-//        customer.setCoupon("DISC01");
-//        session.execute(customer);
-//
-//        return ("First Customer\n" + customer);
         Customer customer = Customer.newCustomer();
         ItemDetail findOne = itemDetailDao.findOne(id);
         customer.addItems(findOne.getProducts());
+        //hard-code for testing.
         customer.setUltimate(findOne.getZzzd());
+        customer.setPathology(findOne.getBlzd());
+        customer.setEndoscope(findOne.getNjzd());
+        LOG.info("new customer:"+customer.toString());
         session.execute(customer);
-
-        return ("First Customer\n" + customer);
         //
-
+        ConsultInfoFull consultInfoFull  = null;
+        try {
+            long consultId = customer.getConsult();
+            LOG.info("consultId:"+consultId);
+            ConsultInfo find = consultInfoDao.findOne(consultId);
+            //FIXME:join table to select.
+            long instructionId = find.getIid();
+            EInstruction eInstruction = eInstructionDao.findOne(instructionId);
+            long prescriptionId = find.getPid();
+            MPrescription mPrescription = mPrescriptionDao.findOne(prescriptionId);
+            consultInfoFull = new ConsultInfoFull(eInstruction, mPrescription);
+        }catch (NullPointerException ex){
+            ////out of inference,turn to recommendation
+        }
+        return consultInfoFull;
     }
 
     private static KnowledgeBase createKnowledgeBaseFromSpreadsheet()

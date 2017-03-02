@@ -78,7 +78,7 @@ public class Customer {
 		.append(pathology)
 		.append("\nendoscope: ")
 		.append(endoscope)
-		   .append("\nConsult: ")
+		   .append("\nConsult ID: ")
 		   .append(consult)
 		   .append("\n")
 		   .append(cart);
