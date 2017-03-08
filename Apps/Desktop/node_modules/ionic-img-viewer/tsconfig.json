@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "files": [
+    "ionic-img-viewer.ts",
+    "src/image-viewer.ts",
+    "src/image-viewer.component.ts",
+    "src/image-viewer.directive.ts",
+    "src/image-viewer.ts",
+    "src/image-viewer-transition-gesture.ts",
+    "src/image-viewer-zoom-gesture.ts",
+    "src/image-viewer-transitions.ts",
+    "src/module.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}

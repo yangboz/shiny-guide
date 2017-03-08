@@ -30,6 +30,7 @@
     "angular-file-upload": "^2.5.0",
     "electron": "^1.4.15",
     "electron-packager": "^8.5.1",
+    "ionic-img-viewer": "^1.2.2",
     "pubnub": "^4.4.4",
     "pubnub-angular": "^4.0.2"
   }

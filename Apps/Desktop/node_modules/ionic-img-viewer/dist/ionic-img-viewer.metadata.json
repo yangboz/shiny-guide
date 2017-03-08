@@ -1,0 +1,1 @@
+{"__symbolic":"module","version":1,"metadata":{},"exports":[{"from":"./src/module","export":["IonicImageViewerModule"]},{"from":"./src/image-viewer.component","export":["ImageViewerComponent"]},{"from":"./src/image-viewer.directive","export":["ImageViewerDirective"]}]}

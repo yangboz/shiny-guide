@@ -1,0 +1,22 @@
+<ion-modal-view ng-controller="NewPrescriptionCtrl" ng-init="">
+    <ion-header-bar class="bar bar-header">
+        <h1 class="title">新处方</h1>
+
+        <button class="button button-icon icon ion-close" ng-click="$root.newPrescriptionModal.hide()"></button>
+
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form id="page3-form1" class="list">
+            <label class="item item-input" id="page3-input1" >
+                <span class="input-label">处方名：</span>
+                <input type="text" placeholder="请输入处方名" data-ng-model="newPrescription.name">
+            </label>
+
+            <label class="item item-input" id="page3-input2" >
+                <span class="input-label">处方内容：</span>
+                <input type="text" placeholder="请输入处方内容" data-ng-model="newPrescription.content">
+            </label>
+        </form>
+        <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="createPrescription()" ng-disabled="!newPrescription.name&&!newPrescription.content">保存</button>
+    </ion-content>
+</ion-modal-view>

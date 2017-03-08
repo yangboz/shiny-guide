@@ -28,7 +28,24 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             }).then(function(modal) {
                 $rootScope.consultingAutoModal = modal;
             });
-
+            //NewInstructionModal
+            $rootScope.newInstructionModal = null;
+            $ionicModal.fromTemplateUrl('templates/modal-instruction-new.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.newInstructionModal = modal;
+                // console.log(" $rootScope.newInstructionModal:"+ $rootScope.newInstructionModal);
+            });
+            //PrescriptionModal
+            $rootScope.newPrescriptionModal = null;
+            $ionicModal.fromTemplateUrl('templates/modal-prescription-new.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.newPrescriptionModal = modal;
+                // console.log(" $rootScope.newPrescriptionModal:"+ $rootScope.newPrescriptionModal);
+            });
             //
             $rootScope.showAlert = function($msg) {
                 var alertPopup = $ionicPopup.alert({
@@ -43,7 +60,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         })
 //
 .controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,
-                                   UpdateItemInfoService,UserInfoService,Enum,Pubnub,
+                                   UpdateItemInfoService,UserInfoService,Enum,Pubnub,$timeout,
                                    RecommendUserService,RecommendItemService,DiagnosisService) {
 //
 //PubNub
@@ -192,7 +209,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($rootScope,$scope, $stateParams,$log,$ionicModal,
-                  UserInfoService,ItemInfoService,
+                  UserInfoService,ItemInfoService,ItemDetailService,
                   InstructionService,PrescriptionService,
                   ConsultInfoService,UpdateUserInfoService) {
         //
@@ -313,6 +330,17 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
                 });
             }
+            $scope.loadItemDetailOne = function ($did) {
+                $log.debug("SELECTED itemInfo's itemDetailId:",$did);
+                //drill down the item detail for select.
+                ItemDetailService.get({id:$did}, function (response) {
+                    $log.debug("ItemDetailService.get(one) success!", response.data);
+                    $scope.itemDetail = response.data;
+                }, function (error) {
+                    // failure handler
+                    $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
             $scope.setItemInfoSelected = function () {
                 $log.debug("SELECTED itemInfo's itemDetailId:",$scope.selectedItemInfo.detailId);
                 //drill down the item detail for select.
@@ -322,6 +350,8 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     //Select binding
                     $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
                     $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
+                    //load item detail
+                    $scope.loadItemDetailOne($scope.selectedItemInfo.detailId);
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
@@ -332,4 +362,63 @@ function ($scope, $stateParams,$ionicModal,$log) {
             $scope.loadUserAndItemInfos();
             $scope.loadInsAndPres();
         })
-    
+    .controller('NewInstructionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+        function ($scope, $stateParams,$ionicModal,InstructionService,$log) {
+            $scope.newInstruction = {name:null,content:null};
+            //CREATE,
+            $scope.createInstruction = function () {
+                //
+                var anewInstruction = new InstructionService();
+                anewInstruction.name = $scope.newInstruction.name;
+                anewInstruction.content = $scope.newInstruction.content;
+                //Save
+                anewInstruction.$save(function (resp) {
+                    $log.info("createInstruction success, response:", resp);
+                    $scope.savedUserID = resp.data.id;
+                    //reload
+                    InstructionService.get({}, function (response) {
+                        $log.debug("InstructionService.reload success!", response);
+                        //close popup.
+                        $rootScope.newInstructionModal.hide();
+                    }, function (error) {
+                        // failure handler
+                        $log.error("InstructionService.get() failed:", JSON.stringify(error));
+                    });
+
+                }, function (resp) {
+                    $log.error('Error status: ' + resp.status);
+                });
+            }
+        })
+    .controller('NewPrescriptionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+        function ($scope, $stateParams,$ionicModal,PrescriptionService,$log) {
+        $scope.newPrescription = {name:null,content:null};
+            //CREATE,
+            $scope.createPrescription = function () {
+                //
+                var anewPrescription = new PrescriptionService();
+                anewPrescription.name = $scope.newPrescription.name;
+                anewPrescription.content = $scope.newPrescription.content;
+                //Save
+                anewPrescription.$save(function (resp) {
+                    $log.info("createPrescription success, response:", resp);
+                    $scope.savedUserID = resp.data.id;
+                    //reload
+                    PrescriptionService.get({}, function (response) {
+                        $log.debug("PrescriptionService.reload success!", response);
+                        //close popup.
+                        $rootScope.newPrescriptionModal.hide();
+                    }, function (error) {
+                        // failure handler
+                        $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
+                    });
+
+                }, function (resp) {
+                    $log.error('Error status: ' + resp.status);
+                });
+            }
+        })
