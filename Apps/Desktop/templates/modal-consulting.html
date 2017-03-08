@@ -15,25 +15,33 @@
 
                 </select>
             </label>
-            <div class="item item-input item-select">
+            <div class="item item-input ">
                 <div class="input-label">
                     患者舌像:
                 </div>
-                <img style="height: 100px;width: 100px;" ng-src='http://localhost:8080/td/uploads/timage2017-03-02-23-01-52-198.jpg' zoom-src="http://localhost:8080/td/uploads/timage2017-03-02-23-01-52-198.jpg" zoom-view />
+                <img style="height: 100px;width: 100px;" ng-src='{{selectedItemInfo.timage}}' zoom-src="http://localhost:8080/td/uploads/timage2017-03-08-22-06-14-108.jpg" zoom-view />
             </div>
-            <label class="item item-input item-select">
+            <label class="item item-input">
                 <div class="input-label">
                     舌诊仪数据:
                 </div>
+                <table class="friends">
+                    <tr>
+                        <th>舌形</th>
+                        <th>舌色</th>
+                        <th>苔色</th>
+                    </tr>
+                    <tr>
+                        <td data-th="舌形">{{itemDetail.shexing}}</td>
+                        <td data-th="舌色">{{itemDetail.shese}}</td>
+                        <td data-th="苔色">:{{itemDetail.taise}}</td>
+                    </tr>
+                </table>
+                <!--
                 <select ng-options="item as item.detailId for item in itemInfos track by item.id" ng-model="selectedItemInfo"></select>
-
                 </select>
+                -->
 
-                <div class="row header">
-                    <div class="col">舌形:{{itemDetail.shexing}}</div>
-                    <div class="col">舌色:{{itemDetail.shese}}</div>
-                    <div class="col">苔色:{{itemDetail.taise}}</div>
-                </div>
             </label>
             <div class="item item-input item-select">
                 <div class="input-label">
@@ -67,7 +75,7 @@
                 <select ng-options="item as item.content for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
 
             </label>
-            <button class="button button-dark  button-block icon-left ion-android-send" ng-click="createConsultInfo()">提交</button>
+            <button class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createConsultInfo()">答诊</button>
         </div>
     </ion-content>
 </ion-modal-view>

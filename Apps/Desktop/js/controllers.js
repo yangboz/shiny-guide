@@ -8,7 +8,6 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             //root scope variables for modal.
             $rootScope.consultingModal = null;
             $rootScope.userInfos = [];
-            $rootScope.itemInfos = [];
             $rootScope.instructions = [];
             $rootScope.pescriptions = [];
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
@@ -313,27 +312,11 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.error('Error status: ' + resp.status);
                 });
             };
-            //SELECT change
-            $scope.setUserInfoSelected = function ($selected) {
-                $scope.selectedUserInfo = $selected;//refresh.
-                $log.debug("SELECTED userInfo:",$scope.selectedUserInfo);
-                //drill down the item info for select.
-                ItemInfoService.get({id:$selected.itemId}, function (response) {
-                    $log.debug("ItemInfoService.get(",$selected.itemId,") success!", response.data);
-                    $rootScope.itemInfos = [];
-                    $rootScope.itemInfos.push(response.data);
-                    //Select binding
-                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
-                    $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
-                }, function (error) {
-                    // failure handler
-                    $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
-                });
-            }
-            $scope.loadItemDetailOne = function ($did) {
-                $log.debug("SELECTED itemInfo's itemDetailId:",$did);
+            //
+            $scope.loadItemDetailOne = function () {
+                $log.debug("SELECTED itemInfo's itemDetailId:",$scope.selectedItemInfo.detailId);
                 //drill down the item detail for select.
-                ItemDetailService.get({id:$did}, function (response) {
+                ItemDetailService.get({id:$scope.selectedItemInfo.detailId}, function (response) {
                     $log.debug("ItemDetailService.get(one) success!", response.data);
                     $scope.itemDetail = response.data;
                 }, function (error) {
@@ -341,22 +324,23 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
                 });
             }
-            $scope.setItemInfoSelected = function () {
-                $log.debug("SELECTED itemInfo's itemDetailId:",$scope.selectedItemInfo.detailId);
-                //drill down the item detail for select.
-                ItemInfoService.get({id:$scope.selectedItemInfo.detailId}, function (response) {
-                    $log.debug("ItemInfoService.get(one) success!", response.data);
-                    $rootScope.itemInfos = response.data;
-                    //Select binding
-                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
-                    $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
-                    //load item detail
-                    $scope.loadItemDetailOne($scope.selectedItemInfo.detailId);
+            //SELECT change
+            $scope.setUserInfoSelected = function ($selected) {
+                $scope.selectedUserInfo = $selected;//refresh.
+                $log.debug("SELECTED userInfo:",$scope.selectedUserInfo);
+                //drill down the item info for select.
+                ItemInfoService.get({id:$selected.itemId}, function (response) {
+                    $log.debug("ItemInfoService.get(",$selected.itemId,") success!", response.data);
+                    //
+                    $scope.selectedItemInfo = response.data;
+                   //
+                    $scope.loadItemDetailOne();
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
                 });
             }
+
             //
             $log.info("ConsultCtrl initialize...");
             $scope.loadUserAndItemInfos();

@@ -17,6 +17,7 @@
                 <input type="text" placeholder="请输入处方内容" data-ng-model="newPrescription.content">
             </label>
         </form>
-        <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="createPrescription()" ng-disabled="!newPrescription.name&&!newPrescription.content">保存</button>
+        <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-checkbox-outline"
+                ng-click="createPrescription()" ng-disabled="!newPrescription.name&&!newPrescription.content">保存</button>
     </ion-content>
 </ion-modal-view>
