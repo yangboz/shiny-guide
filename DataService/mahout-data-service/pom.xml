@@ -25,6 +25,7 @@
         <mahout.version>0.10.0</mahout.version>
         <drools.version>6.2.0.Final</drools.version>
         <jbpm.version>6.2.0.Final</jbpm.version>
+        <start-class>info.smartkit.shiny.guide.DataServiceApplication</start-class>
     </properties>
 
     <dependencies>
