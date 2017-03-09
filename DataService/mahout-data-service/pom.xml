@@ -108,17 +108,12 @@
         <!--Mahout-->
         <dependency>
             <groupId>org.apache.mahout</groupId>
-            <artifactId>mahout-core</artifactId>
-            <version>${mahout.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.mahout</groupId>
             <artifactId>mahout-math</artifactId>
             <version>${mahout.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.mahout</groupId>
-            <artifactId>mahout-integration</artifactId>
+            <artifactId>mahout-hdfs</artifactId>
             <version>${mahout.version}</version>
         </dependency>
         <!--jUnit-->
