@@ -21,12 +21,12 @@ var _environments = {
         }
     },
     dev: {
-        host: 'http://192.168.2.7',
+        host: 'http://118.190.3.169/',
         config: {
             /**
              * Add any config properties you want in here for this environment
              */
-            api_endpoint_base: 'http://192.168.2.7:8083/api/'
+            api_endpoint_base: 'http://118.190.3.169:8080/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
             ,'MQTT_host':'192.168.2.7'
@@ -35,12 +35,12 @@ var _environments = {
         }
     },
     test: {
-        host: 'http://test.com',
+        host: 'http://118.190.96.120/',
         config: {
             /**
              * Add any config properties you want in here for this environment
              */
-            api_endpoint_base: 'http://test.com:9022/api/'
+            api_endpoint_base: 'http://118.190.96.120:8070/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
             ,'MQTT_host':'test.com'
