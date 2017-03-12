@@ -7,7 +7,7 @@ var DynamicEnvironment = DynamicEnvironment || {};
 var _environment;
 var _environments = {
     local: {
-        host: 'localhost:8080',
+        host: 'localhost',
         config: {
             /**
              * Add any config properties you want in here for this environment
@@ -18,7 +18,7 @@ var _environments = {
         }
     },
     dev: {
-        host: 'http://118.190.3.169/',
+        host: '118.190.3.169',
         config: {
             /**
              * Add any config properties you want in here for this environment
@@ -29,7 +29,7 @@ var _environments = {
         }
     },
     test: {
-        host: 'http://118.190.96.120/',
+        host: '118.190.96.120',
         config: {
             /**
              * Add any config properties you want in here for this environment
