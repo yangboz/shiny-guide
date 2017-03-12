@@ -401,7 +401,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
     .controller('NewInstructionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($scope, $stateParams,$ionicModal,InstructionService,$log) {
+        function ($rootScope,$scope, $stateParams,$ionicModal,InstructionService,$log) {
             $scope.newInstruction = {name:null,content:null};
             //CREATE,
             $scope.createInstruction = function () {
@@ -431,7 +431,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
     .controller('NewPrescriptionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($scope, $stateParams,$ionicModal,PrescriptionService,$log) {
+        function ($rootScope,$scope, $stateParams,$ionicModal,PrescriptionService,$log) {
         $scope.newPrescription = {name:null,content:null};
             //CREATE,
             $scope.createPrescription = function () {
