@@ -15,9 +15,6 @@ var _environments = {
             api_endpoint_base: 'http://localhost:8080/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
-            ,'MQTT_host':'192.168.2.7'
-            ,'MQTT_port':9001
-            ,'sCameraIds':{Id:1,Ids:"2,8,9"}
         }
     },
     dev: {
@@ -29,9 +26,6 @@ var _environments = {
             api_endpoint_base: 'http://118.190.3.169:8080/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
-            ,'MQTT_host':'192.168.2.7'
-            ,'MQTT_port':9001
-            ,'sCameraIds':{Id:1,Ids:"2,8,9"}
         }
     },
     test: {
@@ -43,9 +37,6 @@ var _environments = {
             api_endpoint_base: 'http://118.190.96.120:8070/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
-            ,'MQTT_host':'test.com'
-            ,'MQTT_port':9001
-            ,'sCameraIds':{Id:1,Ids:"2,8,9"}
         }
     }
 };

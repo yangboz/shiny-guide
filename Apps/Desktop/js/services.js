@@ -48,6 +48,13 @@ angular.module('app.services', ['ngResource'])
         )
         return data;
 })
+//ConsultUserInfoService
+    .factory('ConsultUserInfoService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "user/c/:id"
+        )
+        return data;
+    })
 //UpdateUserInfoService
     .factory('UpdateUserInfoService', function ($resource,CONFIG_ENV) {
         var data = $resource(CONFIG_ENV.api_endpoint + 'user/:Id/cid/:cId', {Id: "@Id",cId:"@cId"}, {

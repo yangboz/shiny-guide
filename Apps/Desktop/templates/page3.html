@@ -27,7 +27,7 @@
             class="button button-dark  button-block icon-left ion-android-star-half" ng-disabled="!userInfo.itemId">上传数据</button>
 
     <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="createUserInfo()" ng-disabled="!userInfo.itemDetailId">完成</button>
-    <button id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultingModal.show()" >人工巡诊</button>
+    <button id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultingModal.show()" ng-disabled="!$root.userInfos.length">巡诊</button>
 
   </ion-content>
 </ion-view>

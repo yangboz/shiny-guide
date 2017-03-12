@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * Created by smartkit on 20/02/2017.
@@ -53,10 +54,15 @@ public class UserInfoController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(httpMethod = "GET", value = "Response a list describing all of user info that is successfully get or not.")
+    @ApiOperation(httpMethod = "GET", value = "Response a list describing all of user info by consult ID that is successfully get or not.")
     public JsonObject list() {
-//		return new JsonObject(this._alarmInfoDao.findAll());
         return new JsonObject(this.userInfoDao.findAll());
+    }
+
+    @RequestMapping(value = "c/{id}",method = RequestMethod.GET)
+    @ApiOperation(httpMethod = "GET", value = "Response a list describing all of user info that is successfully get or not.")
+    public JsonObject listByConsultId(@PathVariable("id") long cid) {
+        return new JsonObject(userInfoDao.findByConsultId(cid));
     }
 
     @RequestMapping(value = "/{id}/cid/{value}", method = RequestMethod.PUT)//

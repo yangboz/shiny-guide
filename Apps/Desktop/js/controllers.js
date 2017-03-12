@@ -45,7 +45,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
                 $rootScope.newPrescriptionModal = modal;
                 // console.log(" $rootScope.newPrescriptionModal:"+ $rootScope.newPrescriptionModal);
             });
-            //
+            // A Simple alert
             $rootScope.showAlert = function($msg) {
                 var alertPopup = $ionicPopup.alert({
                     title: $msg
@@ -56,6 +56,40 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
                     // console.log('Thank you for not eating my delicious ice cream cone');
                 });
             }
+
+            // A confirm dialog
+            $rootScope.showPrompt = function($title) {
+                var confirmPopup = $ionicPopup.confirm({
+                    title: $title,
+                    template: '立即问诊?',
+                    buttons: [{ // Array[Object] (optional). Buttons to place in the popup footer.
+                        text: '取消',
+                        type: 'button-default',
+                        onTap: function(e) {
+                            // e.preventDefault() will stop the popup from closing when tapped.
+                            // e.preventDefault();
+                        }
+                    }, {
+                        text: '确定',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            // Returning a value will cause the promise to resolve with the given value.
+                            $rootScope.getDiagnosis();
+                            //
+                            return null;
+                        }
+                    }]
+                });
+
+                confirmPopup.then(function(res) {
+                    if(res) {
+                        // console.log('You are sure');
+                    } else {
+                        // console.log('You are not sure');
+
+                    }
+                })
+            };
         })
 //
 .controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,
@@ -158,22 +192,24 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             anewUserInfo.$save(function (resp) {
                 $log.info("createUserInfo("+$scope.savedUserID+") success, response:", resp);
                 $scope.savedUserID = resp.data.id;
-                $rootScope.showAlert("采集成功!");
-               //Auto diagnosis
-                DiagnosisService.get({id:$scope.savedUserID}, function (response) {
-                    $log.debug("DiagnosisService.get("+$scope.savedUserID+") success!", response);
-                    //
-                    $rootScope.consultInfofull = response;
-                    //
-                    $rootScope.consultingAutoModal.show();
-                }, function (error) {
-                    // failure handler
-                    $log.error("DiagnosisService.get() failed:", JSON.stringify(error));
-                });
+                $rootScope.showPrompt("采集成功!");
+               //Auto diagnosis testing
 
             }, function (resp) {
                 $log.error('Error status: ' + resp.status);
             });
+        }
+        $rootScope.getDiagnosis = function(){
+             DiagnosisService.get({id:$scope.savedUserID}, function (response) {
+                 $log.debug("DiagnosisService.get("+$scope.savedUserID+") success!", response);
+                 //
+                 $rootScope.consultInfofull = response;
+                 //
+                 $rootScope.consultingAutoModal.show();
+             }, function (error) {
+                 // failure handler
+                 $log.error("DiagnosisService.get() failed:", JSON.stringify(error));
+             });
         }
 })
 
@@ -210,26 +246,40 @@ function ($scope, $stateParams,$ionicModal,$log) {
         function ($rootScope,$scope, $stateParams,$log,$ionicModal,
                   UserInfoService,ItemInfoService,ItemDetailService,
                   InstructionService,PrescriptionService,
-                  ConsultInfoService,UpdateUserInfoService) {
+                  ConsultInfoService,UpdateUserInfoService,ConsultUserInfoService) {
         //
             //Select binding
             $scope.selectedUserInfo = null;
             $scope.selectedItemInfo= null;
             $scope.selectedInstruction = null;
             $scope.selectedPrescription = null;
-            //GET
+            //GET where none consulting.
             $scope.loadUserInfos = function () {
 
-                UserInfoService.get({}, function (response) {
-                    $log.info("UserInfoService.get() success!", response.data);
+                // UserInfoService.get({}, function (response) {
+                //     $log.info("UserInfoService.get() success!", response.data);
+                //     $rootScope.userInfos = response.data;
+                //     //Select binding
+                //     $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
+                //     $log.debug("selectedUserInfo:",$scope.selectedUserInfo);
+                // }, function (error) {
+                //     // failure handler
+                //     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
+                // });
+                //
+                ConsultUserInfoService.get({"id":-1}, function (response) {
+                    $log.info("ConsultUserInfoService.get() success!", response.data);
                     $rootScope.userInfos = response.data;
                     //Select binding
                     $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
                     $log.debug("selectedUserInfo:",$scope.selectedUserInfo);
+                    //default trigger.
+                    $scope.setUserInfoSelected($scope.selectedUserInfo);
                 }, function (error) {
                     // failure handler
                     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
                 });
+
             };
             //GET
             $scope.loadItemInfos = function () {
@@ -308,6 +358,8 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.info("updateUserInfo() success, response:", resp);
                     //alert success.
                     $rootScope.showAlert("答诊成功!");
+                    //reload
+                    $scope.loadUserAndItemInfos();
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
                 });
