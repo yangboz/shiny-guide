@@ -14,7 +14,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     .constant('CONFIG_ENV', {
         //'api_endpoint_base': 'http://localhost:8080/',
         'api_endpoint_base': DynamicEnvironment.get('api_endpoint_base'),
-        'api_endpoint': DynamicEnvironment.get('api_endpoint_base') + 'td/',
+        'api_endpoint': DynamicEnvironment.get('api_endpoint_base'),
         'api_version': '0.0.1',
         'pubnub_key': 'ws://www.xyz.com:61614/stomp',
         'pubnub_secret': 'v11.stomp',

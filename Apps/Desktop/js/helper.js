@@ -43,8 +43,8 @@ var _environments = {
 _getEnvironment = function () {
     var protocol = location.protocol;
     var slashes = protocol.concat("//");
-    var host = slashes.concat(window.location.hostname);
-    // var host = window.location.host;
+    // var host = slashes.concat(window.location.hostname);
+    var host = window.location.host;
     console.log("host:"+host);
     if (_environment) {
         return _environment;
