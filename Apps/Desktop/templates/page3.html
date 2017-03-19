@@ -1,6 +1,10 @@
 <ion-view title="舌诊采集" id="page3" >
   <ion-content padding="true" class="has-header">
     <form id="page3-form1" class="list">
+      <label class="item item-input" id="page3-input1" >
+        <span class="input-label">ID：</span>
+        <input type="text" placeholder="请输入您的ID" data-ng-model="userInfo.id">
+      </label>
       <label class="item item-input" id="page3-input2" >
         <span class="input-label">姓名：</span>
         <input type="text" placeholder="请输入您的姓名" data-ng-model="userInfo.name">
@@ -27,7 +31,7 @@
             class="button button-dark  button-block icon-left ion-android-star-half" ng-disabled="!userInfo.itemId">上传数据</button>
 
     <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-star" ng-click="createUserInfo()" ng-disabled="!userInfo.itemDetailId">完成</button>
-    <button id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultingModal.show()" ng-disabled="!$root.userInfos.length">巡诊</button>
+    <button ng-show="false" id="page3-button4" class="button button-dark  button-block icon-left ion-android-chat" ng-click="$root.consultingModal.show()" ng-disabled="!$root.userInfos.length">巡诊</button>
 
   </ion-content>
 </ion-view>

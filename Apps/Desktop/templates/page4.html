@@ -1,12 +1,21 @@
 <ion-view title="健康指导" id="page4">
+  <ion-nav-buttons side="right">
+    <button class="button ion-android-add" ng-click="$root.newInstructionModal.show()">指导
+    </button>
+    <button class="button ion-android-add" ng-click="$root.newPrescriptionModal.show()">处方
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button class="button ion-android-refresh" ng-click="loadUserInfos()">刷新
+    </button>
+  </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list id="page4-list1">
-      <ion-item ng-repeat="item in items track by $index" item="item" ng-click="getdetails($index)">
-        <h2>{{ item.name }}#{{ item.id }}</h2>
-        <!--
+      <ion-item ng-repeat="user in userInfos track by $index" item="item" ng-click="getUserItemInfo(user)">
+        <h2>{{ user.name }}#{{ user.id }}</h2>
+
         <i class="icon ion-android-done"></i>
-        <ion-option-button class="button-positive">已读</ion-option-button>
-        -->
+        <ion-option-button class="button-assertive" ng-click="deleteUserInfo(user)">删除</ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

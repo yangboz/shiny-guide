@@ -20218,3 +20218,470 @@ Total After Discount: 186.0
 2017-03-12 11:12:58.126  INFO 25957 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='胃体多发息肉', blzd='正常', zzzd='正常', houbao='薄|4.47', funi='-|0.00', runzao='-|0.00', botai='-|0.00', pangshou='胖|5.00', chihen='有齿痕|2.71', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|4.47，-|0.00，-|0.00，-|0.00', shexing='胖|5.00，有齿痕|2.71，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白，舌胖，有齿痕', rgbR='149.1399999999999863575794734060764312744140625', rgbG='149.1399999999999863575794734060764312744140625', rgbB='108.8700000000000045474735088646411895751953125', hsvH='357.01999999999998181010596454143524169921875', hsvS='0.2800000000000000266453525910037569701671600341796875', hsvV='149.1399999999999863575794734060764312744140625', labelL='null', labelA='null', labelB='null', q1_2='1', q1_3r='5', q1_3y='30000', q2_1='3', products=null}
 2017-03-12 11:12:58.276  INFO 25957 --- [http-nio-8080-exec-10] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=28, njzd='胃体多发息肉', blzd='正常', zzzd='正常', houbao='薄|4.47', funi='-|0.00', runzao='-|0.00', botai='-|0.00', pangshou='胖|5.00', chihen='有齿痕|2.71', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|4.47，-|0.00，-|0.00，-|0.00', shexing='胖|5.00，有齿痕|2.71，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白，舌胖，有齿痕', rgbR='149.1399999999999863575794734060764312744140625', rgbG='149.1399999999999863575794734060764312744140625', rgbB='108.8700000000000045474735088646411895751953125', hsvH='357.01999999999998181010596454143524169921875', hsvS='0.2800000000000000266453525910037569701671600341796875', hsvV='149.1399999999999863575794734060764312744140625', labelL='null', labelA='null', labelB='null', q1_2='1', q1_3r='5', q1_3y='30000', q2_1='3', products=null}
 2017-03-12 11:15:17.753  INFO 25957 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3a52dba3: startup date [Sun Mar 12 10:40:48 CST 2017]; root of context hierarchy
+2017-03-19 09:43:05.914  INFO 4071 --- [main] i.s.s.g.DataServiceApplication           : Starting DataServiceApplication on localhost with PID 4071 (/Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes started by smartkit in /Users/smartkit/git/shiny-guide/DataService/mahout-data-service)
+2017-03-19 09:43:05.974  INFO 4071 --- [main] i.s.s.g.DataServiceApplication           : No active profile set, falling back to default profiles: default
+2017-03-19 09:43:06.277  INFO 4071 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4fce136b: startup date [Sun Mar 19 09:43:06 CST 2017]; root of context hierarchy
+2017-03-19 09:43:11.199  INFO 4071 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2017-03-19 09:43:12.511  INFO 4071 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$525f23fa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-19 09:43:14.118  INFO 4071 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-03-19 09:43:14.195  INFO 4071 --- [main] o.a.c.c.StandardService                  : Starting service Tomcat
+2017-03-19 09:43:14.199  INFO 4071 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.0.30
+2017-03-19 09:43:16.548  INFO 4071 --- [localhost-startStop-1] o.a.c.c.C.[.[.[/td]                      : Initializing Spring embedded WebApplicationContext
+2017-03-19 09:43:16.549  INFO 4071 --- [localhost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 10299 ms
+2017-03-19 09:43:17.629  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-19 09:43:17.641  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-19 09:43:17.641  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-03-19 09:43:17.642  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-03-19 09:43:17.642  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2017-03-19 09:43:17.642  INFO 4071 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'simpleCORSFilter' to: [/*]
+2017-03-19 09:43:17.988  INFO 4071 --- [localhost-startStop-1] o.a.c.u.SessionIdGeneratorBase           : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [151] milliseconds.
+2017-03-19 09:43:18.730  INFO 4071 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-19 09:43:18.810  INFO 4071 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-19 09:43:19.323  INFO 4071 --- [main] o.h.Version                              : HHH000412: Hibernate Core {4.3.11.Final}
+2017-03-19 09:43:19.329  INFO 4071 --- [main] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2017-03-19 09:43:19.333  INFO 4071 --- [main] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2017-03-19 09:43:20.216  INFO 4071 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-03-19 09:43:23.833  INFO 4071 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-19 09:43:24.124  INFO 4071 --- [main] o.h.h.i.a.ASTQueryTranslatorFactory      : HHH000397: Using ASTQueryTranslatorFactory
+2017-03-19 09:43:24.935  INFO 4071 --- [main] o.h.t.h.SchemaUpdate                     : HHH000228: Running hbm2ddl schema update
+2017-03-19 09:43:24.936  INFO 4071 --- [main] o.h.t.h.SchemaUpdate                     : HHH000102: Fetching database metadata
+2017-03-19 09:43:24.941  INFO 4071 --- [main] o.h.t.h.SchemaUpdate                     : HHH000396: Updating schema
+2017-03-19 09:43:25.249  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.consult_info
+2017-03-19 09:43:25.250  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [iid, pid, id]
+2017-03-19 09:43:25.250  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:25.251  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:25.403  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.einstruction
+2017-03-19 09:43:25.403  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-19 09:43:25.403  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:25.403  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:25.632  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_detail
+2017-03-19 09:43:25.632  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [rgbb, dianci, shese, houbao, hsvh, q1_3r, rgbg, runzao, zzzd, njzd, liewen, blzd, id, jieguo, taizhi, q1_2, q2_1, labell, yuban, rgbr, pangshou, q1_3y, botai, shexing, chihen, hsvs, funi, hsvv, labela, labelb, taise]
+2017-03-19 09:43:25.633  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:25.633  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:25.771  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_info
+2017-03-19 09:43:25.771  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, timage, detail_id, content]
+2017-03-19 09:43:25.771  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:25.772  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:25.910  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.mprescription
+2017-03-19 09:43:25.911  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-19 09:43:25.911  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:25.911  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:26.048  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.user_info
+2017-03-19 09:43:26.048  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [consult_id, gender, tcsv, item_id, name, id, timage, age]
+2017-03-19 09:43:26.049  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 09:43:26.049  INFO 4071 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 09:43:26.050  INFO 4071 --- [main] o.h.t.h.SchemaUpdate                     : HHH000232: Schema update complete
+2017-03-19 09:43:28.809  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.get(long)
+2017-03-19 09:43:28.812  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.delete(long)
+2017-03-19 09:43:28.812  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.list()
+2017-03-19 09:43:28.812  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.create(info.smartkit.shiny.guide.vo.ConsultInfo)
+2017-03-19 09:43:28.813  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}/iid/{iid}/pid/{pid}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.patch(long,int,int)
+2017-03-19 09:43:28.814  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/diagnosis/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.ConsultInfoFull info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(long) throws java.lang.Exception
+2017-03-19 09:43:28.820  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.get(long)
+2017-03-19 09:43:28.820  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.delete(long)
+2017-03-19 09:43:28.821  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.list()
+2017-03-19 09:43:28.821  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.create(info.smartkit.shiny.guide.vo.EInstruction)
+2017-03-19 09:43:28.823  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.get(long)
+2017-03-19 09:43:28.823  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.delete(long)
+2017-03-19 09:43:28.826  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.list()
+2017-03-19 09:43:28.826  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.create(info.smartkit.shiny.guide.vo.ItemDetail)
+2017-03-19 09:43:28.828  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.get(long)
+2017-03-19 09:43:28.828  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.delete(long)
+2017-03-19 09:43:28.829  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.list()
+2017-03-19 09:43:28.829  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.create(info.smartkit.shiny.guide.vo.ItemInfo)
+2017-03-19 09:43:28.829  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}/detail/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.patch(long,int)
+2017-03-19 09:43:28.832  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.get(long)
+2017-03-19 09:43:28.833  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.delete(long)
+2017-03-19 09:43:28.833  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.list()
+2017-03-19 09:43:28.833  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.create(info.smartkit.shiny.guide.vo.MPrescription)
+2017-03-19 09:43:28.835  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/user/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByUser(long) throws org.apache.mahout.cf.taste.common.TasteException,java.io.IOException
+2017-03-19 09:43:28.835  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/item/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByItem(long) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-19 09:43:28.837  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/recommend],methods=[POST],consumes=[multipart/form-data]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.UploadController.TDFileUpload(org.springframework.web.multipart.MultipartFile) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-19 09:43:28.837  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/tcsv],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TCsvFileUpload(org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+2017-03-19 09:43:28.838  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/timage],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TImageFileUpload(org.springframework.web.multipart.MultipartFile)
+2017-03-19 09:43:28.840  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.get(long)
+2017-03-19 09:43:28.841  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.delete(long)
+2017-03-19 09:43:28.841  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.list()
+2017-03-19 09:43:28.841  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.create(info.smartkit.shiny.guide.vo.UserInfo)
+2017-03-19 09:43:28.842  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}/cid/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.patch(long,int)
+2017-03-19 09:43:28.842  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/c/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.listByConsultId(long)
+2017-03-19 09:43:28.844  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-03-19 09:43:28.848  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-03-19 09:43:28.850  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-03-19 09:43:28.851  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-03-19 09:43:28.857  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-19 09:43:28.858  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-19 09:43:29.871  INFO 4071 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4fce136b: startup date [Sun Mar 19 09:43:06 CST 2017]; root of context hierarchy
+2017-03-19 09:43:30.204  INFO 4071 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 09:43:30.205  INFO 4071 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 09:43:30.205  INFO 4071 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/uploads/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 09:43:30.205  INFO 4071 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 09:43:30.345  INFO 4071 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 09:43:31.876  INFO 4071 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-03-19 09:43:31.923  INFO 4071 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-03-19 09:43:32.057  INFO 4071 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-03-19 09:43:32.075  INFO 4071 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-03-19 09:43:33.387  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2017-03-19 09:43:33.404  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2017-03-19 09:43:33.414  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_1
+2017-03-19 09:43:33.423  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_1
+2017-03-19 09:43:33.475  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2017-03-19 09:43:33.497  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2017-03-19 09:43:33.504  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_2
+2017-03-19 09:43:33.512  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_2
+2017-03-19 09:43:33.549  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2017-03-19 09:43:33.641  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2017-03-19 09:43:33.650  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_3
+2017-03-19 09:43:33.658  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_3
+2017-03-19 09:43:33.725  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_1
+2017-03-19 09:43:33.751  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2017-03-19 09:43:33.760  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2017-03-19 09:43:33.774  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_4
+2017-03-19 09:43:33.783  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_4
+2017-03-19 09:43:33.831  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByUserUsingGET_1
+2017-03-19 09:43:34.082  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2017-03-19 09:43:34.091  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_5
+2017-03-19 09:43:34.099  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_5
+2017-03-19 09:43:34.106  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_5
+2017-03-19 09:43:34.124  INFO 4071 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_2
+2017-03-19 09:43:34.783  INFO 4071 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-03-19 09:43:34.819  INFO 4071 --- [main] i.s.s.g.DataServiceApplication           : Started DataServiceApplication in 36.232 seconds (JVM running for 44.978)
+2017-03-19 10:38:58.821  INFO 4071 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/td]                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-19 10:38:58.839  INFO 4071 --- [http-nio-8080-exec-8] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-19 10:38:58.909  INFO 4071 --- [http-nio-8080-exec-8] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 69 ms
+2017-03-19 10:49:11.537  INFO 4071 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-19-10-49-11-465.jpg
+2017-03-19 10:49:11.579  INFO 4071 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-19-10-49-11-465.jpg
+2017-03-19 10:49:11.873  INFO 4071 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=29, name='2017-03-19-10-49-11-465.jpg', timage='http://localhost:8080/td/uploads/timage2017-03-19-10-49-11-465.jpg', detailId=-1}
+2017-03-19 10:49:17.683  INFO 4071 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-19-10-49-17-665.xlsx
+2017-03-19 10:49:20.063  INFO 4071 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-19 10:49:20.244  INFO 4071 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=29, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-19 10:49:44.476 ERROR 4071 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/td] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException
+	at info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(DiagnosisController.java:82)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:969)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:860)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:845)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at info.smartkit.shiny.guide.configs.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:26)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+2017-03-19 10:50:31.067  INFO 4071 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4fce136b: startup date [Sun Mar 19 09:43:06 CST 2017]; root of context hierarchy
+2017-03-19 10:50:42.903  INFO 5193 --- [main] i.s.s.g.DataServiceApplication           : Starting DataServiceApplication on localhost with PID 5193 (/Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes started by smartkit in /Users/smartkit/git/shiny-guide/DataService/mahout-data-service)
+2017-03-19 10:50:42.905  INFO 5193 --- [main] i.s.s.g.DataServiceApplication           : No active profile set, falling back to default profiles: default
+2017-03-19 10:50:43.088  INFO 5193 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78383390: startup date [Sun Mar 19 10:50:43 CST 2017]; root of context hierarchy
+2017-03-19 10:50:46.467  INFO 5193 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2017-03-19 10:50:47.383  INFO 5193 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a54ab44a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-03-19 10:50:48.408  INFO 5193 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-03-19 10:50:48.440  INFO 5193 --- [main] o.a.c.c.StandardService                  : Starting service Tomcat
+2017-03-19 10:50:48.443  INFO 5193 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.0.30
+2017-03-19 10:50:48.755  INFO 5193 --- [localhost-startStop-1] o.a.c.c.C.[.[.[/td]                      : Initializing Spring embedded WebApplicationContext
+2017-03-19 10:50:48.755  INFO 5193 --- [localhost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 5679 ms
+2017-03-19 10:50:49.390  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2017-03-19 10:50:49.400  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-03-19 10:50:49.401  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-03-19 10:50:49.401  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-03-19 10:50:49.401  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2017-03-19 10:50:49.401  INFO 5193 --- [localhost-startStop-1] o.s.b.c.e.FilterRegistrationBean         : Mapping filter: 'simpleCORSFilter' to: [/*]
+2017-03-19 10:50:49.969  INFO 5193 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-03-19 10:50:49.990  INFO 5193 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-03-19 10:50:50.155  INFO 5193 --- [main] o.h.Version                              : HHH000412: Hibernate Core {4.3.11.Final}
+2017-03-19 10:50:50.159  INFO 5193 --- [main] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2017-03-19 10:50:50.163  INFO 5193 --- [main] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2017-03-19 10:50:50.580  INFO 5193 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2017-03-19 10:50:53.331  INFO 5193 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-03-19 10:50:53.530  INFO 5193 --- [main] o.h.h.i.a.ASTQueryTranslatorFactory      : HHH000397: Using ASTQueryTranslatorFactory
+2017-03-19 10:50:54.042  INFO 5193 --- [main] o.h.t.h.SchemaUpdate                     : HHH000228: Running hbm2ddl schema update
+2017-03-19 10:50:54.043  INFO 5193 --- [main] o.h.t.h.SchemaUpdate                     : HHH000102: Fetching database metadata
+2017-03-19 10:50:54.045  INFO 5193 --- [main] o.h.t.h.SchemaUpdate                     : HHH000396: Updating schema
+2017-03-19 10:50:54.199  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.consult_info
+2017-03-19 10:50:54.199  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [iid, pid, id]
+2017-03-19 10:50:54.200  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.200  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.337  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.einstruction
+2017-03-19 10:50:54.338  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-19 10:50:54.338  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.338  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.482  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_detail
+2017-03-19 10:50:54.483  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [rgbb, dianci, shese, houbao, hsvh, q1_3r, rgbg, runzao, zzzd, njzd, liewen, blzd, id, jieguo, taizhi, q1_2, q2_1, labell, yuban, rgbr, pangshou, q1_3y, botai, shexing, chihen, hsvs, funi, hsvv, labela, labelb, taise]
+2017-03-19 10:50:54.483  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.483  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.626  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.item_info
+2017-03-19 10:50:54.626  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, timage, detail_id, content]
+2017-03-19 10:50:54.627  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.627  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.760  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.mprescription
+2017-03-19 10:50:54.760  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [name, id, content]
+2017-03-19 10:50:54.760  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.761  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.897  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000261: Table found: td_test.user_info
+2017-03-19 10:50:54.897  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000037: Columns: [consult_id, gender, tcsv, item_id, name, id, timage, age]
+2017-03-19 10:50:54.897  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000108: Foreign keys: []
+2017-03-19 10:50:54.897  INFO 5193 --- [main] o.h.t.h.TableMetadata                    : HHH000126: Indexes: [primary]
+2017-03-19 10:50:54.898  INFO 5193 --- [main] o.h.t.h.SchemaUpdate                     : HHH000232: Schema update complete
+2017-03-19 10:50:56.655  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.get(long)
+2017-03-19 10:50:56.657  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.delete(long)
+2017-03-19 10:50:56.657  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.list()
+2017-03-19 10:50:56.657  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.create(info.smartkit.shiny.guide.vo.ConsultInfo)
+2017-03-19 10:50:56.657  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/consult/{id}/iid/{iid}/pid/{pid}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ConsultInfoController.patch(long,int,int)
+2017-03-19 10:50:56.659  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/diagnosis/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.ConsultInfoFull info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(long) throws java.lang.Exception
+2017-03-19 10:50:56.666  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.get(long)
+2017-03-19 10:50:56.666  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.delete(long)
+2017-03-19 10:50:56.667  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.list()
+2017-03-19 10:50:56.667  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/instruction],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.EInstructionController.create(info.smartkit.shiny.guide.vo.EInstruction)
+2017-03-19 10:50:56.669  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.get(long)
+2017-03-19 10:50:56.669  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.delete(long)
+2017-03-19 10:50:56.669  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.list()
+2017-03-19 10:50:56.673  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/detail],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemDetailController.create(info.smartkit.shiny.guide.vo.ItemDetail)
+2017-03-19 10:50:56.676  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.get(long)
+2017-03-19 10:50:56.676  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.delete(long)
+2017-03-19 10:50:56.676  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.list()
+2017-03-19 10:50:56.677  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.create(info.smartkit.shiny.guide.vo.ItemInfo)
+2017-03-19 10:50:56.677  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/item/info/{id}/detail/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.ItemInfoController.patch(long,int)
+2017-03-19 10:50:56.679  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.get(long)
+2017-03-19 10:50:56.679  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.delete(long)
+2017-03-19 10:50:56.679  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.list()
+2017-03-19 10:50:56.679  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prescription],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.MPrescriptionController.create(info.smartkit.shiny.guide.vo.MPrescription)
+2017-03-19 10:50:56.681  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/user/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByUser(long) throws org.apache.mahout.cf.taste.common.TasteException,java.io.IOException
+2017-03-19 10:50:56.682  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/recommend/item/{id}],methods=[GET]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.RecommendController.getByItem(long) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-19 10:50:56.683  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/recommend],methods=[POST],consumes=[multipart/form-data]}" onto public java.util.List<org.apache.mahout.cf.taste.recommender.RecommendedItem> info.smartkit.shiny.guide.controllers.UploadController.TDFileUpload(org.springframework.web.multipart.MultipartFile) throws java.io.IOException,org.apache.mahout.cf.taste.common.TasteException
+2017-03-19 10:50:56.684  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/tcsv],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TCsvFileUpload(org.springframework.web.multipart.MultipartFile) throws java.lang.Throwable
+2017-03-19 10:50:56.684  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/upload/timage],methods=[POST],consumes=[multipart/form-data]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UploadController.TImageFileUpload(org.springframework.web.multipart.MultipartFile)
+2017-03-19 10:50:56.687  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.get(long)
+2017-03-19 10:50:56.688  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}],methods=[DELETE]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.delete(long)
+2017-03-19 10:50:56.688  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.list()
+2017-03-19 10:50:56.688  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user],methods=[POST],consumes=[application/json]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.create(info.smartkit.shiny.guide.vo.UserInfo)
+2017-03-19 10:50:56.689  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/{id}/cid/{value}],methods=[PUT]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.patch(long,int)
+2017-03-19 10:50:56.689  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/c/{id}],methods=[GET]}" onto public info.smartkit.shiny.guide.dto.JsonObject info.smartkit.shiny.guide.controllers.UserInfoController.listByConsultId(long)
+2017-03-19 10:50:56.690  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2017-03-19 10:50:56.695  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2017-03-19 10:50:56.697  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2017-03-19 10:50:56.699  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2017-03-19 10:50:56.705  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-03-19 10:50:56.706  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-03-19 10:50:57.275  INFO 5193 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@78383390: startup date [Sun Mar 19 10:50:43 CST 2017]; root of context hierarchy
+2017-03-19 10:50:57.425  INFO 5193 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 10:50:57.425  INFO 5193 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 10:50:57.425  INFO 5193 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/uploads/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 10:50:57.425  INFO 5193 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 10:50:57.534  INFO 5193 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-03-19 10:50:58.263  INFO 5193 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-03-19 10:50:58.289  INFO 5193 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2017-03-19 10:50:58.337  INFO 5193 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2017-03-19 10:50:58.359  INFO 5193 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2017-03-19 10:50:58.767  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2017-03-19 10:50:58.774  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2017-03-19 10:50:58.782  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_1
+2017-03-19 10:50:58.788  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_1
+2017-03-19 10:50:58.833  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2017-03-19 10:50:58.840  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2017-03-19 10:50:58.849  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_2
+2017-03-19 10:50:58.857  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_2
+2017-03-19 10:50:58.871  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2017-03-19 10:50:58.879  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2017-03-19 10:50:58.887  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_3
+2017-03-19 10:50:58.896  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_3
+2017-03-19 10:50:58.904  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_1
+2017-03-19 10:50:58.917  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2017-03-19 10:50:58.923  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2017-03-19 10:50:58.931  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_4
+2017-03-19 10:50:58.938  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_4
+2017-03-19 10:50:58.961  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByUserUsingGET_1
+2017-03-19 10:50:59.039  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2017-03-19 10:50:59.053  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_5
+2017-03-19 10:50:59.073  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getUsingGET_5
+2017-03-19 10:50:59.083  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_5
+2017-03-19 10:50:59.101  INFO 5193 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUsingPUT_2
+2017-03-19 10:50:59.285  INFO 5193 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-03-19 10:50:59.296  INFO 5193 --- [main] i.s.s.g.DataServiceApplication           : Started DataServiceApplication in 18.29 seconds (JVM running for 21.12)
+2017-03-19 10:51:23.891  INFO 5193 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/td]                      : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-03-19 10:51:23.915  INFO 5193 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2017-03-19 10:51:23.970  INFO 5193 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 55 ms
+2017-03-19 10:51:37.333  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-19-10-51-37-240.jpg
+2017-03-19 10:51:37.376  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-19-10-51-37-240.jpg
+2017-03-19 10:51:37.559  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=30, name='2017-03-19-10-51-37-240.jpg', timage='http://localhost:8080/td/uploads/timage2017-03-19-10-51-37-240.jpg', detailId=-1}
+2017-03-19 10:51:40.890  INFO 5193 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-19-10-51-40-889.xlsx
+2017-03-19 10:51:42.438  INFO 5193 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-19 10:51:42.587  INFO 5193 --- [http-nio-8080-exec-8] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=30, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-19 10:51:56.045 ERROR 5193 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/td] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException
+	at info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(DiagnosisController.java:99)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:969)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:860)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:845)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at info.smartkit.shiny.guide.configs.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:26)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+2017-03-19 10:57:22.041 ERROR 5193 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/td] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException
+	at info.smartkit.shiny.guide.controllers.DiagnosisController.getByUser(DiagnosisController.java:99)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:814)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:737)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:969)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:860)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:845)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at info.smartkit.shiny.guide.configs.SimpleCORSFilter.doFilter(SimpleCORSFilter.java:26)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:521)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1096)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:674)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+2017-03-19 10:59:19.530  INFO 5193 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/timage2017-03-19-10-59-19-487.jpg
+2017-03-19 10:59:19.549  INFO 5193 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : ImageMagick output success: 2017-03-19-10-59-19-487.jpg
+2017-03-19 10:59:19.693  INFO 5193 --- [http-nio-8080-exec-4] i.s.s.g.c.UploadController               : Saved ItemInfo--> ItemInfo{id=31, name='2017-03-19-10-59-19-487.jpg', timage='http://localhost:8080/td/uploads/timage2017-03-19-10-59-19-487.jpg', detailId=-1}
+2017-03-19 10:59:23.581  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Upload file success./Users/smartkit/git/shiny-guide/DataService/mahout-data-service/target/classes/uploads/tcsv2017-03-19-10-59-23-580.xlsx
+2017-03-19 10:59:23.728  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Mapped last ItemDetail-->ItemDetail{id=0, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}
+2017-03-19 10:59:23.874  INFO 5193 --- [http-nio-8080-exec-7] i.s.s.g.c.UploadController               : Saved ItemDetail--> ItemDetail{id=31, njzd='null', blzd='正常鳞状上皮', zzzd='正常', houbao='薄|0.53', funi='-|0.00', runzao='腻，中|0.89', botai='-|0.00', pangshou='适中|0.00', chihen='无齿痕|0.00', dianci='无点刺|0.00', liewen='无裂纹|0.00', yuban='无瘀斑|0.00', taizhi='薄|0.53，-|0.00，腻，中|0.89，-|0.00', shexing='适中|0.00，无齿痕|0.00，无点刺|0.00，无裂纹|0.00，无瘀斑|0.00', shese='舌淡紫', taise='苔白', jieguo='舌淡紫，苔薄白腻', rgbR='157.270000000000010231815394945442676544189453125', rgbG='157.270000000000010231815394945442676544189453125', rgbB='122.75', hsvH='0.450000000000000011102230246251565404236316680908203125', hsvS='0.2200000000000000011102230246251565404236316680908203125', hsvV='157.270000000000010231815394945442676544189453125', labelL='null', labelA='null', labelB='null', q1_2='null', q1_3r='null', q1_3y='null', q2_1='null', products=null}

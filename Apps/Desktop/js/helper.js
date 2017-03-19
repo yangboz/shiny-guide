@@ -12,7 +12,7 @@ var _environments = {
             /**
              * Add any config properties you want in here for this environment
              */
-            api_endpoint_base: 'http://localhost:8080/'
+            api_endpoint_base: 'http://localhost:8080/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
         }
@@ -46,12 +46,14 @@ _getEnvironment = function () {
     // var host = slashes.concat(window.location.hostname);
     var host = window.location.host;
     console.log("host:"+host);
+    var hostname = window.location.hostname;
+    console.log("hostname:"+hostname);
     if (_environment) {
         return _environment;
     }
 
     for (var environment in _environments) {
-        if (typeof _environments[environment].host && _environments[environment].host == host) {
+        if (typeof _environments[environment].host && _environments[environment].host == hostname) {
             _environment = environment;
             return _environment;
         }

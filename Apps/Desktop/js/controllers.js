@@ -1,5 +1,5 @@
 // angular.module('app.controllers', ['ngFileUpload','pubnub.angular.service'])
-angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular.service'])
+angular.module('app.controllers', ['app.services','ngFileUpload'])
     .controller('MainCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -11,6 +11,10 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             $rootScope.instructions = [];
             $rootScope.pescriptions = [];
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
+            //selected
+            $rootScope.selectedUserInfo = {};
+            $rootScope.selectedItemInfo = {};
+            $rootScope.selectedItemDetail = {};
             //ConsultModal
             $ionicModal.fromTemplateUrl('templates/modal-consulting.html', {
                 scope: $scope,
@@ -26,6 +30,13 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
                 animation: 'slide-in-up'
             }).then(function(modal) {
                 $rootScope.consultingAutoModal = modal;
+            });
+            $rootScope.consultingStaticModal = null;
+            $ionicModal.fromTemplateUrl('templates/modal-consulting-static.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.consultingStaticModal = modal;
             });
             //NewInstructionModal
             $rootScope.newInstructionModal = null;
@@ -93,17 +104,18 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
         })
 //
 .controller('page3Ctrl', function ($rootScope,$scope,$stateParams,$ionicModal,CONFIG_ENV,Upload,$ionicLoading,$log,
-                                   UpdateItemInfoService,UserInfoService,Enum,Pubnub,$timeout,
+                                   UpdateItemInfoService,UserInfoService,Enum,$timeout,
                                    RecommendUserService,RecommendItemService,DiagnosisService) {
 //
-//PubNub
-    Pubnub.init({
-        publishKey: CONFIG_ENV.pubnub_key,
-        subscribeKey: CONFIG_ENV.pubnub_secret
-    });
+// //PubNub
+//     Pubnub.init({
+//         publishKey: CONFIG_ENV.pubnub_key,
+//         subscribeKey: CONFIG_ENV.pubnub_secret
+//     });
     $log.info("CONFIG_ENV:",CONFIG_ENV);
     //ng-model
-    $scope.userInfo = {name:"", gender:1,age:50, itemId: "",itemDetailId:""};
+    $scope.userInfo = {id:Enum.getUUID(),name:"", gender:1,age:50, itemId: "",itemDetailId:""};
+    $log.info("default userInfo:",$scope.userInfo);
     $scope.yearsR = "中年";
         //age drag input
         $scope.drag = function(value) {
@@ -192,7 +204,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
             anewUserInfo.$save(function (resp) {
                 $log.info("createUserInfo("+$scope.savedUserID+") success, response:", resp);
                 $scope.savedUserID = resp.data.id;
-                $rootScope.showPrompt("采集成功!");
+                // $rootScope.showPrompt("采集成功!");
+                $rootScope.showAlert("采集成功!");
                //Auto diagnosis testing
 
             }, function (resp) {
@@ -216,21 +229,76 @@ angular.module('app.controllers', ['app.services','ngFileUpload','pubnub.angular
     .controller('page4Ctrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($scope, $stateParams,$ionicModal) {
-            $scope.items = [
+        function ($rootScope,$scope, $stateParams,$log,Enum,ConsultUserInfoService,ItemInfoService,UserInfoService,ItemDetailService) {
+            $scope.userInfos = [
                 {
-                    "id": 1,
-                    "name": "专家指导"
-                },
-                {
-                    "id": 2,
-                    "name": "专家指导"
-                },
-                {
-                    "id": 3,
-                    "name": "专家指导"
+                    id:Enum.getUUID(),name:"", gender:1,age:50, itemId: "",itemDetailId:""
                 }
             ];
+            //Select binding
+            $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
+
+            //GET where none consulting.
+            $scope.loadUserInfos = function () {
+
+                ConsultUserInfoService.get({"id":-1}, function (response) {
+                    $log.info("ConsultUserInfoService.get() success!", response.data);
+                    $scope.userInfos = response.data;
+
+                }, function (error) {
+                    // failure handler
+                    $log.error("UserInfoService.get() failed:", JSON.stringify(error));
+                });
+
+            };
+
+            $scope.loadItemDetailOne = function () {
+                $log.debug("SELECTED itemInfo's itemDetailId:",$rootScope.selectedItemInfo.detailId);
+                //drill down the item detail for select.
+                ItemDetailService.get({id:$rootScope.selectedItemInfo.detailId}, function (response) {
+                    $log.debug("ItemDetailService.get("+$rootScope.selectedItemInfo.detailId+") success!", response.data);
+                    $rootScope.selectedItemDetail = response.data;
+                    $log.debug(" $rootScope.selectedItemDetail:",  $rootScope.selectedItemDetail);
+                }, function (error) {
+                    // failure handler
+                    $log.error("ItemDetailService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            $scope.getUserItemInfo = function(userInfo){
+               //
+                $rootScope.selectedUserInfo = userInfo;
+                ItemInfoService.get({id:userInfo.id}, function (response) {
+                    $log.debug("ItemInfoService.get("+userInfo.id+") success!", response.data);
+                    $rootScope.selectedItemInfo = response.data;
+                    //Select binding
+                    $log.debug("$rootScope.selectedItemInfo:",$rootScope.selectedItemInfo);
+                    //item related detail
+                    $scope.loadItemDetailOne();
+                    //
+                    $rootScope.consultingStaticModal.show();
+                }, function (error) {
+                    // failure handler
+                    $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            $scope.deleteUserInfo = function (userInfo) {
+                UserInfoService.delete({id:userInfo.id}, function (response) {
+                    $log.info("UserInfoService.delete() success!", response.data);
+                   //refresh
+                    $scope.loadUserInfos();
+                }, function (error) {
+                    // failure handler
+                    $log.error("UserInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            //default behaviors
+            console.log("loadUnConsultUsers...");
+            $scope.loadUserInfos();
+
+
         })
    
 .controller('ConsultingAutoCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -359,7 +427,9 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     //alert success.
                     $rootScope.showAlert("答诊成功!");
                     //reload
-                    $scope.loadUserAndItemInfos();
+                    // $scope.loadUserAndItemInfos();
+                    //hide consulting modal.
+                    $rootScope.consultingStaticModal.hide();
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
                 });
