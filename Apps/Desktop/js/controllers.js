@@ -12,6 +12,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $rootScope.pescriptions = [];
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
             //selected
+            $rootScope.unconsultUserInfos = [];
             $rootScope.selectedUserInfo = {};
             $rootScope.selectedItemInfo = {};
             $rootScope.selectedItemDetail = {};
@@ -244,7 +245,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                 ConsultUserInfoService.get({"id":-1}, function (response) {
                     $log.info("ConsultUserInfoService.get() success!", response.data);
                     $scope.userInfos = response.data;
-
+                    //
+                    $rootScope.unconsultUserInfos =  response.data;
                 }, function (error) {
                     // failure handler
                     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
@@ -273,10 +275,10 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                     $rootScope.selectedItemInfo = response.data;
                     //Select binding
                     $log.debug("$rootScope.selectedItemInfo:",$rootScope.selectedItemInfo);
-                    //item related detail
-                    $scope.loadItemDetailOne();
                     //
                     $rootScope.consultingStaticModal.show();
+                    //item related detail
+                    $scope.loadItemDetailOne();
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
