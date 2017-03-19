@@ -253,7 +253,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             };
 
             $scope.loadItemDetailOne = function () {
-                $log.debug("SELECTED itemInfo's itemDetailId:",$rootScope.selectedItemInfo.detailId);
+
                 //drill down the item detail for select.
                 ItemDetailService.get({id:$rootScope.selectedItemInfo.detailId}, function (response) {
                     $log.debug("ItemDetailService.get("+$rootScope.selectedItemInfo.detailId+") success!", response.data);
