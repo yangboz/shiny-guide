@@ -270,8 +270,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $scope.getUserItemInfo = function(userInfo){
                //
                 $rootScope.selectedUserInfo = userInfo;
-                ItemInfoService.get({id:userInfo.id}, function (response) {
-                    $log.debug("ItemInfoService.get("+userInfo.id+") success!", response.data);
+                ItemInfoService.get({id:userInfo.itemId}, function (response) {
+                    $log.debug("ItemInfoService.get("+userInfo.itemId+") success!", response.data);
                     $rootScope.selectedItemInfo = response.data;
                     //Select binding
                     $log.debug("$rootScope.selectedItemInfo:",$rootScope.selectedItemInfo);
