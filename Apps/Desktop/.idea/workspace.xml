@@ -34,8 +34,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="470" column="36" lean-forward="true" selection-start-line="470" selection-start-column="36" selection-end-line="470" selection-end-column="36" />
+            <state relative-caret-position="208">
+              <caret line="432" column="44" lean-forward="true" selection-start-line="432" selection-start-column="44" selection-end-line="432" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -139,6 +139,7 @@
       <find>loadInsAndPres</find>
       <find>采集</find>
       <find>$scope.loadItemDetailOne</find>
+      <find>答</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -461,12 +462,12 @@
       <workItem from="1489293447383" duration="2908000" />
       <workItem from="1489885493492" duration="9689000" />
       <workItem from="1489927515963" duration="445000" />
-      <workItem from="1489986112569" duration="1582000" />
+      <workItem from="1489986112569" duration="2183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96189000" />
+    <option name="totallyTimeSpent" value="96790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1886" height="1029" extended-state="0" />
@@ -839,8 +840,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="470" column="36" lean-forward="true" selection-start-line="470" selection-start-column="36" selection-end-line="470" selection-end-column="36" />
+        <state relative-caret-position="208">
+          <caret line="432" column="44" lean-forward="true" selection-start-line="432" selection-start-column="44" selection-end-line="432" selection-end-column="44" />
           <folding />
         </state>
       </provider>

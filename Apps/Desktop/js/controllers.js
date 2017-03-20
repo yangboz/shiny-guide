@@ -424,7 +424,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
            //UPDATE
             $scope.updateUserInfo = function ($cid) {
                 var updateUserInfo = new UpdateUserInfoService();
-                updateUserInfo.$update({"Id":$scope.selectedUserInfo.id,"cId":$cid},function (resp) {
+                updateUserInfo.$update({"Id":$rootScope.selectedUserInfo.id,"cId":$cid},function (resp) {
                     $log.info("updateUserInfo() success, response:", resp);
                     //alert success.
                     $rootScope.showAlert("答诊成功!");
