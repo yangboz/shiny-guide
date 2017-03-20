@@ -344,7 +344,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $scope.selectedUserInfo = $rootScope.userInfos[0];//Default 0ne.
                     $log.debug("selectedUserInfo:",$scope.selectedUserInfo);
                     //default trigger.
-                    $scope.setUserInfoSelected($scope.selectedUserInfo);
+                    // $scope.setUserInfoSelected($scope.selectedUserInfo);
                 }, function (error) {
                     // failure handler
                     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
@@ -467,7 +467,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
 
             //
             $log.info("ConsultCtrl initialize...");
-            $scope.loadUserAndItemInfos();
+            // $scope.loadUserAndItemInfos();
             $scope.loadInsAndPres();
         })
     .controller('NewInstructionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
