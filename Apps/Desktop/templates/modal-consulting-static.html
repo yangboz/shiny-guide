@@ -7,8 +7,8 @@
     </ion-header-bar>
     <ion-content class="padding">
         <div class="list">
-            <label class="item item-input item-select">
-                <div class="input-label">
+            <label class="item item-input disabled">
+                <div class="input-label disabled">
                     患者姓名:
                 </div>
                 <p>{{$root.selectedUserInfo.name}}</p>
@@ -19,7 +19,7 @@
                 </div>
                 <img style="height: 100px;width: 100px;" ng-src='{{$root.selectedItemInfo.timage}}' zoom-src="{{$root.selectedItemInfo.timage}}" zoom-view />
             </div>
-            <label class="item item-input">
+            <label class="item item-input" ng-show="false">
                 <div class="input-label">
                     舌诊仪数据:
                 </div>
@@ -36,30 +36,27 @@
                     </tr>
                 </table>
             </label>
-            <div class="item item-input item-select">
+            <div class="item item-input">
                 <div class="input-label">
-                    专家指导名:
+                    舌诊结果:
                 </div>
-                <select ng-options="item as item.name for item in instructions track by item.id" ng-model="selectedInstruction"></select>
-
-                </select>
+                <p>{{$root.selectedItemDetail.jieguo}}</p>
             </div>
-            <label class="item item-input item-select disabled">
+            <label class="item item-input item-select">
                 <div class="input-label">
-                    专家指导详情:
+                    专家指导:
                 </div>
-                <select ng-disabled="true" ng-options="item as item.content for item in instructions track by item.id" ng-model="selectedInstruction"></select>
-
-                </select>
-
+                <button ng-click="$root.newInstructionModal.show()">+</button>
+                <select ng-options="item as item.content for item in instructions track by item.id" ng-model="selectedInstruction"></select>
             </label>
             <div class="item item-input item-select">
                 <div class="input-label">
-                    处方名:
+                    处方:
                 </div>
                 <select ng-options="item as item.name for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+                <button ng-click="$root.newPrescriptionModal.show()">+</button>
             </div>
-            <label class="item item-input item-select disabled">
+            <label class="item item-input item-select  disabled">
                 <div class="input-label">
                     处方详情:
                 </div>

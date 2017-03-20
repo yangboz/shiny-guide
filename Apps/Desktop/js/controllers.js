@@ -249,6 +249,17 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                     $rootScope.unconsultUserInfos =  response.data;
                 }, function (error) {
                     // failure handler
+                    $log.error("ConsultUserInfoService.get() failed:", JSON.stringify(error));
+                });
+
+            };
+            $scope.loadAllUserInfos = function () {
+
+                UserInfoService.get({}, function (response) {
+                    $log.info("UserInfoService.get() success!", response.data);
+                    $scope.userInfos = response.data;
+                }, function (error) {
+                    // failure handler
                     $log.error("UserInfoService.get() failed:", JSON.stringify(error));
                 });
 
