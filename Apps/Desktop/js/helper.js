@@ -13,6 +13,7 @@ var _environments = {
              * Add any config properties you want in here for this environment
              */
             api_endpoint_base: 'http://localhost:8080/td/'
+            // api_endpoint_base: 'http://118.190.96.120:8070/td/'
             ,clientId:'clientApp'
             ,clientSecret:'1NDgzZGY1OWViOWRmNjI5ZT'
         }

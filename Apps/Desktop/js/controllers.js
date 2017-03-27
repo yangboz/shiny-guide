@@ -8,14 +8,17 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             //root scope variables for modal.
             $rootScope.consultingModal = null;
             $rootScope.userInfos = [];
-            $rootScope.instructions = [];
-            $rootScope.pescriptions = [];
+            $rootScope.allInstructions = [];
+            $rootScope.allPescriptions = [];
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
             //selected
             $rootScope.unconsultUserInfos = [];
             $rootScope.selectedUserInfo = {};
             $rootScope.selectedItemInfo = {};
             $rootScope.selectedItemDetail = {};
+            $rootScope.selectedConsultInfo = {pid:-1,iid:-1};
+            $rootScope.selectedInstruction = null;
+            $rootScope.selectedPrescription = null;
             //ConsultModal
             $ionicModal.fromTemplateUrl('templates/modal-consulting.html', {
                 scope: $scope,
@@ -230,7 +233,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
     .controller('page4Ctrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($rootScope,$scope, $stateParams,$log,Enum,ConsultUserInfoService,ItemInfoService,UserInfoService,ItemDetailService) {
+        function ($rootScope,$scope, $stateParams,$log,Enum,ConsultUserInfoService,ItemInfoService
+            ,UserInfoService,ItemDetailService,ConsultInfoService,InstructionService,PrescriptionService) {
             $scope.userInfos = [
                 {
                     id:Enum.getUUID(),name:"", gender:1,age:50, itemId: "",itemDetailId:""
@@ -243,7 +247,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $scope.loadUserInfos = function () {
 
                 ConsultUserInfoService.get({"id":-1}, function (response) {
-                    $log.info("ConsultUserInfoService.get() success!", response.data);
+                    $log.debug("ConsultUserInfoService.get() success!", response.data);
                     $scope.userInfos = response.data;
                     //
                     $rootScope.unconsultUserInfos =  response.data;
@@ -256,7 +260,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $scope.loadAllUserInfos = function () {
 
                 UserInfoService.get({}, function (response) {
-                    $log.info("UserInfoService.get() success!", response.data);
+                    $log.debug("UserInfoService.get() success!", response.data);
                     $scope.userInfos = response.data;
                 }, function (error) {
                     // failure handler
@@ -265,13 +269,32 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 
             };
 
-            $scope.loadItemDetailOne = function () {
+            $scope.loadConsultInfo = function () {
+
+                //drill down the item detail for select.
+                ConsultInfoService.get({id:$rootScope.selectedUserInfo.consultId}, function (response) {
+                    $log.debug("ConsultInfoService.get("+$rootScope.selectedUserInfo.consultId+") success!", response.data);
+                    $rootScope.selectedConsultInfo = response.data;
+                    $log.debug(" $rootScope.selectedConsultInfo:",  $rootScope.selectedConsultInfo);
+                    //
+                    $rootScope.setInstructionSelected();
+                    $rootScope.setPrescrptionSelected();
+                    //
+                }, function (error) {
+                    // failure handler
+                    $log.error("ConsultInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            $scope.loadItemDetailOne = function (userInfo) {
 
                 //drill down the item detail for select.
                 ItemDetailService.get({id:$rootScope.selectedItemInfo.detailId}, function (response) {
                     $log.debug("ItemDetailService.get("+$rootScope.selectedItemInfo.detailId+") success!", response.data);
                     $rootScope.selectedItemDetail = response.data;
                     $log.debug(" $rootScope.selectedItemDetail:",  $rootScope.selectedItemDetail);
+                    //next
+                    $scope.loadConsultInfo();
                 }, function (error) {
                     // failure handler
                     $log.error("ItemDetailService.get() failed:", JSON.stringify(error));
@@ -290,6 +313,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                     $rootScope.consultingStaticModal.show();
                     //item related detail
                     $scope.loadItemDetailOne();
+
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
@@ -364,12 +388,11 @@ function ($scope, $stateParams,$ionicModal,$log) {
             };
             //GET
             $scope.loadItemInfos = function () {
-
                 ItemInfoService.get({}, function (response) {
                     $log.debug("ItemInfoService.get() success!", response.data);
                     $rootScope.itemInfos = response.data;
                     //Select binding
-                    $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
+                    // $scope.selectedItemInfo= $rootScope.itemInfos[0];//Default 0ne.
                     $log.debug("selectedItemInfo:",$scope.selectedItemInfo);
                 }, function (error) {
                     // failure handler
@@ -377,12 +400,12 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             };
             //GET
-            $scope.loadInstructions = function () {
+            $scope.loadAllInstructions = function () {
                 InstructionService.get({}, function (response) {
                     $log.info("InstructionService.get() success!", response.data);
-                    $rootScope.instructions = response.data;
+                    $rootScope.allInstructions = response.data;
                     //Select binding
-                    $scope.selectedInstruction = $rootScope.instructions[0];//Default 0ne.
+                    $scope.selectedInstruction = $rootScope.allInstructions[0];//Default 0ne.
                     $log.debug("selectedInstruction:",$scope.selectedInstruction);
                 }, function (error) {
                     // failure handler
@@ -390,12 +413,12 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             };
             //GET
-            $scope.loadPrescriptions = function () {
+            $scope.loadAllPrescriptions = function () {
                 PrescriptionService.get({}, function (response) {
                     $log.info("PrescriptionService.get() success!", response);
-                    $rootScope.pescriptions = response.data;
+                    $rootScope.allPrescriptions = response.data;
                     //Select binding
-                    $scope.selectedPrescription = $rootScope.pescriptions[0];//Default 0ne.
+                    $scope.selectedPrescription = $rootScope.allPescriptions[0];//Default 0ne.
                     $log.debug("selectedPrescription:",$scope.selectedPrescription);
                 }, function (error) {
                     // failure handler
@@ -410,17 +433,17 @@ function ($scope, $stateParams,$ionicModal,$log) {
             }
             $scope.loadInsAndPres = function () {
                 console.log("loadInsAndPres...");
-                $scope.loadInstructions();//FIXME: load a sequence chain.
-                $scope.loadPrescriptions();
+                $scope.loadAllInstructions();//FIXME: load a sequence chain.
+                $scope.loadAllPrescriptions();
             }
             //CREATE
             $scope.createConsultInfo  = function () {
                 //
                 var anewConsultInfo = new ConsultInfoService();
-                $log.info("selectedInstruction:",$scope.selectedInstruction);
-                $log.info("selectedPrescription:",$scope.selectedPrescription);
-                anewConsultInfo.iid = $scope.selectedInstruction.id;
-                anewConsultInfo.pid = $scope.selectedPrescription.id;
+                $log.info("$rootScope.selectedInstruction:",$rootScope.selectedInstruction);
+                $log.info("$rootScope.selectedPrescription:",$rootScope.selectedPrescription);
+                anewConsultInfo.iid = $rootScope.selectedInstruction.id;
+                anewConsultInfo.pid = $rootScope.selectedPrescription.id;
                 $log.info("anewConsultInfo:",anewConsultInfo);
                 //Save
                 anewConsultInfo.$save(function (resp) {
@@ -460,7 +483,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             }
             //SELECT change
-            $scope.setUserInfoSelected = function ($selected) {
+            $rootScope.setUserInfoSelected = function ($selected) {
                 $scope.selectedUserInfo = $selected;//refresh.
                 $log.debug("SELECTED userInfo:",$scope.selectedUserInfo);
                 //drill down the item info for select.
@@ -473,6 +496,41 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 }, function (error) {
                     // failure handler
                     $log.error("ItemInfoService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            $scope.updateInstructionSelected = function () {
+                //
+                $log.debug("SELECTED instruction:",$rootScope.selectedInstruction);
+            }
+
+            $scope.updatePrescriptionSelected = function () {
+                //
+                $log.debug("SELECTED prescription:",$rootScope.selectedPrescription);
+                //
+
+            }
+
+            //Manually set up selections
+            $rootScope.setInstructionSelected = function () {
+                InstructionService.get({id:$rootScope.selectedConsultInfo.iid}, function (response) {
+                    $log.debug("InstructionService.get("+$rootScope.selectedConsultInfo.iid+") success!", response.data);
+                    $rootScope.selectedInstruction = response.data;
+                    $log.debug(" $rootScope.selectedInstruction:",  $rootScope.selectedInstruction);
+                }, function (error) {
+                    // failure handler
+                    $log.error("InstructionService.get() failed:", JSON.stringify(error));
+                });
+            }
+
+            $rootScope.setPrescrptionSelected = function () {
+                PrescriptionService.get({id:$rootScope.selectedConsultInfo.pid}, function (response) {
+                    $log.debug("PrescriptionService.get("+$rootScope.selectedConsultInfo.pid+") success!", response.data);
+                    $rootScope.selectedPrescription = response.data;
+                    $log.debug("$rootScope.selectedPrescription:",  $rootScope.selectedPrescription);
+                }, function (error) {
+                    // failure handler
+                    $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
                 });
             }
 

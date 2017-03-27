@@ -47,20 +47,20 @@
                     专家指导:
                 </div>
                 <button ng-click="$root.newInstructionModal.show()">+</button>
-                <select ng-options="item as item.content for item in instructions track by item.id" ng-model="selectedInstruction"></select>
+                <select ng-options="item as item.content for item in $root.allInstructions track by item.id" ng-model="$root.selectedInstruction" ng-change="updateInstructionSelected()"></select>
             </label>
             <div class="item item-input item-select">
                 <div class="input-label">
                     处方:
                 </div>
-                <select ng-options="item as item.name for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+                <select ng-options="item as item.name for item in $root.allPrescriptions track by item.id" ng-model="$root.selectedPrescription" ng-change="updatePrescriptionSelected()"></select>
                 <button ng-click="$root.newPrescriptionModal.show()">+</button>
             </div>
             <label class="item item-input item-select  disabled">
                 <div class="input-label">
                     处方详情:
                 </div>
-                <select ng-options="item as item.content for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+                <select ng-options="item as item.content for item in $root.allPrescriptions track by item.id" ng-model="$root.selectedPrescription" ></select>
 
             </label>
             <button class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createConsultInfo()">答诊</button>

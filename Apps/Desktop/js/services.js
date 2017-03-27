@@ -65,21 +65,21 @@ angular.module('app.services', ['ngResource'])
 //PrescriptionService
     .factory('PrescriptionService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "prescription"
+            CONFIG_ENV.api_endpoint  + "prescription/:id"
         )
         return data;
     })
     //InstructionService
     .factory('InstructionService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "instruction"
+            CONFIG_ENV.api_endpoint  + "instruction/:id"
         )
         return data;
     })
     //ConsultInfoService
     .factory('ConsultInfoService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "consult"
+            CONFIG_ENV.api_endpoint  + "consult/:id"
         )
         return data;
     })
