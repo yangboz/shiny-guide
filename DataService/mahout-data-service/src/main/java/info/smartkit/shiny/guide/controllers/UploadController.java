@@ -5,10 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -17,10 +14,14 @@ import javax.ws.rs.core.MediaType;
 import com.blogspot.na5cent.exom.ExOM;
 import info.smartkit.shiny.guide.dao.ItemDetailDao;
 import info.smartkit.shiny.guide.dao.ItemInfoDao;
+import info.smartkit.shiny.guide.dao.UserInfoDao;
+import info.smartkit.shiny.guide.dao.UserItemDetailDao;
 import info.smartkit.shiny.guide.settings.UploadSettings;
 import info.smartkit.shiny.guide.utils.MahoutUtils;
 import info.smartkit.shiny.guide.vo.ItemDetail;
 import info.smartkit.shiny.guide.vo.ItemInfo;
+import info.smartkit.shiny.guide.vo.UserInfo;
+import info.smartkit.shiny.guide.vo.UserItemDetail;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
@@ -59,6 +60,13 @@ public class UploadController {
     @Autowired
     private UploadSettings uploadSettings;
 
+    @Autowired
+    private UserItemDetailDao userItemDetailDao;
+
+    @Autowired
+    private UserInfoDao userInfoDao;
+
+
     //@SEE:http://www.ibm.com/developerworks/cn/java/j-lo-mahout/index.html
     // @see: https://spring.io/guides/gs/uploading-files/
     @RequestMapping(method = RequestMethod.POST, value = "/recommend", consumes = MediaType.MULTIPART_FORM_DATA)
@@ -94,44 +102,75 @@ public class UploadController {
     }
 
     // @see: https://spring.io/guides/gs/uploading-files/
-    @RequestMapping(method = RequestMethod.POST, value = "/tcsv", consumes = MediaType.MULTIPART_FORM_DATA)
+    @RequestMapping(method = RequestMethod.POST, value = "/tcsv/{mrow}", consumes = MediaType.MULTIPART_FORM_DATA)
     @ApiOperation(value = "Response a list of recommend  of TD' picture is successfully uploaded or not.")
 //	@ApiImplicitParams({@ApiImplicitParam(name="Authorization", value="Authorization DESCRIPTION")})
     public
     @ResponseBody
     JsonObject TCsvFileUpload(
-            // @RequestParam(value = "name", required = false, defaultValue =
-            // "default_input_image_file_name") String name,
             // @RequestParam(value = "owner", required = false, defaultValue =
             // "default_intellif_corp") String owner,
-            @RequestPart(value = "file") @Valid @NotNull @NotBlank MultipartFile file) throws Throwable {
+            @RequestPart(value = "file") @Valid @NotNull @NotBlank MultipartFile file,
+            @PathVariable("mrow") Boolean mrow) throws Throwable {
         // @Validated MultipartFileWrapper file, BindingResult result, Principal
         // principal){
         long startTime = System.currentTimeMillis();
         long lastID = -1;
         String fileName = null;
-        ItemDetail savedItem = null;
+        UserItemDetail lastSingleItem  = null;
+        UserItemDetail lastItem  = null;
+        List<UserItemDetail> lastItems = new ArrayList<>();
         if (!file.isEmpty()) {
             Map<String, String> _imageMagickOutput = this.fileOperation(file, "tcsv");
             // Image resize operation.
             fileName = FileUtil.getUploads("tcsv") + _imageMagickOutput.get(ImageSize.ori.toString());
-            List<ItemDetail> items = ExOM.mapFromExcel(new File(fileName))
-                    .toObjectOf(ItemDetail.class)
+            List<UserItemDetail> items = ExOM.mapFromExcel(new File(fileName))
+                    .toObjectOf(UserItemDetail.class)
                     .map();
-//            for (ItemDetail item : items) {
-//                //Save to database return last id;
-//                lastID = itemDetailDao.save(item).getId();
-//                LOG.info("Saved ItemDetail.id--> {}", lastID);
-//            }
-            ItemDetail lastItem = items.get(items.size() - 1);
-            LOG.info("Mapped last ItemDetail-->" + lastItem.toString());
-            //Save to database return last id;
-            savedItem = itemDetailDao.save(lastItem);
-            LOG.info("Saved ItemDetail--> " + savedItem);
+            //
+            if(mrow) {
+                for (UserItemDetail item : items) {
+                    //Save to database return last id;
+                    lastItem = userItemDetailDao.save(item);
+                    lastID = lastItem.getId();
+                    LOG.info("Saved ItemDetail.id--> {}", lastID);
+                    lastItems.add(lastItem);
+                    //Save Item
+                    ItemDetail anewItemDetail = new ItemDetail(item.getNjzd(),item.getBlzd(),item.getZzzd(),item.getHoubao(),
+                            item.getFuni(),item.getRunzao(),item.getBotai(),item.getPangshou(),item.getChihen(),item.getDianci(),
+                            item.getLiewen(),item.getYuban(),item.getTaizhi(),item.getShexing(),item.getShese(),item.getTaise(),
+                            item.getJieguo(),item.getRgbR(),item.getRgbG(),item.getRgbB(),item.getHsvH(),
+                            item.getHsvS(),item.getHsvV(),item.getLabelL(),item.getLabelA(),item.getLabelB(),item.getQ1_2(),item.getQ1_3r(),
+                            item.getQ1_3y(),item.getQ2_1());
+                    ItemDetail anewItemDetailSaved = itemDetailDao.save(anewItemDetail);
+                    LOG.info("Saved anewItemDetail: "+anewItemDetailSaved.toString());
+                    //Save ItemInfo,update item detail, item info, relationship.
+                    ItemInfo anewItemInfo = new ItemInfo(null,null,(int)anewItemDetailSaved.getId());
+                    ItemInfo anewItemInfoSaved = itemInfoDao.save(anewItemInfo);
+                    LOG.info("Saved anewItemInfo: "+anewItemInfoSaved.toString());
+                    //Save UserInfo
+                    UserInfo anewUserInfo = new UserInfo();
+                    anewUserInfo.setName(lastItem.getXingming());
+                    anewUserInfo.setAge(lastItem.getNianning());
+                    anewUserInfo.setGender(lastItem.getXingbie());
+                    //update item info, user info relationship.
+                    anewUserInfo.setItemId(anewItemInfoSaved.getId());
+                    UserInfo anewUserInfoSaved =  userInfoDao.save(anewUserInfo);
+                    LOG.info("Saved anewUserInfo: "+anewUserInfoSaved.toString());
+                }
+            }else {
+                lastSingleItem = items.get(items.size() - 1);
+                LOG.info("Mapped last ItemDetail-->" + lastSingleItem.toString());
+                //Save to database return last id;
+                lastItem = userItemDetailDao.save(lastSingleItem);
+                lastItems.add(lastItem);
+                //Update item detail, item info, relationship.
+            }
+            LOG.info("Saved lastItems--> " + lastItems.toString());
         } else {
             LOG.error("You failed to upload " + file.getName() + " because the file was empty.");
         }
-        return new JsonObject(savedItem);
+        return new JsonObject(lastItems);
     }
 
     // @see: https://spring.io/guides/gs/uploading-files/

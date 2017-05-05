@@ -60,6 +60,15 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                 $rootScope.newPrescriptionModal = modal;
                 // console.log(" $rootScope.newPrescriptionModal:"+ $rootScope.newPrescriptionModal);
             });
+            //PrescriptionModal
+            $rootScope.newPrintPreviewModal = null;
+            $ionicModal.fromTemplateUrl('templates/modal-print-preview.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $rootScope.newPrintPreviewModal = modal;
+                // console.log(" $rootScope.newPrescriptionModal:"+ $rootScope.newPrescriptionModal);
+            });
             // A Simple alert
             $rootScope.showAlert = function($msg) {
                 var alertPopup = $ionicPopup.alert({
@@ -163,13 +172,13 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                 $log.error("None file selected.");
             }
             Upload.upload({
-                url: CONFIG_ENV.api_endpoint+'upload/tcsv',
+                url: CONFIG_ENV.api_endpoint+'upload/tcsv/false',
                 data: {file: file}
             }).then(function (resp) {
                 //
                 $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
                 $log.info(resp.data.data);
-                $scope.userInfo.itemDetailId = resp.data.data.id;
+                $scope.userInfo.itemDetailId = resp.data.data[0].id;
                 //UPDATE
                 var updateItemInfo = new UpdateItemInfoService();
                 updateItemInfo.$update({"Id":$scope.userInfo.itemId,"dId":$scope.userInfo.itemDetailId},function (resp) {
@@ -185,6 +194,28 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         };
+    // upload on file select or drop
+    $scope.uploadUserItemDetail = function (file) {
+        if(!file){
+            $log.error("None file selected.");
+        }
+        Upload.upload({
+            url: CONFIG_ENV.api_endpoint+'upload/tcsv/true',
+            data: {file: file}
+        }).then(function (resp) {
+            //
+            $log.debug('Success ' + resp.config.data.file.name + ',uploaded. Response: ');
+            $log.info(resp.data.data);
+            // $scope.userInfo.itemDetailId = resp.data.data.id;
+            //
+        }, function (resp) {
+            $log.error('Error status: ' + resp.status);
+        }, function (evt) {
+
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
         //Select bind
         $scope.preferencesItemType = Enum.genderType;
         $scope.prefGender = Enum.genderType[0];//Default male.
@@ -534,6 +565,10 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             }
 
+            $scope.printConsultInfo = function(){
+                $rootScope.newPrintPreviewModal.show();
+            }
+
             //
             $log.info("ConsultCtrl initialize...");
             // $scope.loadUserAndItemInfos();
@@ -599,3 +634,11 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             }
         })
+        .controller('PrintPreviewCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($rootScope,$scope, $stateParams,$ionicModal,UserInfoService,PrescriptionService,$log) {
+        $scope.newPrescription = {name:null,content:null};
+        //Display UserInfo,prescription,instruction ,and other information.
+        //
+    })

@@ -13,41 +13,71 @@
                 </div>
                 <p>{{$root.selectedUserInfo.name}}</p>
             </label>
-            <div class="item item-input ">
+            <div class="item item-input" ng-show="false">
                 <div class="input-label">
                     患者舌像:
                 </div>
                 <img style="height: 100px;width: 100px;" ng-src='{{$root.selectedItemInfo.timage}}' zoom-src="{{$root.selectedItemInfo.timage}}" zoom-view />
             </div>
-            <label class="item item-input" ng-show="false">
+            <label class="item item-input" ng-show="true">
                 <div class="input-label">
-                    舌诊仪数据:
+                    舌象颜色空间色值:
                 </div>
                 <table class="friends">
                     <tr>
                         <th>RGB</th>
                         <th>HSV</th>
                         <th>Label</th>
+                        <th>舌体颜色</th>
+                        <th>舌苔颜色</th>
                     </tr>
                     <tr>
                         <td data-th="RGB">{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbB | number:2 }}</td>
                         <td data-th="HSV">{{$root.selectedItemDetail.hsvH | number:2}},{{$root.selectedItemDetail.hsvS  | number:2}},{{$root.selectedItemDetail.hsvV | number:2}}</td>
                         <td data-th="Label">,{{$root.selectedItemDetail.labelL  | number:2}},{{$root.selectedItemDetail.labelA  | number:2}},{{$root.selectedItemDetail.labelB  | number:2}}</td>
+                        <td data-th="舌体颜色">②	淡红</td>
+                        <td data-th="舌苔颜色">②	苔黄白相兼</td>
                     </tr>
                 </table>
             </label>
-            <div class="item item-input">
+            <div class="item item-input" ng-show="false">
                 <div class="input-label">
                     舌诊结果:
                 </div>
                 <p>{{$root.selectedItemDetail.jieguo}}</p>
             </div>
+            <label class="item item-input" ng-show="true">
+                <div class="input-label">
+                    舌象特征:
+                </div>
+                <table class="friends">
+                    <tr>
+
+                        <th>舌苔厚薄</th>
+                        <th>舌苔润燥</th>
+                        <th>胖瘦</th>
+                        <th>齿痕</th>
+                        <th>裂纹</th>
+                        <th>瘀点</th>
+                    </tr>
+                    <tr>
+
+                        <td data-th="舌苔厚薄">{{$root.selectedItemDetail.houbao}}</td>
+                        <td data-th="舌苔润燥">{{$root.selectedItemDetail.runzao}}</td>
+                        <td data-th="胖瘦">{{$root.selectedItemDetail.pangshou}}</td>
+                        <td data-th="齿痕">{{$root.selectedItemDetail.chihen}}</td>
+                        <td data-th="裂纹">{{$root.selectedItemDetail.liewen}}</td>
+                        <td data-th="瘀点">,{{$root.selectedItemDetail.yuban}}</td>
+                    </tr>
+                </table>
+            </label>
             <label class="item item-input item-select">
                 <div class="input-label">
                     专家指导:
                 </div>
                 <button ng-click="$root.newInstructionModal.show()">+</button>
                 <select ng-options="item as item.content for item in $root.allInstructions track by item.id" ng-model="$root.selectedInstruction" ng-change="updateInstructionSelected()"></select>
+
             </label>
             <div class="item item-input item-select">
                 <div class="input-label">
@@ -64,6 +94,7 @@
 
             </label>
             <button class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createConsultInfo()">答诊</button>
+            <button class="button button-dark  button-block icon-left ion-android-print" ng-click="printConsultInfo()">打印</button>
         </div>
     </ion-content>
 </ion-modal-view>

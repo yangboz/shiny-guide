@@ -20,7 +20,7 @@ public class UserInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private int gender = 1;//1:man,0:women
+    private int gender = 1;//1:man,0/2:women
     private int age;
 
     public long getConsultId() {
@@ -55,6 +55,10 @@ public class UserInfo implements Serializable {
 
     public long getItemId() {
         return itemId;
+    }
+
+    public void setItemId(long itemId) {
+        this.itemId = itemId;
     }
 
     private long itemId = -1;
