@@ -436,8 +436,8 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.info("InstructionService.get() success!", response.data);
                     $rootScope.allInstructions = response.data;
                     //Select binding
-                    $scope.selectedInstruction = $rootScope.allInstructions[0];//Default 0ne.
-                    $log.debug("selectedInstruction:",$scope.selectedInstruction);
+                    $rootScope.selectedInstruction = $scope.selectedInstruction = $rootScope.allInstructions[0];//Default 0ne.
+                    $log.debug("selectedInstruction:",$rootScope.selectedInstruction);
                 }, function (error) {
                     // failure handler
                     $log.error("InstructionService.get() failed:", JSON.stringify(error));
@@ -449,8 +449,8 @@ function ($scope, $stateParams,$ionicModal,$log) {
                     $log.info("PrescriptionService.get() success!", response);
                     $rootScope.allPrescriptions = response.data;
                     //Select binding
-                    $scope.selectedPrescription = $rootScope.allPescriptions[0];//Default 0ne.
-                    $log.debug("selectedPrescription:",$scope.selectedPrescription);
+                    $rootScope.selectedPrescription = $scope.selectedPrescription = $rootScope.allPescriptions[0];//Default 0ne.
+                    $log.debug("selectedPrescription:",$rootScope.selectedPrescription);
                 }, function (error) {
                     // failure handler
                     $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
@@ -544,25 +544,29 @@ function ($scope, $stateParams,$ionicModal,$log) {
 
             //Manually set up selections
             $rootScope.setInstructionSelected = function () {
-                InstructionService.get({id:$rootScope.selectedConsultInfo.iid}, function (response) {
-                    $log.debug("InstructionService.get("+$rootScope.selectedConsultInfo.iid+") success!", response.data);
-                    $rootScope.selectedInstruction = response.data;
-                    $log.debug(" $rootScope.selectedInstruction:",  $rootScope.selectedInstruction);
-                }, function (error) {
-                    // failure handler
-                    $log.error("InstructionService.get() failed:", JSON.stringify(error));
-                });
+                if($rootScope.selectedConsultInfo) {//Only show diagnosised.
+                    InstructionService.get({id: $rootScope.selectedConsultInfo.iid}, function (response) {
+                        $log.debug("InstructionService.get(" + $rootScope.selectedConsultInfo.iid + ") success!", response.data);
+                        $rootScope.selectedInstruction = response.data;
+                        $log.debug(" $rootScope.selectedInstruction:", $rootScope.selectedInstruction);
+                    }, function (error) {
+                        // failure handler
+                        $log.error("InstructionService.get() failed:", JSON.stringify(error));
+                    });
+                }
             }
 
             $rootScope.setPrescrptionSelected = function () {
-                PrescriptionService.get({id:$rootScope.selectedConsultInfo.pid}, function (response) {
-                    $log.debug("PrescriptionService.get("+$rootScope.selectedConsultInfo.pid+") success!", response.data);
-                    $rootScope.selectedPrescription = response.data;
-                    $log.debug("$rootScope.selectedPrescription:",  $rootScope.selectedPrescription);
-                }, function (error) {
-                    // failure handler
-                    $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
-                });
+                if($rootScope.selectedConsultInfo) {//Only show diagnosised.
+                    PrescriptionService.get({id: $rootScope.selectedConsultInfo.pid}, function (response) {
+                        $log.debug("PrescriptionService.get(" + $rootScope.selectedConsultInfo.pid + ") success!", response.data);
+                        $rootScope.selectedPrescription = response.data;
+                        $log.debug("$rootScope.selectedPrescription:", $rootScope.selectedPrescription);
+                    }, function (error) {
+                        // failure handler
+                        $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
+                    });
+                }
             }
 
             $scope.printConsultInfo = function(){
@@ -641,4 +645,22 @@ function ($scope, $stateParams,$ionicModal,$log) {
         $scope.newPrescription = {name:null,content:null};
         //Display UserInfo,prescription,instruction ,and other information.
         //
+        $scope.printNow = function (divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML =
+                "<html><head><title></title></head><body>" +
+                divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+        }
+
     })
