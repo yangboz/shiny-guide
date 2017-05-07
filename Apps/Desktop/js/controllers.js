@@ -642,10 +642,11 @@ function ($scope, $stateParams,$ionicModal,$log) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($rootScope,$scope, $stateParams,$ionicModal,UserInfoService,PrescriptionService,$log) {
-        $scope.newPrescription = {name:null,content:null};
         //Display UserInfo,prescription,instruction ,and other information.
         //
         $scope.printNow = function (divID) {
+            //HIDE MODAL FIRST OFF.
+            $rootScope.newPrintPreviewModal.hide();
             //Get the HTML of div
             var divElements = document.getElementById(divID).innerHTML;
             //Get the HTML of whole page

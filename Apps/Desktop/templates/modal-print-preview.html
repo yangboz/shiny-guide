@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td data-th="姓名">{{$root.selectedUserInfo.name}}</td>
-                        <td data-th="性别">{{$root.selectedUserInfo.gender}}</td>
+                        <td data-th="性别">{{$root.selectedUserInfo.gender%2?'男':'女'}}</td>
                         <td data-th="年龄">{{$root.selectedUserInfo.age}}</td>
                     </tr>
                 </table>
@@ -53,7 +53,7 @@
                 <h2>技术总监:中日友好医院 中西医结合肿瘤科 贾立群教授</h2>
                 <h2>现任中华中医药学会理事、中央保健会诊专家</h2>
                 <!--
-                <img src="images/QrCode01.png" style="width: 120px;height: 120px;">
+                <img src="images/QrCode01.jpeg" style="width: 60px;height: 60px;">
                 -->
                 <p>请关注“抗癌饮食大讲堂”，如有疑问请留言。</p>
                 <p>Ⓒ 2017 TD.SMARTKIT.INFO</p>
