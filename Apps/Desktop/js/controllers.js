@@ -60,7 +60,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                 $rootScope.newPrescriptionModal = modal;
                 // console.log(" $rootScope.newPrescriptionModal:"+ $rootScope.newPrescriptionModal);
             });
-            //PrescriptionModal
+            //PrintPreviewModal
             $rootScope.newPrintPreviewModal = null;
             $ionicModal.fromTemplateUrl('templates/modal-print-preview.html', {
                 scope: $scope,
@@ -431,7 +431,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             };
             //GET
-            $scope.loadAllInstructions = function () {
+            $rootScope.loadAllInstructions = function () {
                 InstructionService.get({}, function (response) {
                     $log.info("InstructionService.get() success!", response.data);
                     $rootScope.allInstructions = response.data;
@@ -444,7 +444,7 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 });
             };
             //GET
-            $scope.loadAllPrescriptions = function () {
+            $rootScope.loadAllPrescriptions = function () {
                 PrescriptionService.get({}, function (response) {
                     $log.info("PrescriptionService.get() success!", response);
                     $rootScope.allPrescriptions = response.data;
@@ -464,8 +464,8 @@ function ($scope, $stateParams,$ionicModal,$log) {
             }
             $scope.loadInsAndPres = function () {
                 console.log("loadInsAndPres...");
-                $scope.loadAllInstructions();//FIXME: load a sequence chain.
-                $scope.loadAllPrescriptions();
+                $rootScope.loadAllInstructions();//FIXME: load a sequence chain.
+                $rootScope.loadAllPrescriptions();
             }
             //CREATE
             $scope.createConsultInfo  = function () {
@@ -593,15 +593,22 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 anewInstruction.$save(function (resp) {
                     $log.info("createInstruction success, response:", resp);
                     $scope.savedUserID = resp.data.id;
-                    //reload
-                    InstructionService.get({}, function (response) {
-                        $log.debug("InstructionService.reload success!", response);
-                        //close popup.
-                        $rootScope.newInstructionModal.hide();
-                    }, function (error) {
-                        // failure handler
-                        $log.error("InstructionService.get() failed:", JSON.stringify(error));
-                    });
+                    //refresh.
+                    $rootScope.loadAllInstructions();
+
+                }, function (resp) {
+                    $log.error('Error status: ' + resp.status);
+                });
+            }
+            //DELETE,
+            $scope.deleteInstruction = function ($item) {
+                //
+                var deleteInstruction = new InstructionService();
+                //Delete
+                deleteInstruction.$delete({ id: $item.id },function (resp) {
+                    $log.info("deleteInstruction $delete success, response:", resp);
+                    //refresh.
+                    $rootScope.loadAllInstructions();
 
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
@@ -623,16 +630,22 @@ function ($scope, $stateParams,$ionicModal,$log) {
                 anewPrescription.$save(function (resp) {
                     $log.info("createPrescription success, response:", resp);
                     $scope.savedUserID = resp.data.id;
-                    //reload
-                    PrescriptionService.get({}, function (response) {
-                        $log.debug("PrescriptionService.reload success!", response);
-                        //close popup.
-                        $rootScope.newPrescriptionModal.hide();
-                    }, function (error) {
-                        // failure handler
-                        $log.error("PrescriptionService.get() failed:", JSON.stringify(error));
-                    });
+                    //refresh.
+                    $rootScope.loadAllPrescriptions();
 
+                }, function (resp) {
+                    $log.error('Error status: ' + resp.status);
+                });
+            }
+            //DELETE,
+            $scope.deletePrescription = function ($item) {
+                //
+                var deletePrescription = new PrescriptionService();
+                //Delete
+                deletePrescription.$delete({ id: $item.id },function (resp) {
+                    $log.info("PrescriptionService $delete success, response:", resp);
+                    //refresh.
+                    $rootScope.loadAllPrescriptions();
                 }, function (resp) {
                     $log.error('Error status: ' + resp.status);
                 });
