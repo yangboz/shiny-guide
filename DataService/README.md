@@ -39,3 +39,21 @@ service mysql restart
 `
 CREATE DATABASE `td_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 `
+
+#Database export
+
+```
+select
+    user_info.*,
+    user_item_detail.*,
+    consult_info.*,
+    mprescription.*,
+    einstruction.*
+    from user_info 
+    left join user_item_detail on user_info.item_id = user_item_detail.id
+    left join consult_info on user_info.consult_id = consult_info.id
+    left join mprescription on consult_info.pid = mprescription.id
+    left join einstruction on consult_info.iid = einstruction.id
+     where user_info.consult_id!=-1
+     into outfile '/var/lib/mysql-files/user_info_item_detail_consult_presciption_instruction.csv' fields terminated by ',' enclosed by '"' lines terminated by '\n';
+```
