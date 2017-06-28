@@ -1,4 +1,3 @@
-https://github.com/grahamjenson/list_of_recommender_systems
 
 ## Forward Chaining,Backward Chaining
 When you visit your doctor, what goes on in the doctor’s mind, in my opinion is little bit of  forward chaining and backward chaining. Based on the symptoms you have provided, the doctor does forward chaining reasoning to arrive at some  hypothesis.
@@ -8,6 +7,8 @@ Then as you may have observed, as your conversation with doctor continues, the d
 ### Mahout cold-start
 
 How do I adapt my recommendation engine to cold starts?
+
+https://github.com/grahamjenson/list_of_recommender_systems
 
 
 #### Database(MySQL) prepare
