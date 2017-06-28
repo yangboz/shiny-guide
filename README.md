@@ -28,6 +28,8 @@ paper: http://www.scientific.net/AMR.718-720.2276
 
 Tongue tracking: http://vgg.fiit.stuba.sk/2015-02/tongue-tracking/
 
+Expert System: https://docs.jboss.org/drools/release/5.6.0.Final/drools-expert-docs/html_single/
+
 iOS:
 
 https://github.com/ShadeApps/Camera-App-Template
