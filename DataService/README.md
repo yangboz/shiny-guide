@@ -4,6 +4,8 @@ When you visit your doctor, what goes on in the doctor’s mind, in my opinion i
 
 Then as you may have observed, as your conversation with doctor continues, the doctor tries to elicit more facts by asking you about specific additional  symptoms.  What’s going on at this stage is that the doctor is doing backward chaining to prove the validity of the initial hypothesis by checking with additional facts.
 
+https://pkghosh.wordpress.com/2010/11/20/ruling-with-drools-rule-engine/
+
 ### Mahout cold-start
 
 How do I adapt my recommendation engine to cold starts?
