@@ -61,7 +61,7 @@ public class RecommendController {
 
         List<RecommendedItem> recommendations = null;
 
-        MahoutUtils.userCF(this.getJDBCDataModel());
+        MahoutUtils.itemCF(this.getJDBCDataModel());
 
         return recommendations;
     }

@@ -6,11 +6,39 @@ Then as you may have observed, as your conversation with doctor continues, the d
 
 https://pkghosh.wordpress.com/2010/11/20/ruling-with-drools-rule-engine/
 
+http://oncodesign.io/2015/08/10/dynamically-create-rules-using-drools--rule-templates/
+
 ### Mahout cold-start
 
 How do I adapt my recommendation engine to cold starts?
 
 https://github.com/grahamjenson/list_of_recommender_systems
+
+### Color difference formulas
+
+RGB: ((r2 - r1)2 + (g2 - g1)2 + (b2 - b1)2)1/2
+
+RGBA: Δr² + Δg² + Δb² + 3 × Δa²
+
+```
+max((r₁-r₂)², (r₁-r₂ - a₁+a₂)²) +
+max((g₁-g₂)², (g₁-g₂ - a₁+a₂)²) +
+max((b₁-b₂)², (b₁-b₂ - a₁+a₂)²)
+```
+
+HSV: 
+
+Sqrt((X0 - X1)*(X0 - X1) + (Y0 - Y1)*(Y0 - Y1) + (Z0 - Z1)*(Z0 - Z1))
+
+C² = A² + B² + 2*A*B*Cos(Theta)
+
+https://en.wikipedia.org/wiki/Color_difference
+
+https://www.compuphase.com/cmetric.htm
+
+https://stackoverflow.com/questions/1725505/finding-similar-colors-programatically
+
+https://stackoverflow.com/questions/9018016/how-to-compare-two-colors-for-similarity-difference
 
 
 #### Database(MySQL) prepare

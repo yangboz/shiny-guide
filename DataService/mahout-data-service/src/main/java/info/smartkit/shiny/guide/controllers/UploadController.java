@@ -142,6 +142,7 @@ public class UploadController {
                             item.getJieguo(),item.getRgbR(),item.getRgbG(),item.getRgbB(),item.getHsvH(),
                             item.getHsvS(),item.getHsvV(),item.getLabelL(),item.getLabelA(),item.getLabelB(),item.getQ1_2(),item.getQ1_3r(),
                             item.getQ1_3y(),item.getQ2_1());
+
                     ItemDetail anewItemDetailSaved = itemDetailDao.save(anewItemDetail);
                     LOG.info("Saved anewItemDetail: "+anewItemDetailSaved.toString());
                     //Save ItemInfo,update item detail, item info, relationship.
@@ -151,6 +152,7 @@ public class UploadController {
                     //Save UserInfo
                     UserInfo anewUserInfo = new UserInfo();
                     anewUserInfo.setName(lastItem.getXingming());
+                    //FIXME:0 value issue.
                     anewUserInfo.setAge(lastItem.getNianning());
                     anewUserInfo.setGender(lastItem.getXingbie());
                     //update item info, user info relationship.

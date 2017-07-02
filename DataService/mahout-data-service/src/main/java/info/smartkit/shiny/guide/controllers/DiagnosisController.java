@@ -5,12 +5,10 @@ import com.javacodegeeks.drools.model.Product;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import info.smartkit.shiny.guide.dao.*;
 import info.smartkit.shiny.guide.dto.ConsultInfoFull;
+import info.smartkit.shiny.guide.service.DiagnosisService;
 import info.smartkit.shiny.guide.settings.DataBaseSettings;
 import info.smartkit.shiny.guide.utils.MahoutUtils;
-import info.smartkit.shiny.guide.vo.ConsultInfo;
-import info.smartkit.shiny.guide.vo.EInstruction;
-import info.smartkit.shiny.guide.vo.ItemDetail;
-import info.smartkit.shiny.guide.vo.MPrescription;
+import info.smartkit.shiny.guide.vo.*;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.apache.logging.log4j.LogManager;
@@ -61,10 +59,21 @@ public class DiagnosisController {
 
     @Autowired
     private ItemDetailDao itemDetailDao;
+    @Autowired DiagnosisService diagnosisService;
 
-    private static Logger LOG = LogManager.getLogger(RecommendController.class);
+
+    private static Logger LOG = LogManager.getLogger(DiagnosisController.class);
 
     private static StatelessKnowledgeSession session;
+
+    @RequestMapping(value = "user/infer/{id}", method = RequestMethod.GET)
+    @ApiOperation(httpMethod = "GET", value = "Response a consult info fully describing if the user's diagnosis is successfully inference or not.")
+    public void inferByFacts(@PathVariable("id") long id) throws Exception {
+//        long uiid = userInfoDao.findOne(id).getItemId();
+        UserInfo userInfo = userInfoDao.findOne(id);
+        LOG.info("find one user info:"+userInfo.toString());
+        diagnosisService.inferByFacts(userInfo.getItemId());
+    }
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     @ApiOperation(httpMethod = "GET", value = "Response a consult info fully describing if the user's diagnosis is successfully get or not.")
