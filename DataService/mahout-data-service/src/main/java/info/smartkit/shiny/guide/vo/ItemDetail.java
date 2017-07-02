@@ -3,8 +3,10 @@ package info.smartkit.shiny.guide.vo;
 import com.blogspot.na5cent.exom.annotation.Column;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.javacodegeeks.drools.model.Product;
+import org.apache.commons.imaging.color.ColorHsv;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -447,5 +449,220 @@ public class ItemDetail {
         products.add(new Product(this.getZzzd(),85));
         //
         return products;
+    }
+
+    @Transient
+    public Color getRgb() {
+        int r = (int)Double.parseDouble(rgbR);
+        int g = (int)Double.parseDouble(rgbG);
+        int b = (int)Double.parseDouble(rgbB);
+        return new Color(r,g,b);
+    }
+    @Transient
+    public ColorHsv getHsv() {
+        double h = Double.parseDouble(hsvH);
+        double s = Double.parseDouble(hsvS);
+        double v = Double.parseDouble(hsvV);
+        return new ColorHsv(h,s,v);
+    }
+    //Fuzzy values.
+    public String getPangshouF(){
+        String fuzzyStr = Epangshou.PANG.value;
+
+        if(pangshou.contains(Epangshou.SHOU.value)){
+            fuzzyStr = Epangshou.SHOU.value;
+        }
+        if(pangshou.contains(Epangshou.SHIZHONG.value)){
+            fuzzyStr = Epangshou.SHIZHONG.value;
+        }
+        return fuzzyStr;
+    }
+    public String getChihenF(){
+        String fuzzyStr = chihen.contains(Echihen.YES.value)?Echihen.YES.value:Echihen.NO.value;
+        return fuzzyStr;
+    }
+    public String getLiewenF(){
+        String fuzzyStr = liewen.contains(Eliewen.YES.value)?Eliewen.YES.value:Eliewen.NO.value;
+        return fuzzyStr;
+    }
+    public String getYubanF(){
+        String fuzzyStr = yuban.contains(Eyuban.YES.value)?Eyuban.YES.value:Eyuban.NO.value;
+        return fuzzyStr;
+    }
+
+    public String getHoubaoF(){
+        String fuzzyStr = houbao.contains(Ehoubao.HOU.value)?Ehoubao.HOU.value:Ehoubao.BAO.value;
+        return fuzzyStr;
+    }
+
+    public String getRunzaoF(){
+        String fuzzyStr = Erunzao.RUN.value;
+
+        if(liewen.contains(Erunzao.ZAO.value)){
+            fuzzyStr = Erunzao.ZAO.value;
+        }
+        if(liewen.contains(Erunzao.ZHONG.value)){
+            fuzzyStr = Erunzao.ZHONG.value;
+        }
+        return fuzzyStr;
+    }
+
+    public String getSheseF(){
+        String fuzzyStr = Eshese.HONG.value;
+
+        if(shese.contains(Eshese.DANHONG.value)){
+            fuzzyStr = Eshese.DANHONG.value;
+        }
+        if(shese.contains(Eshese.DANZI.value)){
+            fuzzyStr = Eshese.DANZI.value;
+        }
+        if(shese.contains(Eshese.ANHONG.value)){
+            fuzzyStr = Eshese.ANHONG.value;
+        }
+        if(shese.contains(Eshese.JIANG.value)){
+            fuzzyStr = Eshese.JIANG.value;
+        }
+        if(shese.contains(Eshese.ZI.value)){
+            fuzzyStr = Eshese.ZI.value;
+        }
+        if(shese.contains(Eshese.DAN.value)){
+            fuzzyStr = Eshese.DAN.value;
+        }
+        return fuzzyStr;
+    }
+
+    public String getTaiseF(){
+        String fuzzyStr = Etaise.BAI.value;
+
+        if(taise.contains(Etaise.HUANGBAI.value)){
+            fuzzyStr = Etaise.HUANGBAI.value;
+        }
+        if(taise.contains(Etaise.HUIHEI.value)){
+            fuzzyStr = Etaise.HUANGBAI.value;
+        }
+
+        if(taise.contains(Etaise.HUANG.value)){
+            fuzzyStr = Etaise.HUANG.value;
+        }
+        return fuzzyStr;
+    }
+
+    public enum Epangshou {
+        PANG("胖"),SHOU("瘦"),SHIZHONG("适中");
+
+        private String value;
+
+        Epangshou(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+
+    public enum Echihen {
+        YES("有"),NO("无");
+
+        private String value;
+
+        Echihen(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Edianci {
+        YES("有"),NO("无");
+
+        private String value;
+
+        Edianci(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Eliewen {
+        YES("有"),NO("无");
+
+        private String value;
+
+        Eliewen(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Eyuban {
+        YES("有"),NO("无");
+
+        private String value;
+
+        Eyuban(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Ehoubao {
+        HOU("厚"),BAO("薄");
+
+        private String value;
+
+        Ehoubao(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Erunzao {
+        RUN("润"),ZAO("燥"),ZHONG("中");
+
+        private String value;
+
+        Erunzao(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Eshese {
+        DAN("淡"),DANHONG("淡红"),HONG("红"),ANHONG("暗红"),JIANG("绛"),DANZI("淡紫"),ZI("紫");
+
+        private String value;
+
+        Eshese(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+    }
+    public enum Etaise {
+        BAI("白"),HUANGBAI("灰白"),HUANG("黄"),HUIHEI("灰黑");
+
+        private String value;
+
+        Etaise(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
     }
 }

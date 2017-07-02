@@ -2,6 +2,8 @@
     <ion-header-bar class="bar bar-header">
         <h1 class="title">诊断</h1>
 
+        <button class="button button-icon icon ion-android-bulb" ng-click="consultingAutoModal.show()">
+        </button>
         <button class="button button-icon icon ion-close" ng-click="consultingStaticModal.hide()"></button>
 
     </ion-header-bar>
@@ -35,8 +37,8 @@
                         <td data-th="RGB">{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbB | number:2 }}</td>
                         <td data-th="HSV">{{$root.selectedItemDetail.hsvH | number:2}},{{$root.selectedItemDetail.hsvS  | number:2}},{{$root.selectedItemDetail.hsvV | number:2}}</td>
                         <td data-th="Label">,{{$root.selectedItemDetail.labelL  | number:2}},{{$root.selectedItemDetail.labelA  | number:2}},{{$root.selectedItemDetail.labelB  | number:2}}</td>
-                        <td data-th="舌体颜色">②	淡红</td>
-                        <td data-th="舌苔颜色">②	苔黄白相兼</td>
+                        <td data-th="舌体颜色">{{$root.selectedItemDetail.sheseF}}</td>
+                        <td data-th="舌苔颜色">{{$root.selectedItemDetail.taiseF}}</td>
                     </tr>
                 </table>
             </label>
@@ -58,16 +60,16 @@
                         <th>胖瘦</th>
                         <th>齿痕</th>
                         <th>裂纹</th>
-                        <th>瘀点</th>
+                        <th>瘀斑</th>
                     </tr>
                     <tr>
 
-                        <td data-th="舌苔厚薄">{{$root.selectedItemDetail.houbao}}</td>
-                        <td data-th="舌苔润燥">{{$root.selectedItemDetail.runzao}}</td>
-                        <td data-th="胖瘦">{{$root.selectedItemDetail.pangshou}}</td>
-                        <td data-th="齿痕">{{$root.selectedItemDetail.chihen}}</td>
-                        <td data-th="裂纹">{{$root.selectedItemDetail.liewen}}</td>
-                        <td data-th="瘀点">,{{$root.selectedItemDetail.yuban}}</td>
+                        <td data-th="舌苔厚薄">{{$root.selectedItemDetail.houbaoF}}</td>
+                        <td data-th="舌苔润燥">{{$root.selectedItemDetail.runzaoF}}</td>
+                        <td data-th="胖瘦">{{$root.selectedItemDetail.pangshouF}}</td>
+                        <td data-th="齿痕">{{$root.selectedItemDetail.chihenF}}</td>
+                        <td data-th="裂纹">{{$root.selectedItemDetail.liewenF}}</td>
+                        <td data-th="瘀点">{{$root.selectedItemDetail.yubanF}}</td>
                     </tr>
                 </table>
             </label>
@@ -75,7 +77,9 @@
                 <div class="input-label">
                     专家指导:
                 </div>
+                <!--
                 <button ng-click="$root.newInstructionModal.show()">+</button>
+                -->
                 <select ng-options="item as item.content for item in $root.allInstructions track by item.id" ng-model="$root.selectedInstruction" ng-change="updateInstructionSelected()"></select>
 
             </label>
@@ -83,9 +87,12 @@
                 <div class="input-label">
                     处方:
                 </div>
-                <select ng-options="item as item.name for item in $root.allPrescriptions track by item.id" ng-model="$root.selectedPrescription" ng-change="updatePrescriptionSelected()"></select>
+                <select ng-options="item as item.content for item in $root.allPrescriptions track by item.id " ng-model="$root.selectedPrescription" ng-change="updatePrescriptionSelected()"></select>
+                <!--
                 <button ng-click="$root.newPrescriptionModal.show()">+</button>
+                -->
             </div>
+
             <label class="item item-input item-select  disabled">
                 <div class="input-label">
                     处方详情:
@@ -93,6 +100,7 @@
                 <select ng-options="item as item.content for item in $root.allPrescriptions track by item.id" ng-model="$root.selectedPrescription" ></select>
 
             </label>
+            
             <button class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createConsultInfo()">答诊</button>
             <button class="button button-dark  button-block icon-left ion-android-print" ng-click="printConsultInfo()" ng-disabled="!$root.selectedConsultInfo">打印预览</button>
         </div>

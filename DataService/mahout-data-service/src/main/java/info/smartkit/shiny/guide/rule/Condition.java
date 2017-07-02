@@ -36,7 +36,8 @@ public class Condition {
         }
 
         public static enum Operator {
-                SIMILAR_TO("SIMILAR_TO"),
+                C_SIMILAR_TO("COLOR_SIMILAR_TO"),
+                S_SIMILAR_TO("STRING_SIMILAR_TO"),
                 NOT_EQUAL_TO("NOT_EQUAL_TO"),
                 EQUAL_TO("EQUAL_TO"),
                 GREATER_THAN("GREATER_THAN"),

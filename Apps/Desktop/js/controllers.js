@@ -4,6 +4,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($rootScope,$scope, $stateParams,$ionicModal,$log,$ionicPopup) {
+        //badge number
+            $rootScope.numOfunConsulted = 0;
            $log.info("MainCtrl...");
             //root scope variables for modal.
             $rootScope.consultingModal = null;
@@ -282,6 +284,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
                     $scope.userInfos = response.data;
                     //
                     $rootScope.unconsultUserInfos =  response.data;
+                    $rootScope.numOfunConsulted =  $rootScope.unconsultUserInfos.length;
                 }, function (error) {
                     // failure handler
                     $log.error("ConsultUserInfoService.get() failed:", JSON.stringify(error));
@@ -373,8 +376,24 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 
-function ($scope, $stateParams,$ionicModal,$log) {
+function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService) {
     $log.info("ConsultingAutoCtrl init...");
+
+    
+    $scope.getConsultInfo = function () {
+        $uid = $rootScope.selectedUserInfo.id;
+        $log.info("$rootScope.selectedUserInfo.id:",$uid);
+        DiagnosisInferService.get({"id":$uid}, function (response) {
+            $log.info("DiagnosisInferService.get() success!", response.data);
+            $scope.consultInfoFull = response.data;
+            $log.debug("consultInfoFull:",$scope.consultInfoFull);
+            //default trigger.
+
+        }, function (error) {
+            // failure handler
+            $log.error("DiagnosisInferService.get() failed:", JSON.stringify(error));
+        });
+    }
 })
     .controller('ConsultingCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function

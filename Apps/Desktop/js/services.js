@@ -6,6 +6,13 @@ angular.module('app.services', ['ngResource'])
         )
         return data;
     })
+    //DiagnosisService
+    .factory('DiagnosisInferService', function ($resource,CONFIG_ENV) {
+        var data = $resource(
+            CONFIG_ENV.api_endpoint  + "diagnosis/user/infer/:id"
+        )
+        return data;
+    })
 //RecommendItemService
     .factory('RecommendItemService', function ($resource,CONFIG_ENV) {
         var data = $resource(

@@ -54,6 +54,13 @@ public class Rule {
                         case LESS_THAN_OR_EQUAL_TO:
                                 operator = "<=";
                                 break;
+//                        case S_SIMILAR_TO:
+//                                operator = "c=";
+//                                break;
+//                        case C_SIMILAR_TO:
+//                                operator = "s=";
+//                                break;
+
                         }
 
                         statementBuilder.append(condition.getField()).append(" ").append(operator).append(" ");
