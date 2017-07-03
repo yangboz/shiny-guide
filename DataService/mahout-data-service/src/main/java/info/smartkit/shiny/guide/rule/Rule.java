@@ -54,12 +54,12 @@ public class Rule {
                         case LESS_THAN_OR_EQUAL_TO:
                                 operator = "<=";
                                 break;
-//                        case S_SIMILAR_TO:
-//                                operator = "c=";
-//                                break;
-//                        case C_SIMILAR_TO:
-//                                operator = "s=";
-//                                break;
+                        case S_SIMILAR_TO:
+                                operator = "==";//color similar/difference.
+                                break;
+                        case C_SIMILAR_TO:
+                                operator = "==";//string fuzzy contain/equal
+                                break;
 
                         }
 

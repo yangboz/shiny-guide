@@ -14,11 +14,68 @@ public class ConsultEvent implements Event{
 
         private int id;
 
+        @Override public String toString() {
+                return "ConsultEvent{" + "id=" + id + ", taise='" + taise + '\'' + ", shese='" + shese + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + ", chihen='" + chihen + '\'' + ", yuban='" + yuban + '\'' + ", liewen='" + liewen
+                        + '\'' + ", pangshou='" + pangshou + '\'' + ", confidence=" + confidence + '}';
+        }
+
         private String taise;
 
-        @Override public String toString() {
-                return "ConsultEvent{" + "id=" + id + ", taise='" + taise + '\'' + ", houbao='" + houbao + '\'' + ", confidence=" + confidence + '}';
+        public String getShese() {
+                return shese;
         }
+
+        public void setShese(String shese) {
+                this.shese = shese;
+        }
+
+        public String getRunzao() {
+                return runzao;
+        }
+
+        public void setRunzao(String runzao) {
+                this.runzao = runzao;
+        }
+
+        public String getChihen() {
+                return chihen;
+        }
+
+        public void setChihen(String chihen) {
+                this.chihen = chihen;
+        }
+
+        public String getYuban() {
+                return yuban;
+        }
+
+        public void setYuban(String yuban) {
+                this.yuban = yuban;
+        }
+
+        public String getLiewen() {
+                return liewen;
+        }
+
+        public void setLiewen(String liewen) {
+                this.liewen = liewen;
+        }
+
+        public String getPangshou() {
+                return pangshou;
+        }
+
+        public void setPangshou(String pangshou) {
+                this.pangshou = pangshou;
+        }
+
+        private String shese;
+        private String runzao;
+        private String houbao;
+        private String chihen;
+        private String yuban;
+        private String liewen;
+        private String pangshou;
 
         public String getTaise() {
                 return taise;
@@ -36,7 +93,6 @@ public class ConsultEvent implements Event{
                 this.houbao = houbao;
         }
 
-        private String houbao;
 
         public double getConfidence() {
                 return confidence;

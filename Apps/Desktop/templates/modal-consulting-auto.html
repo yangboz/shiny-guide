@@ -6,7 +6,7 @@
 
     <ion-content class="has-header">
         <div class="item  item-divider" style="font-style: italic;font-size: small">
-            人工智能推荐，辅助诊断,供参考：
+            推荐结果来自人工智能知识库，机器学习，推演并推荐结果,可供辅助诊断,请参考：
         </div>
         <div class="list">
             <div class="item item-divider">
@@ -14,19 +14,18 @@
             </div>
 
             <a class="item item-avatar" href="#">
-                <h2>{{$root.consultInfofull.eInstruction.name}}</h2>
-                <p>{{$root.consultInfofull.eInstruction.content}}</p>
+                <h3>{{$root.consultEinstrMpres.einame}}</h3>
+                <p>{{$root.consultEinstrMpres.eicontent}}</p>
             </a>
 
             <div class="item item-divider">
                 ##处方：
             </div>
             <a class="item item-avatar" href="#">
-
-                <h2>{{$root.consultInfofull.mPrescription.name}}</h2>
-                <p>{{$root.consultInfofull.mPrescription.content}}</p>
+                <h3>{{$root.consultEinstrMpres.mpname}}</h3>
+                <p>{{$root.consultEinstrMpres.mpcontent}}</p>
             </a>
-            <button class="button button-block icon-left ion-android-search" ng-click="getConsultInfo()">开始推荐</button>
+            <button class="button button-block icon-left ion-android-search" ng-disabled="true" ng-click="getInferedConsultInfo()">其它推荐</button>
         </div>
     </ion-content>
 </ion-modal-view>

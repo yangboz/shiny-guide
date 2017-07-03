@@ -68,11 +68,11 @@ public class DiagnosisController {
 
     @RequestMapping(value = "user/infer/{id}", method = RequestMethod.GET)
     @ApiOperation(httpMethod = "GET", value = "Response a consult info fully describing if the user's diagnosis is successfully inference or not.")
-    public ConsultInfoFull inferByFacts(@PathVariable("id") long id) throws Exception {
+    public ConsultEinstrMpers inferByFacts(@PathVariable("id") long id) throws Exception {
 //        long uiid = userInfoDao.findOne(id).getItemId();
         UserInfo userInfo = userInfoDao.findOne(id);
         LOG.info("find one user info:"+userInfo.toString());
-     return   diagnosisService.inferByFacts(userInfo.getItemId());
+      return  diagnosisService.inferByFacts(userInfo.getItemId());
     }
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)

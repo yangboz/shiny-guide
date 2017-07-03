@@ -2,7 +2,6 @@ package info.smartkit.shiny.guide.dao;
 
 import info.smartkit.shiny.guide.vo.UserInfo;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

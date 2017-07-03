@@ -12,6 +12,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $rootScope.userInfos = [];
             $rootScope.allInstructions = [];
             $rootScope.allPescriptions = [];
+            $rootScope.consultEinstrMpres = {id:-1,eiid:-1,mpid:-1,einame:"",mpname:"",eicontent:"",mpcontent:""};
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
             //selected
             $rootScope.unconsultUserInfos = [];
@@ -379,8 +380,8 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService) {
     $log.info("ConsultingAutoCtrl init...");
 
-    
-    $scope.getConsultInfo = function () {
+    $scope.getOtherInferedConsultInfo = function () {
+        console.log("$scope.getInferedConsultInfo called.");
         $uid = $rootScope.selectedUserInfo.id;
         $log.info("$rootScope.selectedUserInfo.id:",$uid);
         DiagnosisInferService.get({"id":$uid}, function (response) {
@@ -401,7 +402,8 @@ function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService
         function ($rootScope,$scope, $stateParams,$log,$ionicModal,
                   UserInfoService,ItemInfoService,ItemDetailService,
                   InstructionService,PrescriptionService,
-                  ConsultInfoService,UpdateUserInfoService,ConsultUserInfoService) {
+                  ConsultInfoService,UpdateUserInfoService,
+                  ConsultUserInfoService,DiagnosisInferService) {
         //
             //Select binding
             $scope.selectedUserInfo = null;
@@ -596,6 +598,25 @@ function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService
             $log.info("ConsultCtrl initialize...");
             // $scope.loadUserAndItemInfos();
             $scope.loadInsAndPres();
+
+            $scope.getConsultEinstrMpres = function () {
+                console.log("$scope.getConsultEinstrMpres called.");
+                $rootScope.consultingAutoModal.show();
+                $rootScope.consultEinstrMpres = {};//clear history data.
+                //
+                $uid = $rootScope.selectedUserInfo.id;
+                $log.info("$rootScope.selectedUserInfo.id:",$uid);
+                DiagnosisInferService.get({"id":$uid}, function (response) {
+                    $log.info("DiagnosisInferService.get() success!", response);
+                    $rootScope.consultEinstrMpres = response;
+                    $log.debug("consultEinstrMpres :",$scope.consultEinstrMpres );
+                    //default trigger.
+
+                }, function (error) {
+                    // failure handler
+                    $log.error("DiagnosisInferService.get() failed:", JSON.stringify(error));
+                });
+            }
         })
     .controller('NewInstructionCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
