@@ -1,9 +1,10 @@
 package info.smartkit.shiny.guide.vo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.apache.commons.imaging.color.ColorHsv;
+import org.springframework.data.annotation.Transient;
+
+import javax.persistence.*;
+import java.awt.*;
 
 /**
  * Created by smartkit on 03/07/2017.
@@ -61,11 +62,6 @@ public class UserItemConsultInfoIdDetails {
         private long cid;
         private int mpid;
         private int eiid;
-
-        @Override public String toString() {
-                return "UserItemConsultInfoIdDetails{"  + ", iid=" + iid + ", idid=" + idid + ", cid=" + cid + ", mpid=" + mpid + ", eiid=" + eiid + ", shese='" + shese + '\'' + ", taise='" + taise + '\'' + ", pangshou='" + pangshou + '\''
-                        + ", chihen='" + chihen + '\'' + ", liewen='" + liewen + '\'' + ", yuban='" + yuban + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + '}';
-        }
 
         public String getShese() {
                 return shese;
@@ -142,4 +138,66 @@ public class UserItemConsultInfoIdDetails {
         private String yuban;
         private String runzao;
         private String houbao;
+
+        private String rgbR;
+        private String rgbG;
+        private String rgbB;
+        private String hsvH;
+        private String hsvS;
+
+        @Override public String toString() {
+                return "UserItemConsultInfoIdDetails{" + "id=" + id + ", iid=" + iid + ", idid=" + idid + ", cid=" + cid + ", mpid=" + mpid + ", eiid=" + eiid + ", shese='" + shese + '\'' + ", taise='" + taise + '\'' + ", pangshou='" + pangshou + '\''
+                        + ", chihen='" + chihen + '\'' + ", liewen='" + liewen + '\'' + ", yuban='" + yuban + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + ", rgbR='" + rgbR + '\'' + ", rgbG='" + rgbG + '\'' + ", rgbB='" + rgbB + '\''
+                        + ", hsvH='" + hsvH + '\'' + ", hsvS='" + hsvS + '\'' + ", hsvV='" + hsvV + '\'' + '}';
+        }
+
+        public String getRgbR() {
+                return rgbR;
+        }
+
+        public void setRgbR(String rgbR) {
+                this.rgbR = rgbR;
+        }
+
+        public String getRgbG() {
+                return rgbG;
+        }
+
+        public void setRgbG(String rgbG) {
+                this.rgbG = rgbG;
+        }
+
+        public String getRgbB() {
+                return rgbB;
+        }
+
+        public void setRgbB(String rgbB) {
+                this.rgbB = rgbB;
+        }
+
+        public String getHsvH() {
+                return hsvH;
+        }
+
+        public void setHsvH(String hsvH) {
+                this.hsvH = hsvH;
+        }
+
+        public String getHsvS() {
+                return hsvS;
+        }
+
+        public void setHsvS(String hsvS) {
+                this.hsvS = hsvS;
+        }
+
+        public String getHsvV() {
+                return hsvV;
+        }
+
+        public void setHsvV(String hsvV) {
+                this.hsvV = hsvV;
+        }
+
+        private String hsvV;
 }

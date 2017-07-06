@@ -16,7 +16,7 @@ public class ConsultEvent implements Event{
 
         @Override public String toString() {
                 return "ConsultEvent{" + "id=" + id + ", taise='" + taise + '\'' + ", shese='" + shese + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + ", chihen='" + chihen + '\'' + ", yuban='" + yuban + '\'' + ", liewen='" + liewen
-                        + '\'' + ", pangshou='" + pangshou + '\'' + ", confidence=" + confidence + '}';
+                        + '\'' + ", pangshou='" + pangshou + '}';
         }
 
         private String taise;
@@ -93,15 +93,5 @@ public class ConsultEvent implements Event{
                 this.houbao = houbao;
         }
 
-
-        public double getConfidence() {
-                return confidence;
-        }
-
-        public void setConfidence(double confidence) {
-                this.confidence = confidence;
-        }
-
-        private double confidence;
 
 }

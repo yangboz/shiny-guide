@@ -79,4 +79,5 @@ public class ConsultInfoFull {
     private long id;
     private EInstruction eInstruction;
     private MPrescription mPrescription;
+
 }

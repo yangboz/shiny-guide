@@ -23,7 +23,7 @@ public class ConsultInfoServiceImpl implements ConsultInfoService {
         private static Logger LOG = LogManager.getLogger(ConsultInfoServiceImpl.class);
 
         @Override public ConsultEinstrMpers findConsultEinstrMpers(long cid) {
-                String nativeQuery = "select consult_info.id as id ,mprescription.id as mpid, einstruction.id as eiid , "
+                String nativeQuery = "select consult_info.id as id,mprescription.id as mpid, einstruction.id as eiid , consult_info.id as hsvs,consult_info.id as rgbs,"
                         + "einstruction.name as einame, einstruction.content as eicontent,mprescription.name as mpname,"
                         + "mprescription.content as mpcontent from consult_info "
                         + "left join mprescription on consult_info.pid = mprescription.id "

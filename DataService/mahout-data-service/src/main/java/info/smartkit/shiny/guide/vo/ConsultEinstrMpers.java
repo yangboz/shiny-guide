@@ -1,9 +1,6 @@
 package info.smartkit.shiny.guide.vo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by smartkit on 03/07/2017.
@@ -17,10 +14,6 @@ public class ConsultEinstrMpers {
 
 
         public ConsultEinstrMpers() {
-        }
-
-        @Override public String toString() {
-                return "ConsultEinstrMpers{" + "id=" + id + ", eiid=" + eiid + ", mpid=" + mpid + ", einame='" + einame + '\'' + ", eicontent='" + eicontent + '\'' + ", mpname='" + mpname + '\'' + ", mpcontent='" + mpcontent + '\'' + '}';
         }
 
         public long getEiid() {
@@ -77,5 +70,29 @@ public class ConsultEinstrMpers {
         private String eicontent;
         private String mpname;
         private String mpcontent;
+
+        @Override public String toString() {
+                return "ConsultEinstrMpers{" + "id=" + id + ", eiid=" + eiid + ", mpid=" + mpid + ", einame='" + einame + '\'' + ", eicontent='" + eicontent + '\'' + ", mpname='" + mpname + '\'' + ", mpcontent='" + mpcontent + '\'' + ", rgbS=" + rgbS
+                        + ", hsvS=" + hsvS + '}';
+        }
+
+        @Transient
+        public double getRgbS() {
+                return rgbS;
+        }
+
+        public void setRgbS(double rgbS) {
+                this.rgbS = rgbS;
+        }
+        @Transient
+        public double getHsvS() {
+                return hsvS;
+        }
+
+        public void setHsvS(double hsvS) {
+                this.hsvS = hsvS;
+        }
+        private double rgbS=0.00;//similarity of colorRgb.
+        private double hsvS=0.00;//similarity of colorHsv.
 
 }

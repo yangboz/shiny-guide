@@ -140,7 +140,7 @@ public class UploadController {
                             item.getFuni(),item.getRunzao(),item.getBotai(),item.getPangshou(),item.getChihen(),item.getDianci(),
                             item.getLiewen(),item.getYuban(),item.getTaizhi(),item.getShexing(),item.getShese(),item.getTaise(),
                             item.getJieguo(),item.getRgbR(),item.getRgbG(),item.getRgbB(),item.getHsvH(),
-                            item.getHsvS(),item.getHsvV(),item.getLabelL(),item.getLabelA(),item.getLabelB(),item.getQ1_2(),item.getQ1_3r(),
+                            item.getHsvS(),item.getHsvV(),item.getLabL(),item.getLabA(),item.getLabB(),item.getQ1_2(),item.getQ1_3r(),
                             item.getQ1_3y(),item.getQ2_1());
 
                     ItemDetail anewItemDetailSaved = itemDetailDao.save(anewItemDetail);

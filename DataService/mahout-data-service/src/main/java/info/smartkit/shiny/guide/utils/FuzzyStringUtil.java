@@ -8,6 +8,7 @@ import info.smartkit.shiny.guide.vo.ItemDetail;
 public class FuzzyStringUtil {
 
         static public String getPangshouF(String pangshou){
+                if(pangshou==null) return null;
                 String fuzzyStr = ItemDetail.Epangshou.PANG.value;
 
                 if(pangshou.contains(ItemDetail.Epangshou.SHOU.value)){
@@ -19,24 +20,29 @@ public class FuzzyStringUtil {
                 return fuzzyStr;
         }
         static public String getChihenF(String chihen){
+                if(chihen==null) return null;
                 String fuzzyStr = chihen.contains(ItemDetail.Echihen.YES.value)? ItemDetail.Echihen.YES.value: ItemDetail.Echihen.NO.value;
                 return fuzzyStr;
         }
         static public String getLiewenF(String liewen){
+                if(liewen==null) return null;
                 String fuzzyStr = liewen.contains(ItemDetail.Eliewen.YES.value)? ItemDetail.Eliewen.YES.value: ItemDetail.Eliewen.NO.value;
                 return fuzzyStr;
         }
         static public String getYubanF(String yuban){
+                if(yuban==null) return null;
                 String fuzzyStr = yuban.contains(ItemDetail.Eyuban.YES.value)? ItemDetail.Eyuban.YES.value: ItemDetail.Eyuban.NO.value;
                 return fuzzyStr;
         }
 
         static public String getHoubaoF(String houbao){
+                if(houbao==null) return null;
                 String fuzzyStr = houbao.contains(ItemDetail.Ehoubao.HOU.value)? ItemDetail.Ehoubao.HOU.value: ItemDetail.Ehoubao.BAO.value;
                 return fuzzyStr;
         }
 
         static public String getRunzaoF(String runzao){
+                if(runzao==null) return null;
                 String fuzzyStr = ItemDetail.Erunzao.RUN.value;
 
                 if(runzao.contains(ItemDetail.Erunzao.ZAO.value)){
@@ -49,6 +55,7 @@ public class FuzzyStringUtil {
         }
 
         static public String getSheseF(String shese){
+                if(shese==null) return null;
                 String fuzzyStr = ItemDetail.Eshese.HONG.value;
 
                 if(shese.contains(ItemDetail.Eshese.DANHONG.value)){
@@ -73,6 +80,7 @@ public class FuzzyStringUtil {
         }
 
         static public String getTaiseF(String taise){
+                if(taise==null) return null;
                 String fuzzyStr = ItemDetail.Etaise.BAI.value;
                 if (taise==null) {
                         taise = "";

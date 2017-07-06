@@ -2,7 +2,7 @@
     <ion-header-bar class="bar bar-header">
         <h1 class="title">诊断</h1>
 
-        <button class="button button-icon icon ion-android-bulb" ng-click="getConsultEinstrMpres()">
+        <button class="button button-icon icon ion-android-bulb" ng-click="getConsultEinstrMpres(0)">
         </button>
         <button class="button button-icon icon ion-close" ng-click="consultingStaticModal.hide()"></button>
 
@@ -29,14 +29,14 @@
                     <tr>
                         <th>RGB</th>
                         <th>HSV</th>
-                        <th>Label</th>
+                        <th>Lab</th>
                         <th>舌体颜色</th>
                         <th>舌苔颜色</th>
                     </tr>
                     <tr>
                         <td data-th="RGB">{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbR | number:2 }},{{$root.selectedItemDetail.rgbB | number:2 }}</td>
                         <td data-th="HSV">{{$root.selectedItemDetail.hsvH | number:2}},{{$root.selectedItemDetail.hsvS  | number:2}},{{$root.selectedItemDetail.hsvV | number:2}}</td>
-                        <td data-th="Label">,{{$root.selectedItemDetail.labelL  | number:2}},{{$root.selectedItemDetail.labelA  | number:2}},{{$root.selectedItemDetail.labelB  | number:2}}</td>
+                        <td data-th="Label">,{{$root.selectedItemDetail.labL  | number:2}},{{$root.selectedItemDetail.labA  | number:2}},{{$root.selectedItemDetail.labB  | number:2}}</td>
                         <td data-th="舌体颜色">{{$root.selectedItemDetail.sheseF}}</td>
                         <td data-th="舌苔颜色">{{$root.selectedItemDetail.taiseF}}</td>
                     </tr>

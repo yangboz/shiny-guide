@@ -377,24 +377,21 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 
-function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService) {
+function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService,ConsultInfoService) {
     $log.info("ConsultingAutoCtrl init...");
-
-    $scope.getOtherInferedConsultInfo = function () {
-        console.log("$scope.getInferedConsultInfo called.");
-        $uid = $rootScope.selectedUserInfo.id;
-        $log.info("$rootScope.selectedUserInfo.id:",$uid);
-        DiagnosisInferService.get({"id":$uid}, function (response) {
-            $log.info("DiagnosisInferService.get() success!", response.data);
-            $scope.consultInfoFull = response.data;
-            $log.debug("consultInfoFull:",$scope.consultInfoFull);
-            //default trigger.
-
-        }, function (error) {
-            // failure handler
-            $log.error("DiagnosisInferService.get() failed:", JSON.stringify(error));
-        });
+//by mahout recommend
+    $scope.getOtherConsultInfo = function ($order) {
+        $rootScope.getConsultEinstrMpres($order);
     }
+    //CREATE,by drools infered.
+    $scope.createConsultInfoAuto = function () {
+        $log.info("$scope.createConsultInfoAuto called.");
+        $rootScope.selectedInstruction = {id:-1};
+        $rootScope.selectedInstruction.id = $rootScope.consultEinstrMpres.eiid;
+        $rootScope.selectedPrescription = {id:-1};
+        $rootScope.selectedPrescription.id = $rootScope.consultEinstrMpres.mpid;
+        $rootScope.createConsultInfo();
+    };
 })
     .controller('ConsultingCtrl', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
@@ -489,7 +486,7 @@ function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService
                 $rootScope.loadAllPrescriptions();
             }
             //CREATE
-            $scope.createConsultInfo  = function () {
+            $rootScope.createConsultInfo  = function () {
                 //
                 var anewConsultInfo = new ConsultInfoService();
                 $log.info("$rootScope.selectedInstruction:",$rootScope.selectedInstruction);
@@ -598,15 +595,15 @@ function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService
             $log.info("ConsultCtrl initialize...");
             // $scope.loadUserAndItemInfos();
             $scope.loadInsAndPres();
-
-            $scope.getConsultEinstrMpres = function () {
-                console.log("$scope.getConsultEinstrMpres called.");
+//
+            $rootScope.getConsultEinstrMpres = function ($order) {
+                console.log("$scope.getConsultEinstrMpres called,order:",$order);
                 $rootScope.consultingAutoModal.show();
                 $rootScope.consultEinstrMpres = {};//clear history data.
                 //
                 $uid = $rootScope.selectedUserInfo.id;
                 $log.info("$rootScope.selectedUserInfo.id:",$uid);
-                DiagnosisInferService.get({"id":$uid}, function (response) {
+                DiagnosisInferService.get({"id":$uid,"order":$order}, function (response) {
                     $log.info("DiagnosisInferService.get() success!", response);
                     $rootScope.consultEinstrMpres = response;
                     $log.debug("consultEinstrMpres :",$scope.consultEinstrMpres );

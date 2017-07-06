@@ -62,49 +62,6 @@ public class UserItemDetail {
     @Column(name = "病理诊断") //must same excel header (first row)
     private String blzd;
 
-    @Override
-    public String toString() {
-        return "UserItemDetail{" +
-                "id=" + id +
-                ", xingming='" + xingming + '\'' +
-                ", xingbie='" + xingbie + '\'' +
-                ", chushengriqi='" + chushengriqi + '\'' +
-                ", nianning='" + nianning + '\'' +
-                ", nianningjieduan='" + nianningjieduan + '\'' +
-                ", njzd='" + njzd + '\'' +
-                ", blzd='" + blzd + '\'' +
-                ", zzzd='" + zzzd + '\'' +
-                ", houbao='" + houbao + '\'' +
-                ", funi='" + funi + '\'' +
-                ", runzao='" + runzao + '\'' +
-                ", botai='" + botai + '\'' +
-                ", pangshou='" + pangshou + '\'' +
-                ", chihen='" + chihen + '\'' +
-                ", dianci='" + dianci + '\'' +
-                ", liewen='" + liewen + '\'' +
-                ", yuban='" + yuban + '\'' +
-                ", taizhi='" + taizhi + '\'' +
-                ", shexing='" + shexing + '\'' +
-                ", shese='" + shese + '\'' +
-                ", taise='" + taise + '\'' +
-                ", jieguo='" + jieguo + '\'' +
-                ", rgbR='" + rgbR + '\'' +
-                ", rgbG='" + rgbG + '\'' +
-                ", rgbB='" + rgbB + '\'' +
-                ", hsvH='" + hsvH + '\'' +
-                ", hsvS='" + hsvS + '\'' +
-                ", hsvV='" + hsvV + '\'' +
-                ", labelL='" + labelL + '\'' +
-                ", labelA='" + labelA + '\'' +
-                ", labelB='" + labelB + '\'' +
-                ", q1_2='" + q1_2 + '\'' +
-                ", q1_3r='" + q1_3r + '\'' +
-                ", q1_3y='" + q1_3y + '\'' +
-                ", q2_1='" + q2_1 + '\'' +
-                ", products=" + getProducts() +
-                '}';
-    }
-
     public String getXingming() {
         return xingming;
     }
@@ -149,7 +106,7 @@ public class UserItemDetail {
 
     }
 
-    public UserItemDetail(String xingming, int xingbie, String chushengriqi, int nianning, int nianningjieduan, String njzd, String blzd, String zzzd, String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV, String labelL, String labelA, String labelB, String q1_2, String q1_3r, String q1_3y, String q2_1) {
+    public UserItemDetail(String xingming, int xingbie, String chushengriqi, int nianning, int nianningjieduan, String njzd, String blzd, String zzzd, String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV, String labL, String labA, String labB, String q1_2, String q1_3r, String q1_3y, String q2_1) {
 
         this.xingming = xingming;
         this.xingbie = xingbie;
@@ -179,9 +136,9 @@ public class UserItemDetail {
         this.hsvH = hsvH;
         this.hsvS = hsvS;
         this.hsvV = hsvV;
-        this.labelL = labelL;
-        this.labelA = labelA;
-        this.labelB = labelB;
+        this.labL = labL;
+        this.labA = labA;
+        this.labB = labB;
         this.q1_2 = q1_2;
         this.q1_3r = q1_3r;
         this.q1_3y = q1_3y;
@@ -231,12 +188,37 @@ public class UserItemDetail {
     private String hsvS;
     @Column(name = "HSV_V")
     private String hsvV;
-    @Column(name = "Label_L")
-    private String labelL;
-    @Column(name = "Label_A")
-    private String labelA;
-    @Column(name = "Label_B")
-    private String labelB;
+
+    public String getLabL() {
+        return labL;
+    }
+
+    public void setLabL(String labL) {
+        this.labL = labL;
+    }
+
+    public String getLabA() {
+        return labA;
+    }
+
+    public void setLabA(String labA) {
+        this.labA = labA;
+    }
+
+    public String getLabB() {
+        return labB;
+    }
+
+    public void setLabB(String labB) {
+        this.labB = labB;
+    }
+
+    @Column(name = "Lab_L")
+    private String labL;
+    @Column(name = "Lab_A")
+    private String labA;
+    @Column(name = "Lab_B")
+    private String labB;
     //
     @Column(name = "q1_2")
     private String q1_2;
@@ -292,29 +274,6 @@ public class UserItemDetail {
         this.q2_1 = q2_1;
     }
 
-    public String getLabelL() {
-        return labelL;
-    }
-
-    public void setLabelL(String labelL) {
-        this.labelL = labelL;
-    }
-
-    public String getLabelA() {
-        return labelA;
-    }
-
-    public void setLabelA(String labelA) {
-        this.labelA = labelA;
-    }
-
-    public String getLabelB() {
-        return labelB;
-    }
-
-    public void setLabelB(String labelB) {
-        this.labelB = labelB;
-    }
 
     public String getHoubao() {
         return houbao;
@@ -476,37 +435,16 @@ public class UserItemDetail {
         this.hsvV = hsvV;
     }
 
+    @Override public String toString() {
+        return "UserItemDetail{" + "id=" + id + ", xingming='" + xingming + '\'' + ", xingbie=" + xingbie + ", chushengriqi='" + chushengriqi + '\'' + ", nianning=" + nianning + ", nianningjieduan=" + nianningjieduan + ", njzd='" + njzd + '\'' + ", blzd='"
+                + blzd + '\'' + ", zzzd='" + zzzd + '\'' + ", houbao='" + houbao + '\'' + ", funi='" + funi + '\'' + ", runzao='" + runzao + '\'' + ", botai='" + botai + '\'' + ", pangshou='" + pangshou + '\'' + ", chihen='" + chihen + '\'' + ", dianci='"
+                + dianci + '\'' + ", liewen='" + liewen + '\'' + ", yuban='" + yuban + '\'' + ", taizhi='" + taizhi + '\'' + ", shexing='" + shexing + '\'' + ", shese='" + shese + '\'' + ", taise='" + taise + '\'' + ", jieguo='" + jieguo + '\'' + ", rgbR='"
+                + rgbR + '\'' + ", rgbG='" + rgbG + '\'' + ", rgbB='" + rgbB + '\'' + ", hsvH='" + hsvH + '\'' + ", hsvS='" + hsvS + '\'' + ", hsvV='" + hsvV + '\'' + ", labL='" + labL + '\'' + ", labA='" + labA + '\'' + ", labB='" + labB + '\'' + ", q1_2='"
+                + q1_2 + '\'' + ", q1_3r='" + q1_3r + '\'' + ", q1_3y='" + q1_3y + '\'' + ", q2_1='" + q2_1 + '\'' + ", products=" + products + '}';
+    }
+
     public List<Product> getProducts(){
         List<Product> products = new ArrayList<Product>();
-//        products.add(new Product(this.getBotai(),1));
-//        products.add(new Product(this.getChihen(),1));
-//        products.add(new Product(this.getDianci(),1));
-//        products.add(new Product(this.getFuni(),1));
-//
-//        products.add(new Product(this.getHoubao(),1));
-//        products.add(new Product(this.getJieguo(),1));
-//        products.add(new Product(this.getPangshou(),1));
-//        products.add(new Product(this.getRunzao(),1));
-//
-//        products.add(new Product(this.getShese(),1));
-//        products.add(new Product(this.getShexing(),1));
-//
-//        products.add(new Product(this.getTaise(),1));
-//        products.add(new Product(this.getTaizhi(),1));
-//
-//        products.add(new Product(this.getYuban(),1));
-//
-//        products.add(new Product(this.getLabelA(),1));
-//        products.add(new Product(this.getLabelB(),1));
-//        products.add(new Product(this.getLabelL(),1));
-//
-//        products.add(new Product(this.getHsvH(),1));
-//        products.add(new Product(this.getHsvS(),1));
-//        products.add(new Product(this.getHsvV(),1));
-//        products.add(new Product(this.getRgbB(),1));
-//        products.add(new Product(this.getRgbB(),1));
-//        products.add(new Product(this.getRgbB(),1));
-
         products.add(new Product(this.getJieguo(),1));
         products.add(new Product(this.getNjzd(),35));
         products.add(new Product(this.getBlzd(),65));

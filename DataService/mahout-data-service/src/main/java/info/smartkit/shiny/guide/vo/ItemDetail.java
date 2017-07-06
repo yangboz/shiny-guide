@@ -2,7 +2,9 @@ package info.smartkit.shiny.guide.vo;
 
 import com.blogspot.na5cent.exom.annotation.Column;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.javacodegeeks.drools.model.Product;
+import info.smartkit.shiny.guide.utils.ColorUtil;
 import info.smartkit.shiny.guide.utils.FuzzyStringUtil;
 import org.apache.commons.imaging.color.ColorHsv;
 
@@ -50,7 +52,7 @@ public class ItemDetail {
     @Column(name = "病理诊断") //must same excel header (first row)
     private String blzd;
 
-    public ItemDetail(String njzd, String blzd, String zzzd, String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV, String labelL, String labelA, String labelB, String q1_2, String q1_3r, String q1_3y, String q2_1) {
+    public ItemDetail(String njzd, String blzd, String zzzd, String houbao, String funi, String runzao, String botai, String pangshou, String chihen, String dianci, String liewen, String yuban, String taizhi, String shexing, String shese, String taise, String jieguo, String rgbR, String rgbG, String rgbB, String hsvH, String hsvS, String hsvV, String labL, String labA, String labB, String q1_2, String q1_3r, String q1_3y, String q2_1) {
         this.njzd = njzd;
         this.blzd = blzd;
         this.zzzd = zzzd;
@@ -74,9 +76,9 @@ public class ItemDetail {
         this.hsvH = hsvH;
         this.hsvS = hsvS;
         this.hsvV = hsvV;
-        this.labelL = labelL;
-        this.labelA = labelA;
-        this.labelB = labelB;
+        this.labL = labL;
+        this.labA = labA;
+        this.labB = labB;
         this.q1_2 = q1_2;
         this.q1_3r = q1_3r;
         this.q1_3y = q1_3y;
@@ -126,12 +128,37 @@ public class ItemDetail {
     private String hsvS;
     @Column(name = "HSV_V")
     private String hsvV;
-    @Column(name = "Label_L")
-    private String labelL;
-    @Column(name = "Label_A")
-    private String labelA;
-    @Column(name = "Label_B")
-    private String labelB;
+
+    public String getLabL() {
+        return labL;
+    }
+
+    public void setLabL(String labL) {
+        this.labL = labL;
+    }
+
+    public String getLabA() {
+        return labA;
+    }
+
+    public void setLabA(String labA) {
+        this.labA = labA;
+    }
+
+    public String getLabB() {
+        return labB;
+    }
+
+    public void setLabB(String labB) {
+        this.labB = labB;
+    }
+
+    @Column(name = "Lab_L")
+    private String labL;
+    @Column(name = "Lab_A")
+    private String labA;
+    @Column(name = "Lab_B")
+    private String labB;
     //
     @Column(name = "q1_2")
     private String q1_2;
@@ -178,9 +205,9 @@ public class ItemDetail {
                 ", hsvH='" + hsvH + '\'' +
                 ", hsvS='" + hsvS + '\'' +
                 ", hsvV='" + hsvV + '\'' +
-                ", labelL='" + labelL + '\'' +
-                ", labelA='" + labelA + '\'' +
-                ", labelB='" + labelB + '\'' +
+                ", labelL='" + labL + '\'' +
+                ", labelA='" + labA + '\'' +
+                ", labelB='" + labB + '\'' +
                 ", q1_2='" + q1_2 + '\'' +
                 ", q1_3r='" + q1_3r + '\'' +
                 ", q1_3y='" + q1_3y + '\'' +
@@ -229,29 +256,6 @@ public class ItemDetail {
         this.q2_1 = q2_1;
     }
 
-    public String getLabelL() {
-        return labelL;
-    }
-
-    public void setLabelL(String labelL) {
-        this.labelL = labelL;
-    }
-
-    public String getLabelA() {
-        return labelA;
-    }
-
-    public void setLabelA(String labelA) {
-        this.labelA = labelA;
-    }
-
-    public String getLabelB() {
-        return labelB;
-    }
-
-    public void setLabelB(String labelB) {
-        this.labelB = labelB;
-    }
 
     public String getHoubao() {
         return houbao;
@@ -415,34 +419,6 @@ public class ItemDetail {
 
     public List<Product> getProducts(){
         List<Product> products = new ArrayList<Product>();
-//        products.add(new Product(this.getBotai(),1));
-//        products.add(new Product(this.getChihen(),1));
-//        products.add(new Product(this.getDianci(),1));
-//        products.add(new Product(this.getFuni(),1));
-//
-//        products.add(new Product(this.getHoubao(),1));
-//        products.add(new Product(this.getJieguo(),1));
-//        products.add(new Product(this.getPangshou(),1));
-//        products.add(new Product(this.getRunzao(),1));
-//
-//        products.add(new Product(this.getShese(),1));
-//        products.add(new Product(this.getShexing(),1));
-//
-//        products.add(new Product(this.getTaise(),1));
-//        products.add(new Product(this.getTaizhi(),1));
-//
-//        products.add(new Product(this.getYuban(),1));
-//
-//        products.add(new Product(this.getLabelA(),1));
-//        products.add(new Product(this.getLabelB(),1));
-//        products.add(new Product(this.getLabelL(),1));
-//
-//        products.add(new Product(this.getHsvH(),1));
-//        products.add(new Product(this.getHsvS(),1));
-//        products.add(new Product(this.getHsvV(),1));
-//        products.add(new Product(this.getRgbB(),1));
-//        products.add(new Product(this.getRgbB(),1));
-//        products.add(new Product(this.getRgbB(),1));
 
         products.add(new Product(this.getJieguo(),1));
         products.add(new Product(this.getNjzd(),35));
@@ -458,6 +434,7 @@ public class ItemDetail {
         int b = (int)Double.parseDouble(rgbB);
         return new Color(r,g,b);
     }
+
     public ColorHsv getHsv() {
         double h = Double.parseDouble(hsvH);
         double s = Double.parseDouble(hsvS);

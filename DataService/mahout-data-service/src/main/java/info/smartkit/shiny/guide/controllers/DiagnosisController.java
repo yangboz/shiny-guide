@@ -66,13 +66,13 @@ public class DiagnosisController {
 
     private static StatelessKnowledgeSession session;
 
-    @RequestMapping(value = "user/infer/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "user/infer/{id}/{order}", method = RequestMethod.GET)
     @ApiOperation(httpMethod = "GET", value = "Response a consult info fully describing if the user's diagnosis is successfully inference or not.")
-    public ConsultEinstrMpers inferByFacts(@PathVariable("id") long id) throws Exception {
+    public ConsultEinstrMpers inferByFacts(@PathVariable("id") long id,@PathVariable("order") int order) throws Exception {
 //        long uiid = userInfoDao.findOne(id).getItemId();
         UserInfo userInfo = userInfoDao.findOne(id);
         LOG.info("find one user info:"+userInfo.toString());
-      return  diagnosisService.inferByFacts(userInfo.getItemId());
+      return  diagnosisService.inferByFacts(userInfo.getItemId(),order);
     }
 
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)

@@ -9,7 +9,7 @@ angular.module('app.services', ['ngResource'])
     //DiagnosisService
     .factory('DiagnosisInferService', function ($resource,CONFIG_ENV) {
         var data = $resource(
-            CONFIG_ENV.api_endpoint  + "diagnosis/user/infer/:id"
+            CONFIG_ENV.api_endpoint  + "diagnosis/user/infer/:id/:order"
         )
         return data;
     })

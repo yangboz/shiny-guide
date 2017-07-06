@@ -4,6 +4,7 @@ import info.smartkit.shiny.guide.dao.ConsultInfoDao;
 import info.smartkit.shiny.guide.dao.ItemDetailDao;
 import info.smartkit.shiny.guide.dao.ItemInfoDao;
 import info.smartkit.shiny.guide.dto.ConsultDecision;
+import info.smartkit.shiny.guide.utils.ColorUtil;
 import info.smartkit.shiny.guide.utils.FuzzyStringUtil;
 import info.smartkit.shiny.guide.vo.ConsultEinstrMpers;
 import info.smartkit.shiny.guide.vo.UserItemConsultInfoIdDetails;
@@ -13,6 +14,8 @@ import info.smartkit.shiny.guide.rule.Rule;
 import info.smartkit.shiny.guide.utils.DroolsUtil;
 import info.smartkit.shiny.guide.vo.ItemDetail;
 import info.smartkit.shiny.guide.vo.ItemInfo;
+import org.apache.commons.imaging.color.ColorHsv;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,9 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.awt.*;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -48,6 +53,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                 String nativeQuery = "select user_info.id, item_info.id as iid, "
                         + "item_detail.id as idid, item_detail.yuban as yuban,item_detail.shese as shese,item_detail.runzao as runzao,item_detail.pangshou as pangshou,"
                         + "item_detail.houbao as houbao,item_detail.liewen as liewen,item_detail.taise as taise,item_detail.chihen as chihen,"
+                        + "item_detail.rgbR as rgbR,item_detail.rgbG as rgbG,item_detail.rgbB as rgbB,item_detail.hsvH as hsvH,item_detail.hsvS as hsvS,item_detail.hsvV as hsvV,"
                         + "consult_info.id as cid, mprescription.id as mpid, einstruction.id as eiid "
                         + "from user_info left join item_info on user_info.item_id = item_info.id "
                         + "left join item_detail on item_info.detail_id = item_detail.id "
@@ -62,7 +68,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
         }
 
         //
-        @Override public ConsultEinstrMpers inferByFacts(long uiId) throws Exception {
+        @Override public ConsultEinstrMpers inferByFacts(long uiId,int order) throws Exception {
                 ConsultEinstrMpers consultEinstrMpers = null;
                 long inferedConsultId;
                 //inference item
@@ -72,6 +78,10 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                 ItemDetail itemDetail = itemDetailDao.findOne(idid);
                 //FOR LOOP by facts/memory works:
                 List<UserItemConsultInfoIdDetails> userItemConsultInfoDetails = findUserItemConsultInfoDetail();
+                if(order>0)//currently,reverse
+                {
+                        Collections.reverse(userItemConsultInfoDetails);
+                }
                 for(UserItemConsultInfoIdDetails userItemConsultInfoIdDetails : userItemConsultInfoDetails) {
                         // Create an event that will be tested against the rule. In reality, the event would be read from some external store.
                         ConsultEvent consultEvent = new ConsultEvent();
@@ -102,17 +112,17 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                         //Rule
                         Rule similarVariableValuesFuzzyEqualRule = new Rule();
                         //Conditions
-                        //TODO:RGB
-                        //                Condition similarVariableCondition_rgb = new Condition();
-                        //                similarVariableCondition_rgb.setField("rgb");
-                        //                similarVariableCondition_rgb.setOperator(Condition.Operator.C_SIMILAR_TO);
-                        //                similarVariableCondition_rgb.setValue(itemDetail.getRgb());
+                        //TODO:RGB operator
+                                        Condition similarVariableCondition_rgb = new Condition();
+                                        similarVariableCondition_rgb.setField("rgb");
+//                                        similarVariableCondition_rgb.setOperator(Condition.Operator.C_SIMILAR_TO);
+                                        similarVariableCondition_rgb.setValue(itemDetail.getRgb());
                         //TODO:HSV
-                        //                Condition similarVariableCondition_hsv = new Condition();
-                        //                similarVariableCondition_hsv.setField("hsv");
-                        //                similarVariableCondition_hsv.setOperator(Condition.Operator.C_SIMILAR_TO);
-                        //                similarVariableCondition_hsv.setValue(itemDetail.getHsv());
-                        //TODO:Label,what is meaningful?
+                                        Condition similarVariableCondition_hsv = new Condition();
+                                        similarVariableCondition_hsv.setField("hsv");
+//                                        similarVariableCondition_hsv.setOperator(Condition.Operator.C_SIMILAR_TO);
+                                        similarVariableCondition_hsv.setValue(itemDetail.getHsv());
+                        //TODO:Label,@see: http://www.emanueleferonato.com/2009/08/28/color-differences-algorithm/
                         //                Condition similarVariableCondition_lbl = new Condition();
                         //                similarVariableCondition_lbl.setField("lable");
                         //                similarVariableCondition_lbl.setOperator(Condition.Operator.EQUAL_TO);
@@ -173,6 +183,14 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                                 inferedConsultId = userItemConsultInfoIdDetails.getCid();
                                 LOG.info("inference by facts, and consult decision result,id:" +inferedConsultId);
                                 consultEinstrMpers = consultInfoService.findConsultEinstrMpers(inferedConsultId);
+                                //use ColorSimilarity as operator.
+                                Color colorRgb = ColorUtil.getColorRgb(userItemConsultInfoIdDetails.getRgbR(),userItemConsultInfoIdDetails.getRgbG(),userItemConsultInfoIdDetails.getRgbB());
+                                ColorHsv colorHsv = ColorUtil.getColorHsv(userItemConsultInfoIdDetails.getHsvH(),userItemConsultInfoIdDetails.getHsvS(),userItemConsultInfoIdDetails.getHsvV());
+                                double rgbS = ColorUtil.similarity(colorRgb,itemDetail.getRgb());
+                                double hsvS = ColorUtil.similarity(colorHsv,itemDetail.getHsv());
+                                LOG.info("rgbS:"+rgbS+",hsvS:"+hsvS);
+                                consultEinstrMpers.setRgbS(rgbS);
+                                consultEinstrMpers.setHsvS(hsvS);
                                 LOG.info("inference by facts, and consult decision result,detail:" +consultEinstrMpers.toString());
                                 break;
                         }
