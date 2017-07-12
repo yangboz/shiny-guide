@@ -76,12 +76,14 @@ CREATE DATABASE `td_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 select
     user_info.*,
-    user_item_detail.*,
+item_info.*,
+item_detail.*,
     consult_info.*,
     mprescription.*,
     einstruction.*
     from user_info 
-    left join user_item_detail on user_info.item_id = user_item_detail.id
+    left join item_info on user_info.item_id = item_info.id
+left join item_detail on item_info.detail_id = item_detail.id
     left join consult_info on user_info.consult_id = consult_info.id
     left join mprescription on consult_info.pid = mprescription.id
     left join einstruction on consult_info.iid = einstruction.id
