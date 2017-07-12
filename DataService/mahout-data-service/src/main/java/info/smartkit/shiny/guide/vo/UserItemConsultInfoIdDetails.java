@@ -145,12 +145,6 @@ public class UserItemConsultInfoIdDetails {
         private String hsvH;
         private String hsvS;
 
-        @Override public String toString() {
-                return "UserItemConsultInfoIdDetails{" + "id=" + id + ", iid=" + iid + ", idid=" + idid + ", cid=" + cid + ", mpid=" + mpid + ", eiid=" + eiid + ", shese='" + shese + '\'' + ", taise='" + taise + '\'' + ", pangshou='" + pangshou + '\''
-                        + ", chihen='" + chihen + '\'' + ", liewen='" + liewen + '\'' + ", yuban='" + yuban + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + ", rgbR='" + rgbR + '\'' + ", rgbG='" + rgbG + '\'' + ", rgbB='" + rgbB + '\''
-                        + ", hsvH='" + hsvH + '\'' + ", hsvS='" + hsvS + '\'' + ", hsvV='" + hsvV + '\'' + '}';
-        }
-
         public String getRgbR() {
                 return rgbR;
         }
@@ -200,4 +194,39 @@ public class UserItemConsultInfoIdDetails {
         }
 
         private String hsvV;
+
+        @Override public String toString() {
+                return "UserItemConsultInfoIdDetails{" + "id=" + id + ", iid=" + iid + ", idid=" + idid + ", cid=" + cid + ", mpid=" + mpid + ", eiid=" + eiid + ", shese='" + shese + '\'' + ", taise='" + taise + '\'' + ", pangshou='" + pangshou + '\''
+                        + ", chihen='" + chihen + '\'' + ", liewen='" + liewen + '\'' + ", yuban='" + yuban + '\'' + ", runzao='" + runzao + '\'' + ", houbao='" + houbao + '\'' + ", rgbR='" + rgbR + '\'' + ", rgbG='" + rgbG + '\'' + ", rgbB='" + rgbB + '\''
+                        + ", hsvH='" + hsvH + '\'' + ", hsvS='" + hsvS + '\'' + ", hsvV='" + hsvV + '\'' + ", labL='" + labL + '\'' + ", labA='" + labA + '\'' + ", labB='" + labB + '\'' + '}';
+        }
+
+        public String getLabL() {
+                return labL;
+        }
+
+        public void setLabL(String labL) {
+                this.labL = labL;
+        }
+
+        public String getLabA() {
+                return labA;
+        }
+
+        public void setLabA(String labA) {
+                this.labA = labA;
+        }
+
+        public String getLabB() {
+                return labB;
+        }
+
+        public void setLabB(String labB) {
+                this.labB = labB;
+        }
+
+        private String labL;
+        private String labA;
+        private String labB;
+
 }

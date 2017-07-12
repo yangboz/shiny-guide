@@ -14,6 +14,7 @@ import info.smartkit.shiny.guide.rule.Rule;
 import info.smartkit.shiny.guide.utils.DroolsUtil;
 import info.smartkit.shiny.guide.vo.ItemDetail;
 import info.smartkit.shiny.guide.vo.ItemInfo;
+import org.apache.commons.imaging.color.ColorCieLab;
 import org.apache.commons.imaging.color.ColorHsv;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.logging.log4j.LogManager;
@@ -112,21 +113,21 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                         //Rule
                         Rule similarVariableValuesFuzzyEqualRule = new Rule();
                         //Conditions
-                        //TODO:RGB operator
+                        //RGB operator
                                         Condition similarVariableCondition_rgb = new Condition();
                                         similarVariableCondition_rgb.setField("rgb");
 //                                        similarVariableCondition_rgb.setOperator(Condition.Operator.C_SIMILAR_TO);
                                         similarVariableCondition_rgb.setValue(itemDetail.getRgb());
-                        //TODO:HSV
+                        //HSV
                                         Condition similarVariableCondition_hsv = new Condition();
                                         similarVariableCondition_hsv.setField("hsv");
 //                                        similarVariableCondition_hsv.setOperator(Condition.Operator.C_SIMILAR_TO);
                                         similarVariableCondition_hsv.setValue(itemDetail.getHsv());
-                        //TODO:Label,@see: http://www.emanueleferonato.com/2009/08/28/color-differences-algorithm/
-                        //                Condition similarVariableCondition_lbl = new Condition();
-                        //                similarVariableCondition_lbl.setField("lable");
-                        //                similarVariableCondition_lbl.setOperator(Condition.Operator.EQUAL_TO);
-                        //                similarVariableCondition_lbl.setValue(itemDetail.getLabelA());
+                        //Lab
+                                        Condition similarVariableCondition_lbl = new Condition();
+                                        similarVariableCondition_lbl.setField("lab");
+//                                        similarVariableCondition_lbl.setOperator(Condition.Operator.C_SIMILAR_TO);
+                                        similarVariableCondition_lbl.setValue(itemDetail.getLab());
                         //shese
                         Condition similarVariableCondition_shese = new Condition();
                         similarVariableCondition_shese.setField("shese");
@@ -186,11 +187,14 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                                 //use ColorSimilarity as operator.
                                 Color colorRgb = ColorUtil.getColorRgb(userItemConsultInfoIdDetails.getRgbR(),userItemConsultInfoIdDetails.getRgbG(),userItemConsultInfoIdDetails.getRgbB());
                                 ColorHsv colorHsv = ColorUtil.getColorHsv(userItemConsultInfoIdDetails.getHsvH(),userItemConsultInfoIdDetails.getHsvS(),userItemConsultInfoIdDetails.getHsvV());
+                                ColorCieLab colorLab = ColorUtil.getColorLab(userItemConsultInfoIdDetails.getLabL(),userItemConsultInfoIdDetails.getLabA(),userItemConsultInfoIdDetails.getLabB());
                                 double rgbS = ColorUtil.similarity(colorRgb,itemDetail.getRgb());
                                 double hsvS = ColorUtil.similarity(colorHsv,itemDetail.getHsv());
-                                LOG.info("rgbS:"+rgbS+",hsvS:"+hsvS);
+                                double labS = ColorUtil.similarity(colorLab,itemDetail.getLab());
+                                LOG.info("rgbS:"+rgbS+",hsvS:"+hsvS+",labS:"+labS);
                                 consultEinstrMpers.setRgbS(rgbS);
                                 consultEinstrMpers.setHsvS(hsvS);
+                                consultEinstrMpers.setLabS(labS);
                                 LOG.info("inference by facts, and consult decision result,detail:" +consultEinstrMpers.toString());
                                 break;
                         }

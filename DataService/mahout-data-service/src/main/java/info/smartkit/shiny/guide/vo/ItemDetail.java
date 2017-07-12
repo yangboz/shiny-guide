@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.javacodegeeks.drools.model.Product;
 import info.smartkit.shiny.guide.utils.ColorUtil;
 import info.smartkit.shiny.guide.utils.FuzzyStringUtil;
+import org.apache.commons.imaging.color.ColorCieLab;
 import org.apache.commons.imaging.color.ColorHsv;
 
 import javax.persistence.*;
@@ -429,17 +430,45 @@ public class ItemDetail {
     }
 
     public Color getRgb() {
-        int r = (int)Double.parseDouble(rgbR);
-        int g = (int)Double.parseDouble(rgbG);
-        int b = (int)Double.parseDouble(rgbB);
+        int r=0,g=0,b=0;
+        if(rgbR!=null){
+            r = (int)Double.parseDouble(rgbR);
+        }
+        if(rgbG!=null) {
+            g = (int) Double.parseDouble(rgbG);
+        }
+        if(rgbB!=null) {
+            b = (int) Double.parseDouble(rgbB);
+        }
         return new Color(r,g,b);
     }
 
     public ColorHsv getHsv() {
-        double h = Double.parseDouble(hsvH);
-        double s = Double.parseDouble(hsvS);
-        double v = Double.parseDouble(hsvV);
+        double h=0,s=0,v=0;
+        if(hsvH!=null) {
+            h = Double.parseDouble(hsvH);
+        }
+        if(hsvS!=null) {
+            s = Double.parseDouble(hsvS);
+        }
+        if(hsvV!=null) {
+            v = Double.parseDouble(hsvV);
+        }
         return new ColorHsv(h,s,v);
+    }
+
+    public ColorCieLab getLab(){
+        double l=0,a=0,b=0;
+        if(labA!=null) {
+            l = Double.parseDouble(labL);
+        }
+        if(labA!=null) {
+            a = Double.parseDouble(labA);
+        }
+        if(labB!=null) {
+            b = Double.parseDouble(labB);
+        }
+        return new ColorCieLab(l,a,b);
     }
     //Fuzzy values.
     public String getPangshouF(){

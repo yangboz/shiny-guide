@@ -62,11 +62,14 @@ public class ItemDetailController {
         return new JsonObject(this.DAO.findAll());
     }
 
-//    @RequestMapping(value = "/{id}/detail/{value}", method = RequestMethod.PUT)//
-//    @ApiOperation(httpMethod = "PUT", value = "Response a string describing if the item detailID is successfully patched or not.")
-//    public JsonObject patch(@PathVariable("id") long id, @PathVariable("value") int value) {
-//        ItemInfo find = this.DAO.findOne(id);
-//        find.setDetailId(value);
-//        return new JsonObject(this.DAO.save(find));
-//    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)//
+    @ApiOperation(httpMethod = "PUT", value = "Response a string describing if the item detail is successfully patched or not.")
+    public JsonObject patch(@PathVariable("id") long id,@RequestBody @Valid ItemDetail detail) {
+        ItemDetail find = this.DAO.findOne(id);
+        //only for lab update.
+        find.setLabL(detail.getLabL());
+        find.setLabA(detail.getLabA());
+        find.setLabB(detail.getLabB());
+        return new JsonObject(this.DAO.save(find));
+    }
 }

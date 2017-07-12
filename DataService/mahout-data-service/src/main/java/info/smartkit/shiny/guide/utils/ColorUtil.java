@@ -28,6 +28,13 @@ public class ColorUtil {
                 double vDou =  Double.parseDouble(v);
                 return new ColorHsv(hDou,sDou,vDou);
         }
+        //
+        public static ColorCieLab getColorLab(String l,String a,String b){
+                double lDou =  Double.parseDouble(l);
+                double aDou = Double.parseDouble(a);
+                double bDou =  Double.parseDouble(b);
+                return new ColorCieLab(lDou,aDou,bDou);
+        }
         /*
         *F.E.
         *
@@ -70,5 +77,28 @@ public class ColorUtil {
                 double differ = distance/avgHue;
                 LOG.info("differ:"+differ+"distance:"+distance+",avgHue:"+avgHue);
                 return 1.00-differ;
+        }
+
+        /*
+         *@see: http://colormine.org/delta-e-calculator
+         * var differences = Distance(a.L, b.L) + Distance(a.A, b.A) + Distance(a.B, b.B);
+         * return Math.Sqrt(differences);
+         */
+        public static double similarity(ColorCieLab c1,ColorCieLab c2){
+                LOG.info("C1,"+c1.toString()+",C2:"+c2.toString());
+                //
+                double l2_l1 = distance(c2.L,c1.L);
+                double a2_a1 = distance(c2.a,c1.a);
+                double b2_b1 = distance(c2.b,c1.b);
+
+                double differences = l2_l1 + a2_a1 + b2_b1;
+                double differ = Math.sqrt(differences);
+                LOG.info("differ,"+differ+"differences:"+differences);
+                return 1.00-differ;
+        }
+
+        private static double distance(double a, double b)
+        {
+                return (a - b) * (a - b);
         }
 }

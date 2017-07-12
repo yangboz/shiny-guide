@@ -94,5 +94,15 @@ public class ConsultEinstrMpers {
         }
         private double rgbS=0.00;//similarity of colorRgb.
         private double hsvS=0.00;//similarity of colorHsv.
+        @Transient
+        public double getLabS() {
+                return labS;
+        }
+
+        public void setLabS(double labS) {
+                this.labS = labS;
+        }
+
+        private double labS=0.00;//similarity of colorLab.
 
 }
