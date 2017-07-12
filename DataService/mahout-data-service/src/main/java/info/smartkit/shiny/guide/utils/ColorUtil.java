@@ -50,11 +50,11 @@ public class ColorUtil {
         public static double similarity(Color c1,Color c2){
                 LOG.info("C1,"+c1.toString()+",C2:"+c2.toString());
                 //
-                int r2_r1 = Math.abs(c2.getRed()-c1.getRed());
-                int g2_g1 = Math.abs(c2.getGreen()-c1.getGreen());
-                int b2_b1 = Math.abs(c2.getBlue()-c1.getBlue());
+                double r2_r1 =  distance(c2.getRed(),c1.getRed());
+                double g2_g1 =  distance(c2.getGreen(),c1.getGreen());
+                double b2_b1 =  distance(c2.getBlue(),c1.getBlue());
 
-                double distance = Math.sqrt(Math.pow(r2_r1,2)+Math.pow(g2_g1,2)+Math.pow(b2_b1,2));
+                double distance = Math.sqrt(r2_r1+g2_g1+b2_b1);
                 double avgRgb  = Math.sqrt(Math.pow(255,2)+Math.pow(255,2)+Math.pow(255,2));
                 double differ = distance/avgRgb;
                 LOG.info("differ,"+differ+"distance:"+distance+",avgRgb:"+avgRgb);
@@ -99,6 +99,7 @@ public class ColorUtil {
 
         private static double distance(double a, double b)
         {
-                return (a - b) * (a - b);
+                double d = Math.abs(a-b);
+                return Math.pow(d,2);
         }
 }
