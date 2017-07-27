@@ -9,6 +9,6 @@ import java.util.List;
  * Created by smartkit on 02/07/2017.
  */
 public interface DiagnosisService {
-        ConsultEinstrMpers inferByFacts(long uiId,int order) throws Exception;
+        List<ConsultEinstrMpers> inferByFacts(long uiId,int order) throws Exception;
         List<UserItemConsultInfoIdDetails> findUserItemConsultInfoDetail()throws Exception;
 }

@@ -1,7 +1,7 @@
 <ion-modal-view>
     <ion-header-bar class="bar bar-header" ng-controller="ConsultingAutoCtrl">
         <h1 class="title">人工智能自动诊断</h1>
-        <button class="button  button-icon icon ion-android-refresh" ng-show="$root.consultEinstrMpres.hsvS<0.8" ng-click="getOtherConsultInfo(1)"></button>
+        <button class="button  button-icon icon ion-arrow-swap" ng-show="$root.consultEinstrMpresz.length>1" ng-click="getOtherConsultInfo()"></button>
         <button class="button button-icon icon ion-android-checkbox" ng-show="$root.consultEinstrMpres.hsvS!=null" ng-click="createConsultInfoAuto()"></button>
         <button class="button button-icon icon ion-close" ng-click="$root.consultingAutoModal.hide()"></button>
     </ion-header-bar>

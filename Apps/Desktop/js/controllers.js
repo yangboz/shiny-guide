@@ -13,6 +13,7 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
             $rootScope.allInstructions = [];
             $rootScope.allPescriptions = [];
             $rootScope.consultEinstrMpres = {id:-1,eiid:-1,mpid:-1,einame:"",mpname:"",eicontent:"",mpcontent:""};
+            $rootScope.consultEinstrMpresz = [{id:-1,eiid:-1,mpid:-1,einame:"",mpname:"",eicontent:"",mpcontent:""}];
             $rootScope.consultInfofull = {eInstruction:{},mPrescription:{}};
             //selected
             $rootScope.unconsultUserInfos = [];
@@ -380,8 +381,15 @@ angular.module('app.controllers', ['app.services','ngFileUpload'])
 function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService,ConsultInfoService) {
     $log.info("ConsultingAutoCtrl init...");
 //by mahout recommend
-    $scope.getOtherConsultInfo = function ($order) {
-        $rootScope.getConsultEinstrMpres($order);
+    $scope.getOtherConsultInfo = function () {
+        // $rootScope.getConsultEinstrMpres($order);
+        index = $rootScope.consultEinstrMpresz.indexOf($rootScope.consultEinstrMpres);
+        length =  $rootScope.consultEinstrMpresz.length;
+        if(index >= 0 && index < length - 1) {
+            $rootScope.consultEinstrMpres = $rootScope.consultEinstrMpresz[index + 1];
+        }else{
+            $rootScope.consultEinstrMpres = $rootScope.consultEinstrMpresz[0];
+        }
     }
     //CREATE,by drools infered.
     $scope.createConsultInfoAuto = function () {
@@ -603,9 +611,11 @@ function ($rootScope,$scope, $stateParams,$ionicModal,$log,DiagnosisInferService
                 //
                 $uid = $rootScope.selectedUserInfo.id;
                 $log.info("$rootScope.selectedUserInfo.id:",$uid);
-                DiagnosisInferService.get({"id":$uid,"order":$order}, function (response) {
+                DiagnosisInferService.query({"id":$uid,"order":$order}, function (response) {
                     $log.info("DiagnosisInferService.get() success!", response);
-                    $rootScope.consultEinstrMpres = response;
+                    $rootScope.consultEinstrMpresz = response;
+                    $log.debug("consultEinstrMpresz :",$scope.consultEinstrMpresz );
+                    $rootScope.consultEinstrMpres =  $rootScope.consultEinstrMpresz[0];
                     $log.debug("consultEinstrMpres :",$scope.consultEinstrMpres );
                     //default trigger.
 

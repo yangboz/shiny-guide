@@ -25,8 +25,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -71,8 +70,8 @@ public class DiagnosisServiceImpl implements DiagnosisService {
         }
 
         //
-        @Override public ConsultEinstrMpers inferByFacts(long uiId,int order) throws Exception {
-                ConsultEinstrMpers consultEinstrMpers = null;
+        @Override public List<ConsultEinstrMpers> inferByFacts(long uiId,int order) throws Exception {
+                List<ConsultEinstrMpers> consultEinstrMpersz = new ArrayList<ConsultEinstrMpers>();
                 long inferedConsultId;
                 //inference item
                 ItemInfo itemInfo = itemInfoDao.findOne(uiId);
@@ -182,6 +181,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                         String drl = DroolsUtil.applyRuleTemplate(consultEvent, similarVariableValuesFuzzyEqualRule);
                         ConsultDecision consultDecision = DroolsUtil.evaluate(drl, consultEvent);
                         //
+                        ConsultEinstrMpers consultEinstrMpers = null;
                         if(consultDecision.getDoAlert()) {
                                 inferedConsultId = userItemConsultInfoIdDetails.getCid();
                                 LOG.info("inference by facts, and consult decision result,id:" +inferedConsultId);
@@ -198,14 +198,23 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                                 consultEinstrMpers.setHsvS(hsvS);
                                 consultEinstrMpers.setLabS(labS);
                                 LOG.info("inference by facts, and consult decision result,detail:" +consultEinstrMpers.toString());
-                                break;
+//                                break;
+                                consultEinstrMpersz.add(consultEinstrMpers);
                         }
                 }
-                if(consultEinstrMpers==null){
+                //order array list by similarity.
+                Collections.sort(consultEinstrMpersz, new Comparator<ConsultEinstrMpers>() {
+                        @Override public int compare(ConsultEinstrMpers o1, ConsultEinstrMpers o2) {
+                                return Double.valueOf(o1.getRgbS()).compareTo(o2.getRgbS());
+                        }
+                });
+                //
+                LOG.info("inference by facts, and list of consultEinstrMpers:" +consultEinstrMpersz.toString());
+                if(consultEinstrMpersz.size()==0){
                         //TODO:mahout recommend by similarity calculation.
                          LOG.warn("TODO:mahout recommend by similarity calculation.");
                 }
 //
-                return consultEinstrMpers;
+                return consultEinstrMpersz;
         }
 }
