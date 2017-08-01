@@ -3,17 +3,15 @@ package info.smartkit.shiny.guide.service;
 import info.smartkit.shiny.guide.dao.ConsultInfoDao;
 import info.smartkit.shiny.guide.dao.ItemDetailDao;
 import info.smartkit.shiny.guide.dao.ItemInfoDao;
+import info.smartkit.shiny.guide.dao.UserInfoDao;
 import info.smartkit.shiny.guide.dto.ConsultDecision;
 import info.smartkit.shiny.guide.utils.ColorUtil;
 import info.smartkit.shiny.guide.utils.FuzzyStringUtil;
-import info.smartkit.shiny.guide.vo.ConsultEinstrMpers;
-import info.smartkit.shiny.guide.vo.UserItemConsultInfoIdDetails;
+import info.smartkit.shiny.guide.vo.*;
 import info.smartkit.shiny.guide.event.ConsultEvent;
 import info.smartkit.shiny.guide.rule.Condition;
 import info.smartkit.shiny.guide.rule.Rule;
 import info.smartkit.shiny.guide.utils.DroolsUtil;
-import info.smartkit.shiny.guide.vo.ItemDetail;
-import info.smartkit.shiny.guide.vo.ItemInfo;
 import org.apache.commons.imaging.color.ColorCieLab;
 import org.apache.commons.imaging.color.ColorHsv;
 import org.apache.commons.lang.ArrayUtils;
@@ -37,6 +35,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
         @Autowired ItemDetailDao itemDetailDao;
         @Autowired ConsultInfoDao consultInfoDao;
         @Autowired ConsultInfoService consultInfoService;
+        @Autowired UserInfoDao userInfoDao;
         @PersistenceContext
         private EntityManager em;
 
@@ -197,6 +196,9 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                                 consultEinstrMpers.setRgbS(rgbS);
                                 consultEinstrMpers.setHsvS(hsvS);
                                 consultEinstrMpers.setLabS(labS);
+                                //find target users info by cid
+                                List<UserInfo> targetUsers = userInfoDao.findByConsultId(inferedConsultId);
+                                consultEinstrMpers.getTargets().addAll(targetUsers);
                                 LOG.info("inference by facts, and consult decision result,detail:" +consultEinstrMpers.toString());
 //                                break;
                                 consultEinstrMpersz.add(consultEinstrMpers);
@@ -205,7 +207,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
                 //order array list by similarity.
                 Collections.sort(consultEinstrMpersz, new Comparator<ConsultEinstrMpers>() {
                         @Override public int compare(ConsultEinstrMpers o1, ConsultEinstrMpers o2) {
-                                return Double.valueOf(o1.getRgbS()).compareTo(o2.getRgbS());
+                                return Double.valueOf(o2.getRgbS()).compareTo(o1.getRgbS());
                         }
                 });
                 //

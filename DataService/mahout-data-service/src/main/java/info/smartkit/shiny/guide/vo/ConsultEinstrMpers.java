@@ -1,6 +1,8 @@
 package info.smartkit.shiny.guide.vo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by smartkit on 03/07/2017.
@@ -71,11 +73,6 @@ public class ConsultEinstrMpers {
         private String mpname;
         private String mpcontent;
 
-        @Override public String toString() {
-                return "ConsultEinstrMpers{" + "id=" + id + ", eiid=" + eiid + ", mpid=" + mpid + ", einame='" + einame + '\'' + ", eicontent='" + eicontent + '\'' + ", mpname='" + mpname + '\'' + ", mpcontent='" + mpcontent + '\'' + ", rgbS=" + rgbS
-                        + ", hsvS=" + hsvS + '}';
-        }
-
         @Transient
         public double getRgbS() {
                 return rgbS;
@@ -87,6 +84,11 @@ public class ConsultEinstrMpers {
         @Transient
         public double getHsvS() {
                 return hsvS;
+        }
+
+        @Override public String toString() {
+                return "ConsultEinstrMpers{" + "id=" + id + ", eiid=" + eiid + ", mpid=" + mpid + ", einame='" + einame + '\'' + ", eicontent='" + eicontent + '\'' + ", mpname='" + mpname + '\'' + ", mpcontent='" + mpcontent + '\'' + ", rgbS=" + rgbS
+                        + ", hsvS=" + hsvS + ", labS=" + labS + ", targets=" + targets.toString() + '}';
         }
 
         public void setHsvS(double hsvS) {
@@ -105,4 +107,14 @@ public class ConsultEinstrMpers {
 
         private double labS=0.00;//similarity of colorLab.
 
+        @Transient
+        private List<UserInfo> targets = new ArrayList<>();
+
+        public List<UserInfo> getTargets() {
+                return targets;
+        }
+
+        public void setTargets(List<UserInfo> targets) {
+                this.targets = targets;
+        }
 }
