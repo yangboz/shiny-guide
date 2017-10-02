@@ -459,13 +459,13 @@ public class ItemDetail {
 
     public ColorCieLab getLab(){
         double l=0,a=0,b=0;
-        if(labA!=null) {
+        if(labL!=null & !labL.equals("")) {
             l = Double.parseDouble(labL);
         }
-        if(labA!=null) {
+        if(labA!=null & !labA.equals("")) {
             a = Double.parseDouble(labA);
         }
-        if(labB!=null) {
+        if(labB!=null & !labB.equals("")) {
             b = Double.parseDouble(labB);
         }
         return new ColorCieLab(l,a,b);
