@@ -1,0 +1,19 @@
+template header
+
+rule
+eventType
+
+package info.smartkit.shiny.guide.dto;
+
+global info.smartkit.shiny.guide.dto.ConsultDecision consultDecision;
+
+template "consult"
+
+rule "consult_@{row.rowNumber}"
+when
+    @{eventType}(@{rule})
+then
+    consultDecision.setDoAlert(Boolean.TRUE);
+end
+
+end template

@@ -1,0 +1,13 @@
+import { PointerEvents, PointerEventsConfig } from './pointer-events';
+import { Platform, EventListenerOptions } from '../platform/platform';
+/**
+ * @private
+ */
+export declare class UIEventManager {
+    plt: Platform;
+    private evts;
+    constructor(plt: Platform);
+    pointerEvents(config: PointerEventsConfig): PointerEvents;
+    listen(ele: any, eventName: string, callback: any, opts: EventListenerOptions): Function;
+    destroy(): void;
+}

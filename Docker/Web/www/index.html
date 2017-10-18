@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="apple-touch-icon" sizes="57x57" href="icos/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icos/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icos/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icos/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icos/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icos/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icos/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icos/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icos/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icos/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icos/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icos/favicon-16x16.png">
+    <link rel="manifest" href="icos/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icos/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>TD.smartkit.info</title>
+
+
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    
+
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px; 
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+      .show-list-numbers-and-dots ul{
+        list-style-type: disc;
+        padding-left:40px;
+      }
+      .show-list-numbers-and-dots ol{
+        list-style-type: decimal;
+        padding-left:40px;
+      }
+      .button.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
+      .input-label.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
+      .item-select.disabled {
+        filter: Alpha(Opacity=30);
+        opacity: .3;
+        zoom: 1;
+        cursor: default !important;
+        pointer-events: none;
+      }
+
+      .friends {
+        border-collapse: collapse;
+      }
+
+      .friends th {
+        border-bottom: 1px solid;
+      }
+      .friends td, .friends th {
+        border-left: 1px solid;
+        padding: 5px 10px;
+      }
+      .friends td:first-child, .friends th:first-child {
+        border-left: none;
+      }
+    </style>
+    <script src="js/helper.js"></script>
+
+    <!--
+    <script src="lib/pubnub/pubnub-angular-4.0.2.min.js"></script>
+    -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+    <!--
+    <script src="lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    -->
+    <!--
+    <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
+    -->
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/ionic-zoom-view.js"></script>
+    <!--
+    <script src="lib/pubnub/pubnub.4.4.4.min.js"></script>
+    <script src="lib/pubnub/pubnub-angular-4.0.2.min.js"></script>
+    -->
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <!--
+		BEGIN: App-Loading Screen.
+		--
+		Until the AngularJS application code is loaded and bootstrapped, this is just
+		"static HTML." Meaning, the [class-based] directive, "mAppLoading", won't
+		actually do anything until the application is initialized. As such, we'll give
+		it just enough CSS to "fail open"; then, when the AngularJS app loads, the
+		directive will run and we'll remove this loading screen.
+
+		NOTES ON ANIMATION:
+
+		When the AngularJS application is loaded and starts bootstrapping, all
+		animations are disabled until all the routing information and templating
+		information is loaded AND at least two digests have run (in order to prevent
+		a flurry of animation activity). As such, we can't animate the root of the
+		directive. Instead, we have to add "ngAnimateChildren" to the root element
+		and then animate the inner container. The "ngAnimateChildren" directive allows
+		us to override the animation-blocking within the bounds of our directive, which
+		is fine since it only runs once.
+	-->
+  <div class="m-app-loading" ng-animate-children>
+
+    <!--
+        HACKY CODE WARNING: I'm putting Style block inside directive so that it
+        will be removed from the DOM when we remove the directive container.
+    -->
+    <style type="text/css">
+
+      div.m-app-loading {
+        position: fixed ;
+      }
+
+      div.m-app-loading div.animated-container {
+        background-color: #333333 ;
+        bottom: 0px ;
+        left: 0px ;
+        opacity: 1.0 ;
+        position: fixed ;
+        right: 0px ;
+        top: 0px ;
+        z-index: 999999 ;
+      }
+
+      /* Used to initialize the ng-leave animation state. */
+      div.m-app-loading div.animated-container.ng-leave {
+        opacity: 1.0 ;
+        transition: all linear 200ms ;
+        -webkit-transition: all linear 200ms ;
+      }
+
+      /* Used to set the end properties of the ng-leave animation state. */
+      div.m-app-loading div.animated-container.ng-leave-active {
+        opacity: 0 ;
+      }
+
+      div.m-app-loading div.messaging {
+        color: #FFFFFF ;
+        font-family: monospace ;
+        left: 0px ;
+        margin-top: -37px ;
+        position: absolute ;
+        right: 0px ;
+        text-align: center ;
+        top: 50% ;
+      }
+
+      div.m-app-loading h1 {
+        font-size: 26px ;
+        line-height: 35px ;
+        margin: 0px 0px 20px 0px ;
+      }
+
+      div.m-app-loading p {
+        font-size: 18px ;
+        line-height: 14px ;
+        margin: 0px 0px 0px 0px ;
+      }
+
+    </style>
+
+
+    <!-- BEGIN: Actual animated container. -->
+    <div class="animated-container">
+
+      <div class="messaging">
+
+        <h1>
+          舌诊智能诊方系统v0.1
+        </h1>
+
+        <p>
+          加载中...请等待。
+        </p>
+
+      </div>
+
+    </div>
+    <!-- END: Actual animated container. -->
+
+  </div>
+  <!-- END: App-Loading Screen. -->
+
+
+  <div>
+  <div>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </div>
+</div>
+  </body>
+</html>

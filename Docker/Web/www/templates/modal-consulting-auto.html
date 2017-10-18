@@ -1,0 +1,43 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header" ng-controller="ConsultingAutoCtrl">
+        <h1 class="title">人工智能自动诊断</h1>
+        <button class="button  button-icon icon ion-arrow-swap" ng-show="$root.consultEinstrMpresz.length>1" ng-click="getOtherConsultInfo()"></button>
+        <button class="button button-icon icon ion-android-checkbox" ng-show="$root.consultEinstrMpres.hsvS!=null" ng-click="createConsultInfoAuto()"></button>
+        <button class="button button-icon icon ion-close" ng-click="$root.consultingAutoModal.hide()"></button>
+    </ion-header-bar>
+
+    <ion-content class="has-header">
+        <div class="item  item-divider" style="font-style: italic;font-size: small">
+            相似结果{{$root.consultEinstrMpres.targets}},来自人工智能知识表达，专家系统，并推演.
+        </div>
+        <div class="list">
+            <div class="item item-divider">
+                RGB相似度: {{$root.consultEinstrMpres.rgbS | percentage:2}}
+            </div>
+            <div class="item item-divider">
+                HSV相似度: {{$root.consultEinstrMpres.hsvS | percentage:2}}
+            </div>
+            <div class="item item-divider">
+                Lab相似度: {{$root.consultEinstrMpres.labS | percentage:2}}
+            </div>
+            <div class="item item-divider">
+                #健康指导：
+            </div>
+
+            <a class="item item-avatar item-text-wrap" href="#">
+                <h3>{{$root.consultEinstrMpres.einame}}</h3>
+                <p>{{$root.consultEinstrMpres.eicontent}}</p>
+            </a>
+
+            <div class="item item-divider">
+                ##处方：
+            </div>
+            <a class="item item-avatar item-text-wrap" href="#">
+                <!--<h3>{{$root.consultEinstrMpres.mpname}}</h3>-->
+                <p>{{$root.consultEinstrMpres.mpcontent}}</p>
+            </a>
+
+        </div>
+
+    </ion-content>
+</ion-modal-view>

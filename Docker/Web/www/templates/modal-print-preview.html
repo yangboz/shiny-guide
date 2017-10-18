@@ -1,0 +1,61 @@
+<ion-modal-view>
+
+    <ion-header-bar class="bar bar-header" ng-controller="PrintPreviewCtrl">
+        <h1 class="title">健康指导</h1>
+        <button class="button button-icon icon ion-android-print" ng-click="printNow('printSection')"></button>
+        <button class="button button-icon icon ion-close" ng-click="$root.newPrintPreviewModal.hide()"></button>
+    </ion-header-bar>
+
+    <ion-content class="has-header" id="printSection">
+        <div class="item  item-divider">
+            健康指导
+        </div>
+        <div class="list">
+            <div class="item item-divider">
+                个人信息：
+            </div>
+            <a class="item item-avatar" href="#">
+
+                <h2>{{$root.consultInfofull.mPrescription.name}}</h2>
+                <table class="friends">
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                    </tr>
+                    <tr>
+                        <td data-th="姓名">{{$root.selectedUserInfo.name}}</td>
+                        <td data-th="性别">{{$root.selectedUserInfo.gender%2?'男':'女'}}</td>
+                        <td data-th="年龄">{{$root.selectedUserInfo.age}}</td>
+                    </tr>
+                </table>
+            </a>
+            <div class="item item-divider">
+                调护方案:
+            </div>
+
+            <a class="item item-avatar item-text-wrap " href="#">
+                <h2>{{$root.selectedInstruction.content}}</h2>
+            </a>
+
+            <div class="item item-divider">
+                治疗方案:{{$root.selectedPrescription.name}}
+            </div>
+            <a class="item item-avatar item-text-wrap" href="#">
+                <h2>{{$root.selectedPrescription.content}}</h2>
+                <p>用法:水煎温服，每日一剂，早晚分服。</p>
+            </a>
+            <div class="item item-divider">
+                注意事项：
+            </div>
+            <a class="item " href="#">
+                <h2>健康指导应在主管医师指导下应用。</h2>
+                <h2>技术总监:中日友好医院 中西医结合肿瘤科 贾立群教授</h2>
+                <h2>现任中华中医药学会理事、中央保健会诊专家</h2>
+                <img src="images/QrCode01.jpeg" style="width: 60px;height: 60px;">
+                <p>请关注“抗癌饮食大讲堂”，如有疑问请留言。</p>
+                <p>Ⓒ 2017 TD.SMARTKIT.INFO</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-modal-view>

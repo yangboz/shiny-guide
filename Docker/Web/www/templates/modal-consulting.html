@@ -1,0 +1,82 @@
+<ion-modal-view ng-controller="ConsultingCtrl" ng-init="">
+    <ion-header-bar class="bar bar-header">
+        <h1 class="title">诊断</h1>
+
+        <button class="button button-icon icon ion-close" ng-click="consultingModal.hide()"></button>
+
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    患者姓名:
+                </div>
+                <select ng-change="setUserInfoSelected(selectedUserInfo)" ng-options="item as item.name for item in userInfos track by item.id" ng-model="selectedUserInfo"></select>
+
+                </select>
+            </label>
+            <div class="item item-input ">
+                <div class="input-label">
+                    患者舌像:
+                </div>
+                <img style="height: 100px;width: 100px;" ng-src='{{selectedItemInfo.timage}}' zoom-src="{{selectedItemInfo.timage}}" zoom-view />
+            </div>
+            <label class="item item-input">
+                <div class="input-label">
+                    舌诊仪数据:
+                </div>
+                <table class="friends">
+                    <tr>
+                        <th>RGB</th>
+                        <th>HSV</th>
+                        <th>Label</th>
+                    </tr>
+                    <tr>
+                        <td data-th="RGB">{{itemDetail.rgb_r}}</td>
+                        <td data-th="HSV">{{itemDetail.hsv_h}}</td>
+                        <td data-th="Label">:{{itemDetail.label_L}}</td>
+                    </tr>
+                </table>
+                <!--
+                <select ng-options="item as item.detailId for item in itemInfos track by item.id" ng-model="selectedItemInfo"></select>
+                </select>
+                -->
+
+            </label>
+            <div class="item item-input item-select">
+                <div class="input-label">
+                    专家指导:
+                </div>
+                <select ng-options="item as item.name for item in instructions track by item.id" ng-model="selectedInstruction"></select>
+
+                </select>
+                <button ng-click="$root.newInstructionModal.show()">+</button>
+            </div>
+            <label class="item item-input item-select disabled">
+                <div class="input-label">
+                    专家指导详情:
+                </div>
+                <select ng-disabled="true" ng-options="item as item.content for item in instructions track by item.id" ng-model="selectedInstruction"></select>
+
+                </select>
+
+            </label>
+            <div class="item item-input item-select">
+                <div class="input-label">
+                    处方:
+                </div>
+                <select ng-options="item as item.name for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+                <button ng-click="$root.newPrescriptionModal.show()">+</button>
+            </div>
+            <label class="item item-input item-select disabled">
+                <div class="input-label">
+                    处方详情:
+                </div>
+                <select ng-options="item as item.content for item in pescriptions track by item.id" ng-model="selectedPescription"></select>
+
+            </label>
+            <button class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createConsultInfo()">答诊</button>
+            <button class="button button-dark  button-block icon-left ion-android-print" ng-click="printConsultInfo()" ng-disabled="!$root.selectedConsultInfo">打印预览</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,16 @@
+# Node generated files
+node_modules
+npm-debug.log
+yarn.lock
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.vscode
+
+# Ignored files & folders
+*.ts
+!*.d.ts
+/src
+demo
+config

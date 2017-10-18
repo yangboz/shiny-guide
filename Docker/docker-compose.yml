@@ -1,0 +1,40 @@
+version: '2'
+services:
+  mariadb:
+    image: 'bitnami/mariadb:latest'
+    volumes:
+      - 'mariadb_data:/bitnami/mariadb'
+    environment:
+      - MARIADB_USER=bn_wordpress
+      - MARIADB_DATABASE=bitnami_wordpress
+      - ALLOW_EMPTY_PASSWORD=yes
+  #uuid-accredit
+  # uuid-accredit:
+  #   image: smartkit/godpaper-go-uuid-accredit:latest
+  #   depends_on:
+  #     - vp0
+  #     - mongodb
+  #   links:
+  #     - vp0
+  #     - mongodb
+  #     - activemq
+  #   ports:
+  #     - "8095:8095"
+  #   container_name: accredit
+  #   volumes:
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #     - "ai_data:/target/classes/AI_FILEs"
+  #     # - "target/classes/AI_FILEs:/classes/AI_FILEs"
+  #     - "/tmp:/tmp"
+  #     # - "/target/classes/sgf:/target/classes/sgf"
+  #     - "sgf_data:/target/classes/sgf"
+  #   environment:
+  #     - "JAVA_OPTS=-Dapi.ip=192.168.0.6"
+  #  Web
+  web:
+    image: smartkit/godpaper-go-web
+    ports:
+      - "80:80"
+volumes:
+  mariadb_data:
+    driver: local

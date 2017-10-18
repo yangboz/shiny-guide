@@ -1,0 +1,31 @@
+<ion-modal-view ng-controller="NewInstructionCtrl" ng-init="">
+    <ion-header-bar class="bar bar-header">
+        <h1 class="title">新指导</h1>
+
+        <button class="button button-icon icon ion-close" ng-click="$root.newInstructionModal.hide()"></button>
+
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form id="page3-form1" class="list">
+            <label class="item item-input" id="page3-input1" >
+                <span class="input-label">指导名：</span>
+                <input type="text" placeholder="请输入指导名" data-ng-model="newInstruction.name">
+            </label>
+
+            <label class="item item-input" id="page3-input2" >
+                <span class="input-label">指导内容：</span>
+                <input type="text" placeholder="请输入指导内容" data-ng-model="newInstruction.content">
+            </label>
+        </form>
+        <button id="page3-button3" class="button button-dark  button-block icon-left ion-android-checkbox-outline" ng-click="createInstruction()" ng-disabled="!newInstruction.name&&!newInstruction.content">保存</button>
+        <ion-scroll scrollY="true">
+            <ion-list id="instruction-list" >
+                <ion-item ng-repeat="item in $root.allInstructions track by item.id">
+                    <h2>{{ item.name }}#{{ item.id }}</h2>
+
+                    <ion-option-button class="button-assertive" ng-click="deleteInstruction(item)">删除</ion-option-button>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+</ion-modal-view>
