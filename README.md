@@ -51,3 +51,8 @@ Known issues:
 
 http://stackoverflow.com/questions/12002905/ios-build-fails-with-cocoapods-cannot-find-header-files
 
+## TODO
+
+### with springAI integration 
+ https://mp.weixin.qq.com/s/Ak5RPZF3W1d-IfS8Irl6Ew
+
